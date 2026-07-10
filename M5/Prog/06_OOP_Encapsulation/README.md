@@ -4,7 +4,7 @@
 
 Neem het volgende script in gedachten , wat op een player gameobject zit:
 
-```
+```csharp
     class PlayerLife:MonoBehaviour{
         public int life = 10;
         void Update{
@@ -46,7 +46,7 @@ Vergelijkbaar met het tatoeeren van je pincode op je voorhoofd ;) De waarden van
 
 Je kunt **private** variabelen ook beschikbaar maken via een method. Je kunt in de method afdwingen dat het lezen en/of schrijven van de waarden volgens een aantal regels gaat:
 
-```
+```csharp
     class PlayerLife{
         private int life = 10;
         public int GetLife(){
@@ -108,7 +108,7 @@ Als je variabelen beschikbaar wil maken in de inspector doe je dat met een priva
 
 ### Opdracht 6, Encapsulation:
 
-Ga door je Towerdefense project heen en zoek op hoeveel public variables je hebt gebruikt.
+Ga door je Towerdefense of Mythe project heen en zoek op hoeveel public variables je hebt gebruikt.
 
 Maak deze **allemaal** private!
 

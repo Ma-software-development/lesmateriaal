@@ -52,7 +52,7 @@ Polymorfisme gebruikt de keywords **virtual** (parent class) en **override** (su
 
 ### Abstractie voorbeeld:
 
-```
+```csharp
     public abstract class Vehicle
     {
         public abstract void Drive();
@@ -76,7 +76,7 @@ Polymorfisme gebruikt de keywords **virtual** (parent class) en **override** (su
 
 ### Polymorfisme voorbeeld:
 
-```
+```csharp
 public class Vehicle
 {
     public virtual void Drive(){
@@ -88,7 +88,7 @@ public class Car : Vehicle
     public override void Drive()
     {
         Debug.Log("VROEM");
-        base.Move();        //out:"we're driving something"
+        base.Move();
     }
 }
 public class Game:MonoBehaviour
@@ -112,7 +112,7 @@ Elke sub-klasse krijgt een eigen implementatie van de **Move()**-methode maar Ve
 
 Waarom past **Move** beter als methodenaam dan **Drive**?
 
-```
+```csharp
 public abstract class Vehicle
 {
     public abstract void Move();
@@ -147,7 +147,7 @@ public class Train : Vehicle
 }
 ```
 
-In het bovenstaande geval gebruiken we dus **Abstractie** om verschillende soorten objecten als gelijkwaardig behandelen. Ze zitten immers in de basis op dezelfe manier in elkaar. Ze bevatten in dit geval allemaal de methode Move().
+In het bovenstaande geval gebruiken we dus **Abstractie** om verschillende soorten objecten als gelijkwaardig behandelen. Ze zitten immers in de basis op dezelfe manier in elkaar. Ze bevatten in dit geval allemaal de methode **Move()**.
 
 We kunnen nu alle subclasses als een Vehicle behandelen. Bijvoorbeeld door ze allemaal in een lijst met hetzelde type te zetten.
 

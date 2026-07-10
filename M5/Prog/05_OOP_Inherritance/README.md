@@ -63,7 +63,7 @@ In het onderstaande voorbeeld zie je de overerving van de **Tower** class (paren
 
 De **parent** class:
 
-```
+```csharp
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -103,7 +103,7 @@ public class Tower : MonoBehaviour
 
 De **Child** class:
 
-```
+```csharp
 using UnityEngine;
 
 public class CannonTower : Tower
@@ -135,7 +135,7 @@ Het mooie van overerving is dat ik nu heel snel een nieuwe soort Tower kan maken
 
 Nog een **Child** class:
 
-```
+```csharp
 using UnityEngine;
 
 public class SniperTower : Tower

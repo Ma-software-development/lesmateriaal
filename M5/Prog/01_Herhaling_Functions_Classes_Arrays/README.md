@@ -1,477 +1,295 @@
-# PROG les 1: Herhaling Functions, Classes en Arrays
+# M4 PROG 01 – Variabelen, Functies, Classes en Arrays
 
-Vorig schooljaar hebben jullie allemaal uitleg gehad over [functions](#functions), [classes](#classes) en [arrays](#arr).
+## Theorie
 
-Echter is het balangrijk om dit te herhalen zodat je er zeker van bent dat je dit goed begrijpt en deze principes kunt toepassen als je een game bouwt.
+### Variabelen
 
-<a name = "functions"></a>
+Een variabele slaat een waarde op onder een naam. Je geeft altijd het **type** aan.
 
-## Functions, Methods, Parameters & return type
-
-Wat was ook alweer een function?
-
-Wat is het verschil tussen een **Function** en een **Method**?
-
-Een **Method** is een **Function** maar een **Function** niet altijd een **Method**.
-
-Wat zijn **Parameters** en **Arguments** en hoe kunnen deze je functions flexibel maken?
-
-Wat is een **return value** en hoe kun je hiermee je functions gebruiken om andere code te ondersteunen?
-
-Onderzoek nog eens deze termen en check of je ze nog kent. Zo niet vraag het nog eens even aan je klasgenoten of aan je docent. Het wordt nu tijd dat je ze goed kent.
-
-<a name = "opdracht1A"></a>
-
-### Opdracht 1A Functions, Methods, Parameters & return type
-
-Maak een function **CreateBall** waarmee je een 3d bol (prefab) met een rigidbody in de scene plaatst.
-
-```
-    public GameObject prefab;
-    private void CreateBall(){
-        Instantiate(prefab);
-    }
+```csharp
+int score = 10;
+string naam = "Speler1";
+bool leeft = true;
 ```
 
-Zorg dat je deze function elke seconde aanroept zodat er elke secode een bal verschijnt en valt.
+Veelgebruikte types: `int` (geheel getal), `float` (decimaal), `string` (tekst), `bool` (waar/niet-waar).
 
-```
-    private float elapsedTime = 0f;
-    Update(){
-        elapsedTime += Time.deltaTime;
-        if(elapsedTime > 1f){
-            CreateBall();
-            elapsedTime = 0f;
-        }
-    }
-```
+#### Overzicht veelgebruikte datatypes
 
-Geef je function nu een **Paramater** voor de kleur. En zorg dat je hiermee de kleur van de material verandert.
+| Type      | Omschrijving                         | Voorbeeld                                |
+| --------- | ------------------------------------ | ---------------------------------------- |
+| `int`     | Geheel getal (32-bit)                | `int score = 42;`                        |
+| `float`   | Decimaal getal (32-bit, ~7 cijfers)  | `float snelheid = 3.5f;`                 |
+| `double`  | Decimaal getal (64-bit, ~15 cijfers) | `double afstand = 1.234567890;`          |
+| `bool`    | Waar of niet-waar                    | `bool isActief = true;`                  |
+| `string`  | Tekst (reeks tekens)                 | `string naam = "Speler";`                |
+| `char`    | Eén enkel teken                      | `char letter = 'A';`                     |
+| `long`    | Groot geheel getal (64-bit)          | `long punten = 9999999999L;`             |
+| `byte`    | Klein geheel getal (0–255)           | `byte niveau = 3;`                       |
+| `uint`    | Positief geheel getal (0–4 miljard)  | `uint stappen = 100000u;`                |
+| `Vector2` | 2D-positie (Unity)                   | `Vector2 pos = new Vector2(1f, 2f);`     |
+| `Vector3` | 3D-positie (Unity)                   | `Vector3 pos = new Vector3(0f, 1f, 0f);` |
 
-```
-    private void CreateBall(Color c){
+---
 
-        GameObject ball = Instantiate(prefab);
-        Material material = ball.GetComponent<MeshRenderer>().material;
+### Functies
 
-         // voor CORE pipeline
-        mat.SetColor("_Color", c);
+Een functie is een herbruikbaar stuk code. Je geeft aan wat hij **teruggeeft** en welke **parameters** hij nodig heeft.
 
-        //Voor URP
-        if (mat.shader.name == "Universal Render Pipeline/Lit")
-        {
-            mat.SetColor("_BaseColor", c);
-        }
-    }
-```
-
-zorg dat je in je update random een kleur genereert die je meegeeft aan de function CreateBall() als **Argument**. Een Color object bevat 4 eigenschappen: float red, float green, float blue en float alpha. Dit zijn de verschillende kleurkanalen van de pixels in je schem. alpha is de zichtbaarheid. Al deze waarden gaan van 0f tot 1f (0% tot 100%)
-
-```
- Update(){
-        float r = Random.Range(0f,1f);
-        float g = Random.Range(0f,1f);
-        float b = Random.Range(0f,1f);
-        Color randColor = new Color(r,g,b,1f);
-
-        elapsedTime += Time.deltaTime;
-
-        if(elapsedTime > 1f){
-            CreateBall(randColor);
-            elapsedTime = 0f;
-        }
-
-    }
-
-```
-
-Het resultaat is elke seconde een bal met een random kleur.
-
-Zorg dat je bij het aanroepen van **CreateBall** ook een argument voor de position (Vector3) mee kunt geven.
-
-Laat zo elke bal op een andere random position binnen je scherm verschijnen.
-
-Maak een 2e function **DestroyBall** zorg dat je als argument een **Gameobject** mee kunt geven.
-
-Zorg dat deze functie het meegegeven gameobject vernietigt na 3 seconden.
-
-Laat je **CreateBall** een referentie naar het gameobject (de bal) returnen nadat deze is aangemaakt.
-
-Geef na het aanmaken van de bal met CreateBall de referentie door als argument in de DestroyBall function zodat de bal na 3 seconden wordt verwijderd.
-
-```
-    private GameObject CreateBall(Color c, Vector3 position){
-
-        GameObject ball = Instantiate(prefab, position, Quaternion.identity);
-        Material material = ball.GetComponent<MeshRenderer>().material;
-
-        // voor CORE pipeline
-        mat.SetColor("_Color", c);
-
-        //Voor URP
-        if (mat.shader.name == "Universal Render Pipeline/Lit")
-        {
-            mat.SetColor("_BaseColor", c);
-        }
-
-        ...
-
-        return ball;
-
-    }
-
-    Update(){
-        float r = Random.Range(0f,1f);
-        float g = Random.Range(0f,1f);
-        float b = Random.Range(0f,1f);
-        Color randColor = new Color(r,g,b,1f);
-
-        elapsedTime += Time.deltaTime;
-        if(elapsedTime > 1f){
-
-            GameObject ball = CreateBall(randColor);
-            DestroyBall(ball);
-
-            elapsedTime = 0f;
-
-        }
-
-    }
-```
-
-Maak nu ook in 1 keer in je Start method 100 ballen aan met een willekeurige kleur en positie.
-
-Dit is het eindresultaat:
-
-![alt text](../src/01_01_balls.gif)
-
-Zet de code voor het genereren van een random kleur en voor het genereren van een random position beiden in een aparte functie en gebruik deze functies in je start en update methodes. Zodoende hoef je maar op 1 plek in de code je kleur en positie te randomizen.
-
-Je **Start** en **Update** moeten er dan ongeveer zo uitzien:
-
-```
-void Start()
+```csharp
+int Optellen(int a, int b)
 {
-    for (int i = 0; i < 100; i++){
-        Color color = RandomColor();
-        Vector3 randPos = RandomPosition(-10f, 10f);
-        CreateBall(color, randPos);
-    }
+    return a + b;
 }
 
-// Update is called once per frame
-void Update()
+int resultaat = Optellen(3, 5); // resultaat = 8
+```
+
+Gebruik `void` als de functie niets teruggeeft.
+
+---
+
+### Classes
+
+Een class is een **blauwdruk** voor een object. Een object is een instantie van die class.
+
+```csharp
+class Vijand
 {
-    elapsedTime += Time.deltaTime;
-    if (elapsedTime > 1f) {
-        Color color = RandomColor();
-        Vector3 randPos = RandomPosition(-10f, 10f);
-        GameObject ball = CreateBall(color, randPos);
-        DestroyBall(ball);
-        elapsedTime = 0f;
+    public string Naam;
+    public int HP;
+
+    public void Aanval()
+    {
+        Console.WriteLine(Naam + " valt aan!");
     }
 }
+
+Vijand v = new Vijand();
+v.Naam = "Goblin";
+v.HP = 50;
+v.Aanval();
 ```
 
-Klaar met de opdracht?
+---
 
-- **_Push je code naar github en maak een screen capture van je werkende prototype._**
-- **_Lever een link je code en je gifje in via Simulize._**
+### Arrays
 
-<a name = "classes"></a>
+Een array slaat meerdere waarden van hetzelfde type op in één variabele.
 
-## Class, Object, Constructor & Instantiate
+```csharp
+int[] scores = new int[3];
+scores[0] = 10;
+scores[1] = 20;
+scores[2] = 30;
 
-Wat is ook alweer een **Class**? en wat is dan ook alweer een **Instance** van een class?
+// Of direct initialiseren:
+string[] namen = { "Alice", "Bob", "Charlie" };
 
-Is dit een vliegtuig? ...
-
-![alt text](../src/01_02_blueprint.jpg)
-Nee!
-
-Kan een blauwdruk vliegen? ...
-Nee!
-
-En als je met die blauwdruk nu eerst een vliegtuig maakt? ...
-Ja dan wel
-
-Dan heb je een **Instance** van de Vliegtuig Class gemaakt. Oftewel een Vliegtuig **Object**
-![alt text](../src/01_03_class_vs_instance.png)
-
-Wat zijn in deze code de **Classes** en wat zijn de **Objecten**?
-Hoe herken je ze?
-
-```
-
-      Color color = new Color(r,g,b,1f);
-      //Color   de Class
-      //color   het Object
-      //new Color() instantieren van de class naar een Object
-
-```
-
-Je kunt ook je eigen Class schrijven. Elke script bevat een of meer Classes. De definitie van een class ziet er zo uit.
-
-```
-public class Plane
+// Doorlopen met een lus:
+for (int i = 0; i < namen.Length; i++)
 {
-
+    Console.WriteLine(namen[i]);
 }
 ```
 
-Een class kun je eigenschappen (fields) en functies (methods) geven:
+---
 
-```
-public class Plane
+## Oefeningen
+
+Maak een nieuw .cs script aan en noem die `PROG_Les1.cs`
+
+Gebruik deze code zodat je je script vanaf de commandline kunt runnen
+
+```csharp
+class PROG_Les1
 {
-    int numPassengers = 100;    //field
-    public void TakeOff(){      //method
-        //Make it fly!
-    }
+    static void Main(string[] args)
+    {
 
-}
-```
-
-Je hebt nu dus nog geen vliegtuig **Object** maar wel de **Blauwdruk**
-
-Met een ander script kun je nu van deze **Class** een **Object** maken (**Instantieren**)
-
-```
-    public class Game:Monobehaviour{
-        void Start(){
-            Plane player = new Plane();
-            //Maak van de class Plane nu een Object player
-
-        }
-    }
-```
-
-Of meerdere objecten, zoveel als je maar wilt
-
-```
-public class Game:Monobehaviour{
-        void Start(){
-            List<Plane> fleet;
-            for(int i = 0; i < 500; i++){
-                fleet.Add(new Plane());
-                //Maak van de class Plane nu 500 Objecten in de lijst fleet
-            }
-        }
-    }
-```
-
-Door **_new_** voor de **Class** te zetten roep je de zogenaamde **Constructor** aan. Dat is een functie die je zelf kunt definieren die dezelfde naam heeft als de **Class**. Dus in het geval van de class **_Plane_** is de constructor ook **_Plane_**. Een constructor heeft geen return value en kan alleen maar Public zijn dus hoef je er verder niets voor te zetten. De code in de constructor wordt altijd 1x uitgevoerd als er van de Class een Object wordt aangemaakt.
-
-```
-public class Plane
-{
-    int numPassengers = 100;    //field
-    Plane(){                    //constructor
-        Debug.Log("Hallo ik ben een nieuw vliegtuig!");
-    }
-    public void TakeOff(){      //method
-        //Make it fly!
     }
 }
 ```
 
-Voor de consructor kun je ook net als bij alle functions **parameters** maken. Je kunt dan bij het aanmaken van een nieuw object en dus het aanroepen van de constructor, **argumenten** meegeven:
+Gebruik het commando `C:\> dotnet PROG_Les1.cs` om je code te compilen en te runnen.
+
+push de code naar je `M5 PROG` repo omschrijf de opdrachten onder de titel M4_PROG_LES_1 op je README met screenshots en gifjes van de output en een link naar je code. Lever de link naar de repo in op Simulise.
+
+---
+
+### Oefening 1 – Variabelen: Spelersnaam en Score
+
+Maak drie variabelen aan:
+
+- een `string` voor de naam van de speler
+- een `int` voor de score
+- een `bool` die bijhoudt of de speler nog leeft
+
+Print de waarden naar de console.
 
 ```
-public class Plane
-{
-    int capacity = 0;
-    Plane(int passCap){       //constructor
-        capacity = passCap;
-        Debug.Log("Hallo ik ben een nieuw vliegtuig! waar "+capacity+ " mensen in kunnen.");
-    }
-}
-public class Game{
-    void Start(){
-        Plane jumbo = new Plane(400);
-    }
-}
+voorbeeld output>
+Naam : Erwin
+Score : 1000
+Alive : True
 ```
 
-Binnen Unity kun je met de Instantiate functie prefabs instantieren een prefab wordt dus ook behandeld als een (Monobahaviour) class in de zin dat deze pas bestaat nadat hij geinstantieerd is. Eigenlijk maken we binnen Unity dus vooral gebruik van Instantiate i.p.v constructors.
+---
 
-Het instantieren van prefabs kun je zo doen:
+### Oefening 2 – Variabelen: Berekening met HP
 
-```
-public class Game:Monobehaviour{
-    public GameObject towerPrefab;
-    void Start(){
-        GameObject tower = Instantiate(towerPrefab);
-    }
-}
-
+De speler heeft 100 HP. Hij wordt geraakt voor 35 schade. Bereken de resterende HP en druk die af.  
+Gebruik daarna een tweede aanval van 80 schade. Druk af of de speler nog leeft (`HP > 0`).
 
 ```
+voorbeeld output>
+HP : 65
+Speler Leeft nog!
+```
 
-<a name = "opdracht1B"></a>
+---
 
-### Opdracht 1B Class, Object, Constructor & Instantiate
+### Oefening 3 – Functies: Begroeting
 
-Maak een class **TowerSpawner** en zet deze op je Camera of een ander leeg gameobject in je scene.
+Schrijf een functie `Begroet(string naam)` die "Welkom, [naam]!" afdrukt.  
+Roep de functie aan met je eigen naam.
 
-Maak ook een prefab van een toren (dit mag ook een cylinder zijn). Zorg dat de base van de toren de zelfde positie heeft als de prefab.
+```
+voorbeeld output>
+Welkom Erwin!
+```
+
+---
+
+### Oefening 4 – Functies: Max van twee getallen
+
+Schrijf een functie `int Max(int a, int b)` die het grootste van twee getallen teruggeeft.  
+Test de functie met een paar waarden en druk het resultaat af.
+
+```
+voorbeeld output>
+Result : 40
+Result : 60
+```
+
+---
+
+### Oefening 5 – Functies: Schade berekenen
+
+Schrijf een functie `int BerekenSchade(int aanval, int verdediging)` die `aanval - verdediging` teruggeeft (minimaal 0).  
+Roep de functie aan en druk de schade af.
+
+```
+voorbeeld output>
+schade : 1000
+```
+
+---
+
+### Oefening 6 – Arrays: Vijanden
+
+Maak een array van vijf vijandnamen (strings).  
+Druk alle namen af met een `for`-lus.
+
+```
+voorbeeld output>
+Orc
+Knight
+Wizard
+Ogre
+Dragon
+```
+
+---
+
+### Oefening 7 – Arrays: Hoogste score
+
+Maak een array van vijf scores (integers).  
+Schrijf code die de hoogste score vindt en afdrukt.
+
+```
+voorbeeld output>
+highest : 10000
+```
+
+---
+
+### Oefening 8 – Classes: Speler
+
+Maak een class `Speler` met de volgende velden:
+
+- `string Naam`
+- `int HP`
+- `int Score`
+
+Maak 2 object aan van deze class, vul de velden in en druk ze af.
+
+```
+voorbeeld output>
+Speler.name : Mario
+Speler.HP : 10
+Speler.Score : 1000
+
+Speler.name : Luigi
+Speler.HP : 4
+Speler.Score : 500
+```
+
+---
+
+### Oefening 9 – Classes: Methode toevoegen
+
+Breid de `Speler`-class uit met een methode `Vertel()` die een zin naar de console schrijft zoals:  
+`"Ik ben [Naam], mijn HP is [HP] en mijn score is [Score]."`
+
+Roep de methode aan voor beide objecten uit oefening 8.
+
+```
+voorbeeld output>
+Ik ben Mario, mijn HP is 10 en mijn score is 1000.
+Ik ben Luigi, mijn HP is 4 en mijn score is 500.
+```
+
+---
+
+### Oefening 10 – Combinatie: Array van Spelers
+
+Maak een array van drie `Speler`-objecten. Geef elk een naam, HP en score.  
+Schrijf een functie `DrukSpelersAf(Speler[] spelers)` die voor elke speler `Vertel()` aanroept.
+
+```
+voorbeeld output>
+Ik ben Mario, mijn HP is 10 en mijn score is 1000.
+Ik ben Luigi, mijn HP is 4 en mijn score is 500.
+Ik ben Peach, mijn HP is 8 en mijn score is 800.
+```
+
+### Oefening 11 – Instantiate in Unity
+
+Maak nu in Unity een project aan met de naam `M5 PROG` maak voor deze opdracht een nieuwe scene aan. Noem deze: `Spawn Towers`
+
+Maak een script aan met daarin de class **TowerSpawner**. Zet dit script op je Camera of een ander leeg gameobject in je scene.
+
+Maak ook een prefab van een toren (dit mag ook een cylinder zijn). Zorg dat de base van de toren de zelfde positie heeft als de prefab. door de cilinder binnen de prefab te verplaatsen naar het pivot point.
 ![tower base](../src/01_06_tower_base.png)
 
 Zorg voor een **Tower** class als script op je prefab. In de Start method van de **Tower** class geef je de toren een randomized Scale.
 
+```csharp
+    float x = Random.Range(0f,1f);
+    float y = Random.Range(0f,1f);
+    float z = Random.Range(0f,1f);
+
+    transform.localScale = new Vector3(x,y,z);
+
+```
+
 Elke toren die je plaatst moet dus een andere size hebben.
 
-**Let op** dat je de kennis uit de vorige opdracht over het gebruiken van **parameters** en **return** values ook hier weer goed toepast!!
+Scrijf ook een script met de class `TowerSpawner`.
 
-Laat de **TowerSpawner** class elke keer als je in het scherm klikt een toren Instantieren op een willekeurige positie.
+Zorg dat deze class elke keer als je in het scherm klikt een toren Instantieert op een willekeurige positie op de X- en Y-as.
+
+Gebruik hiervoor de methode `Instantiate();`
 
 ![place random towers](../src/01_05_place_towers.gif)
-
-Klaar met de opdracht?
-
-- **_Push je code naar github en maak een screen capture van je werkende prototype._**
-- **_Lever een link je code en je gifje in via Simulize._**
-
-### Bonus:
-
-Zorg dat de toren op de plek komt waar je op de vloer klikt.
-
-Zet een plane in je scene en gebruik de **ScreenPointToRay** functie om te bepalen waar de toren moet komen als je op de plane klikt.
-
-Neem [deze tutorial](https://gamedevbeginner.com/how-to-convert-the-mouse-position-to-world-space-in-unity-2d-3d/#ray_to_plane) door om erachter te komen hoe je de aangeklikte positie op een **Plane** kunt krijgen:
-
-**Let op!** In de tutorial wordt er gesproken over een **Plane** dit is een [wiskundige oneindig vlak](https://docs.unity3d.com/ScriptReference/Plane.html) en niet hetzelfde als het gameobject **Plane** met een platte vierkante mesh binnen unity.
-
-[![How to get the mouse position in world space](../src/01_04_ScreenToRay_Tutorial.png)](https://gamedevbeginner.com/how-to-convert-the-mouse-position-to-world-space-in-unity-2d-3d/#ray_to_plane)
-
-Dit zou dus ongeveer het resultaat moeten zijn:
-![resultaat bonus opdracht](../src/01_07_place_towers_at_location.gif)
-
-Klaar met de opdracht?
-
-- **_Push je code naar github en maak een screen capture van je werkende prototype._**
-- **_Lever een link je code en je gifje in via Simulize._**
-
-<a name = "arr"></a>
-
-## Array, List & Loops
-
-Ook het kunnen gebruiken van Arrays en Lists is een belangrijke skill om te hebben.
-Als je boodschappen moet doen schrijf je ook niet elk product op een apart briefje toch?
-
-Je maakt gewoon een lijst waar alles op staat.
-![list](../src/01_08_list.jpg)
-
-Zeker bij het maken van games waarbij je niet van te voren weet hoeveel kogels de speler gaat afvuren of hoeveel monsters de speler gaat tegenkomen zijn lijsten van groot belang.
-
-Een Array kun je bijvoorbeeld als volgt maken:
-
-```
-    string boodschappen[] = {
-        "melk",
-        "boter",
-        "vlees",
-        "rijst",
-        "eieren",
-        "sap",
-        "brood",
-        "fruit",
-        "uien"};
-
-```
-
-Er zijn ook [andere manieren](https://www.w3schools.com/cs/cs_arrays.php), bijvoorbeeld als de array nog leeg moet zijn.
-
-![array syntax](../src/01_09_array.png)
-
-Het voordeel van een Array of List is dat je in 1 keer logica kunt uitvoeren voor de inhoud van de gehele verzameling.
-
-Je hoeft dus niet meer voor elke enemy in je game code te schrijven om te kijken of hij wordt geraakt door een kogel. Je doet dat dan in 1 keer voor de gehele verzameling enemies. Hiervoor kun je bijvoorbeeld een [foreach](https://www.w3schools.com/cs/cs_foreach_loop.php) loop gebruiken.
-
-```
-    public GameObject enemies[] = new GameObject[10];
-    //enemies kun je via de inspector toevoegen
-
-    Update(){
-        foreach(GameObject enemy in enemies){
-            if(enemy.IsHit){
-                if(enemy.GetLife() <= 0)
-                {
-                    enemy.Die();
-                }
-            }
-        }
-    }
-```
-
-Een for each loop is speciaal voor het werken met verzamelingen. Deze gaat automatisch door de gehele verzameling heen.
-
-Een alternatief is werken met andere loops zoals een [while](https://www.w3schools.com/cs/cs_while_loop.php) of een [for](https://www.w3schools.com/cs/cs_for_loop.php) loop. Echter is de combinatie van foreach en verzamelingen (Arrays en Lists) het meest efficient om te gebruiken.
-
-De beperking van het gebruiken van een Array is dat de inhoud van de verzameling wel kan worden aangepast maar de grootte niet. In het bovenstaande vorbeeld zijn er 10 enemies. Dit kunnen er tijdens de game dan dus niet meer worden.
-
-De **List** is wat dat betreft een stuk dynamischer en daar kun je **"at runtime"** dan ook objecten aan je lijst toevoegen of de lijst verkleinen zodat er geen lege plekken in de lijst ontstaan.
-
-Een List maak je zo:
-
-```
-    public List<GameObject> enemies = new List<GameObject>();
-    //enemies kun je via de inspector toevoegen
-
-    CreateWave(int waveSize){
-        for(int = 0; i< waveSize;i++){
-            enemies.Add(Instantiate(enemyPrefab));
-            //At runtime kun je objecten aan je lijst toevoegen met de List.Add() methode
-        }
-    }
-
-
-```
-
-In de code hierboven zie je dat je via de methode **Add()** items aan je list kunt toevoegen.
-
-De list bevat [nog veel meer handige methodes](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-8.0) waaronder **Remove()**, **Sort()**, **Reverse()**, **Insert()** en nog veel meer.
-
-<a name = "opdracht1C"></a>
-
-### Opdracht 1C List en loop:
-
-Maak een script met een **EnemySpawner** class en zet deze op een leeg game object in je scene.
-plaats dit gameobject op de locatie waar de enemies moeten spawnen.
-
-Maak een script met een **Enemy** class en zet deze op de prefab van een enemy dit mag een rode kubus zijn.
-Zorg er in de Update methode van je Enemy voor dat deze over de z-as van je camera wegloopt.
-
-Maak in je **EnemySpawner** een List aan voor je enemies.
-
-Gebruik de **Add()** methode om je enemies aan de lijst toe te voegen. Gebruik **Instantiate()** om je enemies te creeren. Gebruik de **Clear()** methode om je lijst te legen. Gebruik **Destroy()** om je enemies te verwijderen.
-
-Laat de **EnemySpawner** in 1 keer 100 enemies spawnen als je op **"W"-toets** drukt.
-
-Laat de **EnemySpawner** elke seconde 3 enemies spawnen.
-
-Laat de **EnemySpawner** alle enemies verwijderen als je op de **"Q"-toets** drukt.
-
-![bonus result](../src/01_10_Lists_result.gif)
-
-Klaar met de opdracht?
-
-- **_Push je code naar github en maak een screen capture van je werkende prototype._**
-- **_Lever een link je code en je gifje in via Simulize._**
-
-### Bonus: Coroutine
-
-Verwijder 1 voor 1 alle enemies als je de **"X"-toets** indrukt. Je kunt hiervoor een [Coroutine](https://docs.unity3d.com/Manual/Coroutines.html) gebruiken.
-
-![bonus result](../src/01_11_Lists_bonus.gif)
-
-### Bonus 2: Object Pooling
-
-Wat je wellicht ook is opgevallen is dat je bij het aanmaken van 100 enemies in 1 keer een flinke lag krijgt in je game. Dit komt omdat het instantieren erg zwaar is en dat doe je dus 100 keer in 1 frame. Dit kun je oplossen door gebruik te maken van [Object Pooling design pattern](https://learn.unity.com/tutorial/introduction-to-object-pooling#).
-
-Probeer dit voor de bonus opdracht ook te doen.
-
-Klaar met de opdracht?
-
-- **_Push je code naar github en maak een screen capture van je werkende prototype._**
-- **_Lever een link je code en je gifje in via Simulize._**

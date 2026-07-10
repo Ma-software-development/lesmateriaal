@@ -30,7 +30,7 @@ In de professionele wereld wordt verwacht dat je schrijft volgens conventies. Di
 
 **Naamgeving:** Omschrijf hoe je namen geeft aan variabelen, functies, klassen en andere elementen in de code (bijvoorbeeld camelCase voor variabelen, PascalCase voor classes en functions). Geef hierbij ook duidelijke voorbeelden. Of bijvoorbeeld een maximum aantal woorden
 
-```
+```csharp
 //variables use camelCase
 private int highScore = 0;
 
@@ -51,7 +51,7 @@ private void MyFunction(){
 
 **Indeling en Opmaak:** Waar en hoe je inspringing (tabjes), witruimte en nieuwe regels gebruikt om de code overzichtelijk en consistent te houden. Staat de curly brace `{` achter je functie declaratie of eronder?
 
-```
+```csharp
 class MyClass{
     void function(){
 
@@ -60,7 +60,7 @@ class MyClass{
 
 ```
 
-```
+```csharp
 class MyClass
 {
     void function()
@@ -74,7 +74,7 @@ class MyClass
 **Structuur:** Hoe je de structuur van een bestand bepaalt, zoals de volgorde van functies, declaraties en andere onderdelen.
 Bijvoorbeeld kun je starten met je private variables en daarna alle public variables en getters en setters.
 
-```
+```csharp
 class Example:Monobehavior {
     //eerst private
     private float time = 0;
@@ -106,7 +106,7 @@ class Example:Monobehavior {
 
 Wanneer zet je wel en geen commentaar in je code? Wanneer moet de naam van je functie voldoende zijn? Wanneer schrijf je bijvoorbeeld een summary.
 
-```
+```csharp
 //single-line comment
 
 /*
@@ -127,7 +127,7 @@ Tip: _Summaries kun je exporteren naar online documentatie met tools zoals [Doxy
 
 **Best Practices:** Aanbevelingen om fouten te vermijden en de code efficiënter en leesbaarder te maken, zoals het vermijden van dubbele code of het gebruik van duidelijke en betekenisvolle functie- en variabele namen.
 
-```
+```csharp
     // Wat is duidelijker?
 
     public int Calculate(){
