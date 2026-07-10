@@ -1,0 +1,65 @@
+# M5 Programmeren - Lesprogramma
+
+## Welkom
+
+Welkom terug in het 2e leerjaar van de studierichting Gamedeveloper.
+
+## Doelstellingen
+
+Voor het vak Programmeren richten we ons deze periode op **2 hoofdonderwerpen**:
+
+### 1. Towerdefense Game Development
+
+Ondersteuning en uitleg bij het bouwen van jullie Towerdefense game, waarbij we focussen op specifieke noodzakelijke mechanics zoals bijvoorbeeld:
+
+- Het volgen van een pad
+- Het maken van waves
+- Plaatsen en eventueel upgraden van torens
+- Het mikken op enemies
+
+### 2. Coderen, debuggen & Structuur
+
+Theorie-uitleg en oefeningen over:
+
+- Herhaling van basisvaardigheden
+- Het goed structureren van code
+- Het uitvoeren van debugging werkzaamheden
+
+## Lesmaterialen
+
+- **In de les**: Uitleg door middel van demo's
+- **Online**: Lesmateriaal beschikbaar op GitHub
+- **Opdrachten**: Te vinden op GitHub
+
+## Inleveren (Simulise)
+
+Lever een link in naar een repository waar je alle uitgevoerde opdrachten presenteert in een README. Zorg ervoor dat:
+
+### Vereisten per opdracht:
+
+- [ ] **Titel**: De naam van de opdracht staat duidelijk in de titel
+- [ ] **Demonstratie**: De opdracht wordt duidelijk en volledig gedemonstreerd in een bijvoorbeeld een GIF
+- [ ] **Beschrijving**: Korte omschrijving in eigen woorden van wat je hebt gebouwd
+- [ ] **Code links**: Link(s) naar de code die hoort bij de opdracht
+
+## Beoordeling
+
+### Algemene criteria:
+
+- **Inlevering**: Alle opdrachten goed en op tijd ingeleverd op GitHub
+
+### Leerdoelen:
+
+Je wordt beoordeeld op de volgende specifieke leerdoelen:
+
+1. **Code kwaliteit (DRY & SRP)**
+
+   - Je gaat focussen op code DRY maken en past SRP zo veel mogelijk toe
+
+2. **Debugging vaardigheden**
+
+   - Je gaat breakpoints gebruiken om je debug proces te verbeteren
+
+3. **Documentatie & Structuur**
+   - Je kunt de structuur van je bestaande code achteraf in kaart brengen met behulp van een class diagram
+   - Je kunt de git wiki gebruiken om je documentatie inzichtelijk maken voor je team

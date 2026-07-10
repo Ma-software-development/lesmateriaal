@@ -1,0 +1,25 @@
+m6 
+
+1. Code Conventions 
+2. Class Diagrams
+
+3.
+Data structures (Class, Struct & Enum) & scriptable objects
+wanneer gebruik je wat?
+performance vs functionaliteit
+
+4.
+Delegates
+
+5.
+OOP - Abstraction
+
+6.
+OOP - Polymorfism
+
+6.
+Performance
+profiler
+heavy workloads
+read/write to disk (debug.Log)
+stack heap, garbage collection, 

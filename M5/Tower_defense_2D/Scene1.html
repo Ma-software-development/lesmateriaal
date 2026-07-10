@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Scene1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="tower-defense-2d">Tower defense 2D</h1>
+<h2 id="scene1-creating-enemies-that-follow-a-path">Scene1: Creating enemies that follow a path.</h2>
+<h3 id="step-1-waypointfollower">Step 1: WaypointFollower</h3>
+<h4 id="poi">POI</h4>
+<ul>
+<li>SerializeField</li>
+<li>MoveTowards</li>
+<li>Time.deltaTime</li>
+<li>Distance</li>
+</ul>
+<h4 id="text-tutorial">Text tutorial</h4>
+<ul>
+<li>Start with a new &quot;Create empty&quot; gameobject and rename it &quot;Path&quot;.</li>
+<li>Add 4 &quot;Create empty&quot; gameobjects as children to the &quot;Path&quot; gameobject and rename them to &quot;Waypoint (0..3)&quot;.</li>
+<li>Edit the positions of the Waypoints to (-7.5, 2.5, 0) (7.5, 2.5, 0) (7.5, -2.5, 0) (-7.5, -2.5, 0) in order.</li>
+<li>Add a new &quot;2D Object&quot; -&gt; &quot;Sprites&quot; -&gt; &quot;Circle&quot; to the Scene and rename it to &quot;Enemy&quot;.</li>
+<li>Create a new C# Script called &quot;WaypointFollower&quot; and place it on the &quot;Enemy&quot; in the Scene.</li>
+<li>Add a new variable <code>waypoints</code>: <code>[SerializeField] private Transform[] waypoints;</code> and fill the 4 created waypoints into the array via the Unity Inspector.</li>
+<li>Set the Enemy position to the first waypoint position in the <code>void Start()</code> function: <code>transform.position = waypoints[0].position;</code>.</li>
+<li>Add a new variable <code>speed</code>: <code>[SerializeField] private float speed = 1;</code></li>
+<li>Move the Enemy with the <code>MoveTowards</code> function to the second waypoint in the <code>void Update()</code> function: <code>transform.position = Vector3.MoveTowards(transform.position, waypoints[1].position, Time.deltaTime * speed);</code>.</li>
+<li>Add a new variable <code>nextWaypointIndex</code>: <code>[SerializeField] private int nextWaypointIndex = 1;</code>.</li>
+<li>And add a new variable <code>reachedWaypointClearance</code>: <code>[SerializeField] private float reachedWaypointClearance = 0.25f</code>.</li>
+<li>Change the hardcoded &quot;next&quot; <code>[1]</code> in the <code>Update</code> function to the newly created <code>nextWaypointIndex</code> variable.</li>
+<li>Below the <code>MoveTowards</code> call add a check for the distance between the Enemy and the next waypoint is lesser than the newly created <code>reachedWaypointClearance</code>: <code>if (Vector3.Distance(transform.position, waypoints[nextWaypointIndex].position) &lt;= reachedWaypointClearance) { }</code></li>
+<li>If this if statement is true increment the <code>nextWaypointIndex</code> by 1.</li>
+<li>Add a new if statement that checks if the <code>nextWaypointIndex</code> is greater or equal than the amount of waypoints: <code>if (nextWaypointIndex &gt;= waypoints.Length) { }</code>.</li>
+<li>If this is true set the <code>nextWaypointIndex</code> back to <code>0</code>: <code>nextWaypointIndex = 0;</code>.</li>
+<li>Press play and change the speed to <code>10</code>.</li>
+</ul>
+<p>By now you should have a white circle moving in a square around your screen!
+If not check if you did every step or ask the teacher for help.</p>
+<h3 id="step-2-enemyspawner">Step 2: EnemySpawner</h3>
+<h4 id="poi">POI</h4>
+<ul>
+<li>Prefabs</li>
+<li>Coroutines</li>
+<li>WaitForSeconds</li>
+</ul>
+<h4 id="text-tutorial">Text tutorial</h4>
+<ul>
+<li>Add a new Folder &quot;Scipts&quot; to the Unity assets and place the <code>WaypointFollower</code> script to this folder</li>
+<li>Add a new &quot;Create empty&quot; gameobject to the scene and rename it to &quot;EnemySpawner&quot;</li>
+<li>Create a new C# Script called &quot;EnemySpawner&quot; and place it on the &quot;EnemySpawner&quot; in the Scene.</li>
+<li>Add a new variable <code>enemyPrefab</code> to the EnemySpawner script: <code>[SerializeField] private GameObject enemyPrefab;</code>.</li>
+<li>Drag the Enemy gameobject from the scene to the Assets folder to create a Prefab of the gameobject.</li>
+<li>Fill the <code>enemyPrefab</code> variable in the Unity inspector with the newly created Enemy prefab.</li>
+<li>Delete the Enemy gameobject from the scene.</li>
+<li>Create a Prefabs folder and drag the prefab to this folder.</li>
+<li>Create a new function: <code>IEnumerator SpawnEnemy()</code> to the EnemySpawner script.</li>
+<li>Add a <code>while(true) {}</code> statement with a <code>yield return new WaitForSeconds(1);</code> in this block to execute the code within the statement every 1 second.</li>
+<li>Also <code>Instantiate</code> the <code>enemyPrefab</code> inside of the while statement.</li>
+<li>Start the coroutine in the <code>Start</code> function with the <code>StartCoroutine()</code> function.</li>
+</ul>
+<p>By now you should have an enemy spawning every 1 second but not moving around the set waypoints. Making a prefab out of a gameobject removes any set variable from the scene.
+Lets fix this in the next step.</p>
+<h3 id="step-3-combining-the-waypointfollower-and-the-enemyspawner">Step 3: Combining the WaypointFollower and the EnemySpawner</h3>
+<h4 id="poi">POI</h4>
+<ul>
+<li>FindAnyObjectByType</li>
+</ul>
+<h4 id="text-tutorial">Text tutorial</h4>
+<ul>
+<li>Create a new C# Script called &quot;Path&quot; and add it to the &quot;Path&quot; gameobject in the scene.</li>
+<li>Move the <code>waypoints</code> variable from the WaypointFollower script to the Path script and make the variable public.</li>
+<li>In the WaypointFollower script add a new variable <code>path</code>: <code>[SerializeField] private Path path;</code>.</li>
+<li>Refactor all references to <code>waypoints</code> to <code>path.waypoints</code>.</li>
+<li>In the Unity inspector fill the 4 waypoints to the path variable on the Path gameobject.</li>
+<li>Add the Unity <code>Awake</code> function to the WaypointFollower script.</li>
+<li>In this function find the Path script on the Path gameobject via <code>FindAnyObjectByType</code>: <code>path = FindAnyObjectByType&lt;Path&gt;();</code>.</li>
+</ul>
+<p>By now you should have an enemy spawning every 1 second and immediately start moving around the 4 waypoints!</p>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+[
+    
+    {
+        
+        "Name" :"Switch",
+        "Description":"Leuke nintendo console",
+        "Price" :299.99
+    },
+    {
+        
+        "Name" :"PS5",
+        "Description":"De console voor Astrobot",
+        "Price" :499.99
+    },
+    {
+        
+        "Name" :"Xbox",
+        "Description":"Masterchief... need i say more",
+        "Price" :499.99
+    }
+]

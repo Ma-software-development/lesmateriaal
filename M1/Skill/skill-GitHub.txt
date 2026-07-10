@@ -1,0 +1,19 @@
+ Volume in drive D is OSDisk
+ Volume Serial Number is 265C-D47E
+
+ Directory of D:\lessen-gamedevelopment\M1\Skill
+
+11-07-2025  10:37    <DIR>          .
+11-07-2025  10:37    <DIR>          ..
+09-07-2025  12:36    <DIR>          1-Command en Terminal
+09-07-2025  12:16    <DIR>          2-Local Repository
+09-07-2025  12:16    <DIR>          3.Remote Repository
+09-07-2025  12:16    <DIR>          4-Markdown
+09-07-2025  12:17    <DIR>          5-Collaborate
+09-07-2025  12:17    <DIR>          6-Workflow
+09-07-2025  12:17    <DIR>          7-Gitignore
+09-07-2025  12:17    <DIR>          8-Co Development
+09-07-2025  11:28    <DIR>          lessen
+11-07-2025  10:37                 0 skill-GitHub.txt
+               1 File(s)              0 bytes
+              11 Dir(s)  23.225.384.960 bytes free

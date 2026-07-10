@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Delegates & Events Visualisatie</title>
+  <style>
+    :root{ --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --ok:#10b981; }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071029 0%, #071b2a 100%);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;color:#e6eef6}
+    .wrap{max-width:980px;margin:28px auto;padding:20px}
+    h1{font-size:20px;margin:0 0 12px}
+    p{margin:6px 0;color:var(--muted)}
+
+    .board{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);padding:18px;border-radius:10px}
+    .scene{position:relative;height:340px;border-radius:8px;background:linear-gradient(90deg, rgba(6,11,20,0.3), rgba(3,7,12,0.15));overflow:hidden}
+
+    /* boxes */
+    .node{position:absolute;width:180px;height:80px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.04);display:flex;flex-direction:column;justify-content:center;padding:10px;box-sizing:border-box}
+    .node .title{font-weight:600;color:#dff6fb}
+    .node .meta{font-size:12px;color:var(--muted);margin-top:6px}
+
+    #player{left:28px;top:40px}
+    #game{left:calc(50% - 90px);top:40px}
+    #ui{right:28px;top:40px}
+
+    /* subscription list */
+    .subs{position:absolute;left:10px;bottom:10px;right:10px;height:80px;background:rgba(0,0,0,0.25);border-radius:6px;padding:8px;color:var(--muted);font-size:13px;display:flex;align-items:center}
+
+    /* buttons */
+    .controls{display:flex;gap:12px;margin-top:12px;align-items:flex-start}
+    .controls .col{display:flex;flex-direction:column;gap:8px}
+    button{background:var(--card);border:1px solid rgba(255,255,255,0.04);color:#dff6fb;padding:8px 12px;border-radius:6px;cursor:pointer}
+    button.primary{background:var(--accent);color:#042022;border:font-weight:700}
+
+    /* svg arrows */
+    svg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+    .arrow{stroke:rgba(6,182,212,0.65);stroke-width:3;fill:none;marker-end:url(#arrowhead)}
+    .arrow.inactive{stroke:rgba(255,255,255,0.06)}
+    .pulse{animation:pulse 900ms ease-out 2}
+    @keyframes pulse{from{stroke-width:3;opacity:1}to{stroke-width:12;opacity:0}}
+
+    /* highlight node */
+    .node.active{box-shadow:0 6px 18px rgba(6,182,212,0.15);border-color:var(--accent)}
+    .node.called{box-shadow:0 10px 26px rgba(16,185,129,0.12);border-color:var(--ok)}
+
+    /* small legend */
+    .legend{display:flex;gap:10px;align-items:center;margin-top:12px}
+    .legend .item{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+    .dot{width:12px;height:12px;border-radius:3px;background:var(--accent)}
+
+    /* mobile tweak */
+    @media (max-width:700px){.node{width:140px;height:68px}.wrap{padding:12px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Visualisatie: Delegates & Events (Loose Coupling)</h1>
+    <p>Interactieve animatie die laat zien hoe een object (Player) een event (via GameManager) triggert en hoe UI (ScoreUI) daarop reageert. Gebruik de knoppen om subscribe / invoke / unsubscribe te laten zien.</p>
+
+    <div class="board">
+      <div class="scene" id="scene">
+        <div class="node" id="player"><div class="title">Player</div><div class="meta">Invokes event</div></div>
+        <div class="node" id="game"><div class="title">GameManager</div><div class="meta">Defines event<br>OnScoreChanged(int)</div></div>
+        <div class="node" id="ui"><div class="title">ScoreUI</div><div class="meta">Listens and updates UI</div></div>
+
+        <svg aria-hidden="true">
+          <defs>
+            <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 z" fill="rgba(6,182,212,0.85)" />
+            </marker>
+          </defs>
+
+          <!-- arrows: player -> game -->
+          <path id="p2g" class="arrow inactive" d="M 190 80 C 260 80 320 80 380 80" />
+          <!-- arrows: game -> ui -->
+          <path id="g2u" class="arrow inactive" d="M 560 80 C 620 80 680 80 760 80" />
+        </svg>
+
+        <div class="subs" id="subs">Subscriptions: <strong id="subsText">(none)</strong></div>
+      </div>
+
+      <div class="controls">
+        <div class="col">
+          <button id="btnGMSubscribe">Subscribe GameManager → Player</button>
+          <button id="btnGMUnsubscribe">Unsubscribe (GameManager)</button>
+          <button id="btnSubscribe">Subscribe (ScoreUI → GameManager)</button>
+          <button id="btnUnsubscribe">Unsubscribe (ScoreUI)</button>
+        </div>
+        <div class="col">
+          <button id="btnInvoke" class="primary">Invoke (Player collects)</button>
+          <button id="btnReset">Reset</button>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="item"><span class="dot"></span> Event path</div>
+        <div class="item">• <em>Subscribe</em> links ScoreUI aan GameManager</div>
+        <div class="item">• <em>Invoke</em> simuleert Player → GameManager → ScoreUI</div>
+      </div>
+      
+      <div style="margin-top:12px;display:flex;align-items:center;gap:12px">
+        <div id="scoreboard" style="background:rgba(255,255,255,0.03);padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);min-width:140px;text-align:center">
+          <div style="font-size:12px;color:var(--muted)">GameManager Score</div>
+          <div id="scoreVal" style="font-size:22px;font-weight:700;color:#dff6fb;">0</div>
+        </div>
+        <div id="uiDisplay" style="background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);min-width:220px">
+          <div style="font-size:12px;color:var(--muted)">ScoreUI Display</div>
+          <div id="uiScore" style="font-size:18px;color:var(--muted)">not subscribed</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Simple interactive animation logic
+    const player = document.getElementById('player');
+    const game = document.getElementById('game');
+    const ui = document.getElementById('ui');
+    const p2g = document.getElementById('p2g');
+    const g2u = document.getElementById('g2u');
+    const subsText = document.getElementById('subsText');
+    const btnSubscribe = document.getElementById('btnSubscribe');
+    const btnGMSubscribe = document.getElementById('btnGMSubscribe');
+    const btnGMUnsubscribe = document.getElementById('btnGMUnsubscribe');
+    const btnInvoke = document.getElementById('btnInvoke');
+    const btnUnsubscribe = document.getElementById('btnUnsubscribe');
+    const btnReset = document.getElementById('btnReset');
+
+    let subscribed = false; // ScoreUI subscribed
+    let gmSubscribed = false; // GameManager subscribed to Player
+    let score = 0;
+
+    function updateSubsText(){
+      const parts = [];
+      if(gmSubscribed) parts.push('GameManager ← Player');
+      if(subscribed) parts.push('ScoreUI → GameManager');
+      subsText.textContent = parts.length ? parts.join('  •  ') : '(none)';
+    }
+
+    function setInactive(path){ path.classList.add('inactive'); path.classList.remove('pulse'); }
+    function pulse(path){ path.classList.remove('inactive'); path.classList.add('pulse'); }
+
+    function subscribe(){
+      if(subscribed) return;
+      subscribed = true;
+      updateSubsText();
+      ui.classList.add('active');
+      // show connection arrow game->ui
+      g2u.classList.remove('inactive');
+    }
+
+    function gmSubscribe(){
+      if(gmSubscribed) return;
+      gmSubscribed = true;
+      // show connection arrow player->game
+      p2g.classList.remove('inactive');
+      // highlight game briefly to show it subscribed
+      game.classList.add('active');
+      setTimeout(()=> game.classList.remove('active'), 800);
+      updateSubsText();
+    }
+
+    function updateScoreboard(){
+      const scoreEl = document.getElementById('scoreVal');
+      const uiScore = document.getElementById('uiScore');
+      // update GameManager score value (internal state)
+      scoreEl.textContent = score;
+
+      // Only animate the scoreboard when the ScoreUI is actually subscribed.
+      // This prevents the visual jump when only GameManager is subscribed to Player.
+      if(subscribed){
+        scoreEl.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.18)' }, { transform: 'scale(1)' }], { duration: 450, easing: 'ease-out' });
+
+        // update UI display and animate it
+        uiScore.style.color = '#dff6fb';
+        uiScore.textContent = score;
+        uiScore.animate([{ opacity: 0.6 }, { opacity: 1 }], { duration: 500 });
+      } else {
+        // keep UI showing not-subscribed and avoid animations
+        uiScore.style.color = 'var(--muted)';
+        uiScore.textContent = 'not subscribed';
+      }
+    }
+
+    function invoke(){
+      // simulate Player -> GameManager
+      player.classList.add('called');
+      // only pulse the player->game arrow if GameManager is actually subscribed
+      if(gmSubscribed){
+        pulse(p2g);
+      }
+      setTimeout(()=>{
+        player.classList.remove('called');
+        // If GameManager is subscribed, show it receiving the event and add score
+        if(gmSubscribed){
+          game.classList.add('active');
+          // simulate GameManager adding score
+          score += 10;
+          updateScoreboard();
+        }
+
+        // If UI is subscribed, GameManager will forward and show game->ui pulse
+        if(subscribed){
+          pulse(g2u);
+          setTimeout(()=>{
+            ui.classList.remove('active');
+            ui.classList.add('called');
+            setTimeout(()=> ui.classList.remove('called'),900);
+          },350);
+        }
+
+        // briefly show game activity regardless if gmSubscribed
+        setTimeout(()=> game.classList.remove('active'),1000);
+      },450);
+    }
+
+    function unsubscribe(){
+      if(!subscribed) return;
+      subscribed = false;
+      ui.classList.remove('active');
+      setInactive(g2u);
+      updateSubsText();
+    }
+
+    function gmUnsubscribe(){
+      if(!gmSubscribed) return;
+      gmSubscribed = false;
+      setInactive(p2g);
+      updateSubsText();
+    }
+
+    function resetAll(){
+      subscribed = false;
+      gmSubscribed = false;
+      updateSubsText();
+      ui.classList.remove('active'); ui.classList.remove('called');
+      player.classList.remove('called'); game.classList.remove('active');
+      setInactive(p2g); setInactive(g2u);
+    }
+
+    btnSubscribe.addEventListener('click', ()=>{ subscribe(); btnSubscribe.blur(); });
+    btnGMSubscribe.addEventListener('click', ()=>{ gmSubscribe(); btnGMSubscribe.blur(); });
+    btnGMUnsubscribe.addEventListener('click', ()=>{ gmUnsubscribe(); btnGMUnsubscribe.blur(); });
+    btnInvoke.addEventListener('click', ()=>{ invoke(); btnInvoke.blur(); });
+    btnUnsubscribe.addEventListener('click', ()=>{ unsubscribe(); btnUnsubscribe.blur(); });
+    btnReset.addEventListener('click', ()=>{ resetAll(); btnReset.blur(); });
+
+    // initialize
+    setInactive(p2g); setInactive(g2u);
+  </script>
+</body>
+</html>

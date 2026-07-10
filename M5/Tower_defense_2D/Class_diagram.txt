@@ -1,0 +1,32 @@
+@startuml
+namespace Unity {
+    class Transform {}
+    class GameObject {}
+    class MonoBehaviour {}
+}
+
+class WaypointFollower extends Unity.MonoBehaviour {
+    -Path path
+    -float speed
+    -int nextWaypointIndex
+    -float reachedWaypointClearance
+
+    void Awake()
+    void Start()
+    void Update()
+}
+WaypointFollower *-- Path
+
+class EnemySpawner extends Unity.MonoBehaviour {
+    -GameObject enemyPrefab
+
+    void Start()
+    IEnumerator SpawnEnemy()
+}
+EnemySpawner *-- Unity.GameObject
+
+class Path extends Unity.MonoBehaviour {
+    +Transform waypoints
+}
+Path *-- Unity.Transform
+@enduml

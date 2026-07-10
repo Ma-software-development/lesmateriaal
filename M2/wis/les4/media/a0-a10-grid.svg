@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+  <defs>
+    <style>
+      .grid { stroke: #d9d9d9; stroke-width: 1; }
+      .axis { stroke: #222; stroke-width: 2.5; }
+      .tick { stroke: #555; stroke-width: 1.5; }
+      .label { font-family: Arial, sans-serif; font-size: 14px; fill: #333; }
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: 700; fill: #222; }
+      .line { fill: none; stroke: #0a84ff; stroke-width: 3.5; }
+      .point { fill: #ff3b30; stroke: #ffffff; stroke-width: 1.5; }
+      .pointLabel { font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; fill: #111; }
+    </style>
+  </defs>
+
+  <!-- Achtergrond -->
+  <rect x="0" y="0" width="900" height="700" fill="white" />
+
+  <!-- Titel -->
+  <text class="title" x="450" y="28" text-anchor="middle">Pad van a₀ tot a₁₀ op een grid</text>
+
+  <!-- Grid: verticale lijnen (x = 0..11) -->
+  <line class="grid" x1="70" y1="30" x2="70" y2="630" />
+  <line class="grid" x1="142.73" y1="30" x2="142.73" y2="630" />
+  <line class="grid" x1="215.45" y1="30" x2="215.45" y2="630" />
+  <line class="grid" x1="288.18" y1="30" x2="288.18" y2="630" />
+  <line class="grid" x1="360.91" y1="30" x2="360.91" y2="630" />
+  <line class="grid" x1="433.64" y1="30" x2="433.64" y2="630" />
+  <line class="grid" x1="506.36" y1="30" x2="506.36" y2="630" />
+  <line class="grid" x1="579.09" y1="30" x2="579.09" y2="630" />
+  <line class="grid" x1="651.82" y1="30" x2="651.82" y2="630" />
+  <line class="grid" x1="724.55" y1="30" x2="724.55" y2="630" />
+  <line class="grid" x1="797.27" y1="30" x2="797.27" y2="630" />
+  <line class="grid" x1="870" y1="30" x2="870" y2="630" />
+
+  <!-- Grid: horizontale lijnen (y = 0..10) -->
+  <line class="grid" x1="70" y1="630" x2="870" y2="630" />
+  <line class="grid" x1="70" y1="570" x2="870" y2="570" />
+  <line class="grid" x1="70" y1="510" x2="870" y2="510" />
+  <line class="grid" x1="70" y1="450" x2="870" y2="450" />
+  <line class="grid" x1="70" y1="390" x2="870" y2="390" />
+  <line class="grid" x1="70" y1="330" x2="870" y2="330" />
+  <line class="grid" x1="70" y1="270" x2="870" y2="270" />
+  <line class="grid" x1="70" y1="210" x2="870" y2="210" />
+  <line class="grid" x1="70" y1="150" x2="870" y2="150" />
+  <line class="grid" x1="70" y1="90" x2="870" y2="90" />
+  <line class="grid" x1="70" y1="30" x2="870" y2="30" />
+
+  <!-- Assen -->
+  <line class="axis" x1="70" y1="630" x2="870" y2="630" />
+  <line class="axis" x1="70" y1="630" x2="70" y2="30" />
+
+  <!-- Tick labels x -->
+  <text class="label" x="70" y="652" text-anchor="middle">0</text>
+  <text class="label" x="142.73" y="652" text-anchor="middle">1</text>
+  <text class="label" x="215.45" y="652" text-anchor="middle">2</text>
+  <text class="label" x="288.18" y="652" text-anchor="middle">3</text>
+  <text class="label" x="360.91" y="652" text-anchor="middle">4</text>
+  <text class="label" x="433.64" y="652" text-anchor="middle">5</text>
+  <text class="label" x="506.36" y="652" text-anchor="middle">6</text>
+  <text class="label" x="579.09" y="652" text-anchor="middle">7</text>
+  <text class="label" x="651.82" y="652" text-anchor="middle">8</text>
+  <text class="label" x="724.55" y="652" text-anchor="middle">9</text>
+  <text class="label" x="797.27" y="652" text-anchor="middle">10</text>
+  <text class="label" x="870" y="652" text-anchor="middle">11</text>
+
+  <!-- Tick labels y -->
+  <text class="label" x="52" y="634" text-anchor="end">0</text>
+  <text class="label" x="52" y="574" text-anchor="end">1</text>
+  <text class="label" x="52" y="514" text-anchor="end">2</text>
+  <text class="label" x="52" y="454" text-anchor="end">3</text>
+  <text class="label" x="52" y="394" text-anchor="end">4</text>
+  <text class="label" x="52" y="334" text-anchor="end">5</text>
+  <text class="label" x="52" y="274" text-anchor="end">6</text>
+  <text class="label" x="52" y="214" text-anchor="end">7</text>
+  <text class="label" x="52" y="154" text-anchor="end">8</text>
+  <text class="label" x="52" y="94" text-anchor="end">9</text>
+  <text class="label" x="52" y="34" text-anchor="end">10</text>
+
+  <!-- As labels -->
+  <text class="label" x="876" y="634">x</text>
+  <text class="label" x="66" y="22">y</text>
+
+  <!-- Lijn door a0..a10 -->
+  <polyline class="line" points="215.45,450 273.64,414 331.82,378 390,342 448.18,306 506.36,270 564.55,234 622.73,198 680.91,162 739.09,126 797.27,90" />
+
+  <!-- Punten -->
+  <circle class="point" cx="215.45" cy="450" r="5.5" /><text class="pointLabel" x="223" y="444">a₀</text>
+  <circle class="point" cx="273.64" cy="414" r="5.5" /><text class="pointLabel" x="281" y="408">a₁</text>
+  <circle class="point" cx="331.82" cy="378" r="5.5" /><text class="pointLabel" x="339" y="372">a₂</text>
+  <circle class="point" cx="390" cy="342" r="5.5" /><text class="pointLabel" x="398" y="336">a₃</text>
+  <circle class="point" cx="448.18" cy="306" r="5.5" /><text class="pointLabel" x="456" y="300">a₄</text>
+  <circle class="point" cx="506.36" cy="270" r="5.5" /><text class="pointLabel" x="514" y="264">a₅</text>
+  <circle class="point" cx="564.55" cy="234" r="5.5" /><text class="pointLabel" x="572" y="228">a₆</text>
+  <circle class="point" cx="622.73" cy="198" r="5.5" /><text class="pointLabel" x="630" y="192">a₇</text>
+  <circle class="point" cx="680.91" cy="162" r="5.5" /><text class="pointLabel" x="688" y="156">a₈</text>
+  <circle class="point" cx="739.09" cy="126" r="5.5" /><text class="pointLabel" x="747" y="120">a₉</text>
+  <circle class="point" cx="797.27" cy="90" r="5.5" /><text class="pointLabel" x="805" y="84">a₁₀</text>
+</svg>

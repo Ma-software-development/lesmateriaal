@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <defs>
+    <marker id="arrow-orig" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2196F3"/>
+    </marker>
+    <marker id="arrow-scaled" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#F44336"/>
+    </marker>
+  </defs>
+  
+  <!-- Axes -->
+  <line x1="30" y1="170" x2="280" y2="170" stroke="#333" stroke-width="2"/>
+  <line x1="30" y1="170" x2="30" y2="20" stroke="#333" stroke-width="2"/>
+  
+  <!-- Grid lines -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="70" y1="170" x2="70" y2="20"/>
+    <line x1="110" y1="170" x2="110" y2="20"/>
+    <line x1="150" y1="170" x2="150" y2="20"/>
+    <line x1="190" y1="170" x2="190" y2="20"/>
+    <line x1="230" y1="170" x2="230" y2="20"/>
+    <line x1="270" y1="170" x2="270" y2="20"/>
+    <line x1="30" y1="130" x2="280" y2="130"/>
+    <line x1="30" y1="90" x2="280" y2="90"/>
+    <line x1="30" y1="50" x2="280" y2="50"/>
+  </g>
+  
+  <!-- Axis labels -->
+  <text x="70" y="185" text-anchor="middle" font-size="11">1</text>
+  <text x="110" y="185" text-anchor="middle" font-size="11">2</text>
+  <text x="150" y="185" text-anchor="middle" font-size="11">3</text>
+  <text x="190" y="185" text-anchor="middle" font-size="11">4</text>
+  <text x="230" y="185" text-anchor="middle" font-size="11">5</text>
+  <text x="270" y="185" text-anchor="middle" font-size="11">6</text>
+  <text x="18" y="134" text-anchor="middle" font-size="11">1</text>
+  <text x="18" y="94" text-anchor="middle" font-size="11">2</text>
+  <text x="18" y="54" text-anchor="middle" font-size="11">3</text>
+  <text x="285" y="175" font-size="12">x</text>
+  <text x="35" y="15" font-size="12">y</text>
+  
+  <!-- Original vector (2,1) - blue -->
+  <line x1="30" y1="170" x2="110" y2="130" stroke="#2196F3" stroke-width="3" marker-end="url(#arrow-orig)"/>
+  
+  <!-- Scaled vector 3*(2,1) = (6,3) - red -->
+  <line x1="30" y1="170" x2="270" y2="50" stroke="#F44336" stroke-width="3" marker-end="url(#arrow-scaled)"/>
+  
+  <!-- Labels -->
+  <text x="80" y="165" font-size="12" fill="#2196F3" font-weight="bold">(2,1)</text>
+  <text x="200" y="90" font-size="12" fill="#F44336" font-weight="bold">3×(2,1) = (6,3)</text>
+</svg>
