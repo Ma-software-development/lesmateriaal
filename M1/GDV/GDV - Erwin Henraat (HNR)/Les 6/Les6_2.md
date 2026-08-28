@@ -6,10 +6,29 @@ In deze les ga je dieper in op loops (herhalingen) en leer je hoe je efficiënt 
 
 - For-loops uitgebreid gebruiken voor herhalingen
 - Foreach-loops beheersen voor collections
-- Nested loops (loops in loops) maken
 - While loops begrijpen en gebruiken
 - Loop control statements (break, continue) toepassen
-- Complexe game systemen bouwen met loops
+
+---
+
+## Aantekeningen maken
+
+Maak aantekeningen over de behandelde stof in de les. Schrijf het nu zo op zodat je het later makkelijk begrijpt als je het terugleest.
+
+**Belangrijke punten om te noteren:**
+
+- Wat is het verschil tussen for, foreach en while loops?
+- Wanneer gebruik je welke loop type?
+- Hoe werken nested loops (loops in loops)?
+- Wat doen break en continue statements?
+- Hoe optimaliseer je loop performance?
+- Hoe combineer je loops met kennis uit vorige lessen?
+
+Schrijf ook op wat je niet hebt begrepen uit deze les. Dan kun je hier later nog vragen over stellen aan de docent.
+
+Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inleveren.
+
+![notes](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhzdzZzbHQzYWgyNG1mZDRhdW05dWIwMDI2b2xoNWtkMWN0ODl2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7GUB9ExWUxjiSrKw/giphy.gif)
 
 ---
 
@@ -235,14 +254,17 @@ public class ForeachExamples : MonoBehaviour
 **While loops** blijven herhalen **zolang** een conditie waar is:
 
 ```csharp
-while (conditie)
+while (conditie)//check of de conditie waar is
 {
+    // zo ja!
     // Code die herhaalt
     // Vergeet niet de conditie te veranderen!
 }
 ```
 
 ### While Loop Voorbeelden
+
+<details>
 
 ```csharp
 public class WhileLoopExamples : MonoBehaviour
@@ -322,7 +344,22 @@ public class WhileLoopExamples : MonoBehaviour
 }
 ```
 
+</details>
+
 ### Do-While Loops
+
+```csharp
+    do
+    {
+        //Voer sowieso de code 1x uit
+    }
+    while(conditie) //check daarna pas of de conditie waar is en de code herhaald moet worden.
+
+```
+
+### Do While Voorbeeld
+
+<details>
 
 ```csharp
 void DoWhileExample()
@@ -351,9 +388,11 @@ void DoWhileExample()
 }
 ```
 
----
+## </details>
 
 ## Nested Loops (Loops in Loops)
+
+<details>
 
 ### Wat Zijn Nested Loops?
 
@@ -441,7 +480,11 @@ public class GridSystem : MonoBehaviour
 }
 ```
 
+</details>
+
 ### Inventory Grid Systeem
+
+<details>
 
 ```csharp
 public class InventoryGrid : MonoBehaviour
@@ -563,7 +606,7 @@ public class InventoryGrid : MonoBehaviour
 }
 ```
 
----
+## </details>
 
 ## Loop Control Statements
 
@@ -689,6 +732,8 @@ public class ContinueExamples : MonoBehaviour
 
 ### Loop Performance Tips
 
+<details>
+
 ```csharp
 public class LoopPerformance : MonoBehaviour
 {
@@ -781,11 +826,15 @@ public class LoopPerformance : MonoBehaviour
 }
 ```
 
+</details>
+
 ---
 
 ## Complexe Game Systemen met Loops
 
 ### Tower Defense Enemy Waves
+
+<details>
 
 ```csharp
 public class WaveManager : MonoBehaviour
@@ -878,26 +927,9 @@ public class WaveManager : MonoBehaviour
 }
 ```
 
+</details>
+
 ---
-
-## Aantekeningen maken
-
-Maak aantekeningen over de behandelde stof in de les. Schrijf het nu zo op zodat je het later makkelijk begrijpt als je het terugleest.
-
-**Belangrijke punten om te noteren:**
-
-- Wat is het verschil tussen for, foreach en while loops?
-- Wanneer gebruik je welke loop type?
-- Hoe werken nested loops (loops in loops)?
-- Wat doen break en continue statements?
-- Hoe optimaliseer je loop performance?
-- Hoe combineer je loops met kennis uit vorige lessen?
-
-Schrijf ook op wat je niet hebt begrepen uit deze les. Dan kun je hier later nog vragen over stellen aan de docent.
-
-Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inleveren.
-
-![notes](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhzdzZzbHQzYWgyNG1mZDRhdW05dWIwMDI2b2xoNWtkMWN0ODl2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7GUB9ExWUxjiSrKw/giphy.gif)
 
 ## Oefeningen uitvoeren
 
