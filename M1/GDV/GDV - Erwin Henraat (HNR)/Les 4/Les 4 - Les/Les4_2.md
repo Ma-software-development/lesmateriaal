@@ -365,7 +365,7 @@ Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inlev
 ## Oefeningen uitvoeren
 
 Doe nu minimaal 1 oefening naar keuze voor les 4.2
-De oefeningen vind je [hier](../Oefeningen/oefeningen_4_2.md) terug
+De oefeningen vind je [hier](../../Oefeningen/oefeningen_4_2.md) terug
 
 ![exercise](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZXRrc3QwYWV1Ym5oY2FrZnF5YWxnaW9heTRsNnZzdnpnMmRxeXM1ZiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/x1BVziEYuKBd1aVZRz/giphy.gif)
 

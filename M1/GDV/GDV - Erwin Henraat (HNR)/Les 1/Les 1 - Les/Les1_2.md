@@ -151,7 +151,7 @@ using UnityEngine;
 **Vergelijking:**
 Het is alsof je in een keuken bent en zegt: "Ik wil de messen, pannen én kruiden kunnen gebruiken."
 
-### De Class (De blauwdruk)
+### De Class (Het Recept)
 
 ```csharp
 public class MijnEersteScript : MonoBehaviour
@@ -162,15 +162,18 @@ public class MijnEersteScript : MonoBehaviour
 
 **Wat doet dit?**
 
-- `class` = Dit is een **blauwdruk** bijv. van een vliegtuig - het beschrijft hoe het werkt, maar kan zelf niet vliegen
-- `MijnEersteScript` = De naam van je blauwdruk (altijd hetzelfde als je bestandsnaam!)
-- `MonoBehaviour` = Dit zegt dat je blauwdruk gebruikt kan worden om echte vliegtuigen te maken die aan GameObjects kunnen worden gehangen
-- De `{ }` = Dit zijn de grenzen van je blauwdruk waar alle instructies in staan
+- `class` = Dit is een **Recept** bijv. van je pannekoeken - het beschrijft hoe je ze maakt, maar je kunt ze nog niet eten.
+- `MijnEersteScript` = De naam van je recept (altijd hetzelfde als je bestandsnaam!)
+- `MonoBehaviour` = Dit zegt dat je recept gebruikt kan worden om echte pannekoeken te maken die aan GameObjects kunnen worden gehangen
+- De `{ }` = Dit zijn de grenzen van je recept waar alle instructies in staan
 
-**Vergelijking:**
-Een class is zoals een **blauwdruk van een vliegtuig**. De blauwdruk zelf kan niet vliegen, maar je kunt er wel echte vliegtuigen mee bouwen. Wanneer je dit script aan een GameObject hangt, maak je een **echte instantie** (een echt vliegtuig) dat wel kan "vliegen" in je game!
+**Vliegtuig:**
+Een ander voorbeeld is een **blauwdruk van een vliegtuig**. De blauwdruk zelf kan niet vliegen, maar je kunt er wel echte vliegtuigen mee bouwen. Wanneer je dit script aan een GameObject hangt, maak je een **echte instantie** (een echt vliegtuig) dat wel kan "vliegen" in je game!
 
-![jets](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExamlneG55OGVkem5uNnR1a2xicHc4aG52b2lvZ29pMGVlZWR1aWw1OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13wkRUCGiJ6Iec/giphy.gif)
+<table style="border:none"><tr>
+<td style="border:none"><img width="250" height="400" src="https://images.photowall.com/products/52266/airplane-blueprint-1.jpg?h=699&q=85"/></td>
+<td style="border:none"><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExamlneG55OGVkem5uNnR1a2xicHc4aG52b2lvZ29pMGVlZWR1aWw1OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13wkRUCGiJ6Iec/giphy.gif"/></td>
+</tr></table>
 
 ### Start Functie (De Voorbereiding)
 

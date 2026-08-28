@@ -239,6 +239,16 @@ void Start()
 
 **Operatoren:** `+` `-` `*` `/` `%` (modulo = rest bij deling)
 
+#### Modulo
+
+<details>
+
+<img width=250 height=300 src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDd1NWRld3NkZG44aXA4ZzZ2MmRpdHBhZmd5bGluczVtaHV5YWI2byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT9IgM6T8cKJoRQJCE/giphy.gif"/>
+
+_Ik heb 7 appels, geen mes en 5 vrienden. Als ik de appels eerlijk verdeel hoeveel houd ik er dan over? (Ik wil zelf ook een appel eten)_
+
+</details>
+
 ### Kortere Schrijfwijzen
 
 ```csharp
@@ -287,7 +297,7 @@ if (voorwaarde)
 ```
 
 **Vergelijking:**
-Het is net zoals wanneer je moeder vraagt: "Als het regent, neem dan een paraplu mee."
+Het is net zoals wanneer je moeder zegt: "Als het regent, neem dan een paraplu mee!"
 
 - **Als** het regent (voorwaarde)
 - **Dan** neem je een paraplu mee (actie)
@@ -300,6 +310,8 @@ if (hetRegent == true)
     Debug.Log("Neem een paraplu mee!");
 }
 ```
+
+_Regent het niet? Dan wordt de code verder overgeslagen!_
 
 ![Rain](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM29td2U0cnZsa2ZxZnJzNXV3aXU2dWd3c3N0ODh1OWNmaDdwemFpaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WoqIEpOqZIRQHrtbQ5/giphy.gif)
 
@@ -345,32 +357,21 @@ Nu kunnen we if statements gebruiken om te controleren of een toets wordt ingedr
 ```csharp
 void Update()
 {
-    // Controleer of de spatiebalk wordt ingedrukt gehouden
+    // Controleer of de spatiebalk blijvend wordt ingedrukt
     if (Input.GetKey(KeyCode.Space))
     {
         Debug.Log("Spatiebalk wordt ingedrukt!");
     }
-
     // Controleer WASD toetsen
     if (Input.GetKey(KeyCode.W))
     {
         Debug.Log("W toets - Omhoog!");
     }
-
     if (Input.GetKey(KeyCode.S))
     {
         Debug.Log("S toets - Omlaag!");
     }
-
-    if (Input.GetKey(KeyCode.A))
-    {
-        Debug.Log("A toets - Links!");
-    }
-
-    if (Input.GetKey(KeyCode.D))
-    {
-        Debug.Log("D toets - Rechts!");
-    }
+   //etc...
 }
 ```
 
@@ -380,6 +381,7 @@ void Update()
 - `Input.GetKey(KeyCode.Space)` geeft **false** terug als de spatiebalk NIET ingedrukt wordt
 - Het if statement controleert: "Is dit true?"
 - Als het true is, wordt de code tussen de `{ }` uitgevoerd
+- Het resultaat van de vergelijking is altijd van het type **Boolean**
 
 ### Input.GetKeyDown() - Toets Eenmalig Indrukken
 
@@ -407,6 +409,8 @@ void Update()
 ![input](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZm5henp0eW5wcTg2bDNldXJwdXF4em8zdWs2OTViZDFkNWIyZm12ZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/iwUVhMe4KBKuNAzoN7/giphy.gif)
 
 ### Input.GetAxis() - Vloeiende Beweging
+
+<details>
 
 Naast individuele toetsen controleren, heeft Unity ook een handige manier om beweging af te handelen met **Input.GetAxis()**:
 
@@ -438,6 +442,8 @@ void Update()
 - Makkelijker om gamepad controllers later toe te voegen
   ![Joystick](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHVmcDNoMW4yNzJlNjZ0ZGM4a2JzYW1oMHhsOWh5eWNxeTIwdWpoYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SzhKkh9TrDtuKoZg1F/giphy.gif)
 
+</details>
+
 ### Active Input Handling
 
 <details>
@@ -456,6 +462,34 @@ Edit → Project Settings → Player → Other Settings → Active Input Handlin
 Als je de wijziging hebt gemaakt start unity opnieuw op en kun je het oude input systeem gebruiken.
 
 Als je in je code gebruik probeert te maken van `Input.GetKeyDown()` of `Input.GetKey()` zul je een Error krijgen als je niet het juiste inputsysteem hebt ingesteld.
+
+</details>
+
+### Time.deltaTime en framerate
+
+<details>
+
+Stel je voor dat jouw computer 60 frames per seconde tekent, maar die van je vriend maar 30.
+Als je beweging per **frame** berekent, beweegt jouw speler twee keer zo snel!
+
+`Time.deltaTime` is de tijd (in seconden) die de vorige frame duurde. Door je snelheid hiermee te vermenigvuldigen, beweegt een object altijd **even snel, ongeacht de framerate**.
+
+:thumbsdown:
+
+```csharp
+//Zonder deltaTime: sneller op snellere computers
+positie.x = positie.x + snelheid;
+```
+
+:thumbsup:
+
+```csharp
+//  Met deltaTime: altijd even snel
+positie.x = positie.x + snelheid * Time.deltaTime;
+```
+
+Op 60fps is `Time.deltaTime` ≈ `0.016` seconde. Op 30fps ≈ `0.033` seconde.
+Het product `snelheid * Time.deltaTime` blijft daardoor per seconde altijd gelijk.
 
 </details>
 
@@ -525,6 +559,8 @@ public class SimpleMovement : MonoBehaviour
 
 ## Variabelen in de Inspector
 
+<details>
+
 Je kunt variabelen ook **zichtbaar maken** in Unity's Inspector window!
 
 ### Public Variabelen
@@ -552,9 +588,13 @@ public class PlayerStats : MonoBehaviour
 
 ![inspector](../../gfx/2_2_inspector.png)
 
+</details>
+
 ---
 
 ## Handige Input Tips
+
+<details>
 
 ### Veel Gebruikte KeyCodes
 
@@ -585,6 +625,8 @@ Als je code editor goed is ingesteld doet deze suggesties voor de keycodes.
 ![editor suggestion](../../gfx/2_2_editor_suggestion.png)
 
 Maar je kunt ze ook altijd opzoeken via de [Unity API reference](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/KeyCode.html)
+
+</details>
 
 ---
 
