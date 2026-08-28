@@ -16,11 +16,11 @@ Je hoeft niet meteen een grote game te maken. We beginnen klein. Het doel is dat
 
 | Week | Les | Onderwerp | Uitleg | Oefening |
 |---|---|---|---|---|
-| Week 1 | Les 1.1 | Starten met Unity | [Uitleg](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Week%201/Week%201%20-%20Les/Les1_1.md) | [Oefening](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Week%201/Week%201%20-%20Oefeningen/oefeningen_1_1.md) |
+| Week 1 | Les 1.1 | Starten met Unity | [Uitleg](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Lesk%201/Week%201%20-%20Les/Les1_1.md) | [Oefening](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Les%201/Week%201%20-%20Oefeningen/oefeningen_1_1.md) |
 | Week 1 | Les 1.2 |  |  |  |
-| Week 2 | Les 2.1 | Bewegen met code | [Uitleg](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Week%202/Week%202%20-%20Les/Les2_1.md) | [Oefening](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Week%202/Week%202%20-%20Oefeningen/oefeningen_2_1.md) |
+| Week 2 | Les 2.1 | Bewegen met code | [Uitleg](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Les%202/Week%202%20-%20Les/Les2_1.md) | [Oefening](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Les%202/Week%202%20-%20Oefeningen/oefeningen_2_1.md) |
 | Week 2 | Les 2.2 |  |  |  |
-| Week 3 | Les 3.1 | Physics | [Uitleg](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Week%203/Week%203%20-%20Les/Les3_1.md) | [Oefening](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Week%203/Week%203%20-%20Oefeningen/oefeningen_3_1.md) |
+| Week 3 | Les 3.1 | Physics | [Uitleg](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Les%203/Week%203%20-%20Les/Les3_1.md) | [Oefening](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Les%203/Week%203%20-%20Oefeningen/oefeningen_3_1.md) |
 | Week 3 | Les 3.2 |  |  |  |
 | Week 4 | Les 4.1 | Colliders, Triggers en Tags | [Uitleg](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Week%204/Week%204%20-%20Les/Les4_1.md) | [Oefening](./GDV%20-%20Kim%20Verweij%20%28VERI%29/Week%204/Week%204%20-%20Oefeningen/oefeningen_4_1.md) |
 | Week 4 | Les 4.2 |  |  |  |
