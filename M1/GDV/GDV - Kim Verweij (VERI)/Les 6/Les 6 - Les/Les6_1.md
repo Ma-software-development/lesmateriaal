@@ -160,7 +160,7 @@ Eerst zorgen dat de basis werkt. Daarna pas extra dingen toevoegen.
 
 Ga nu naar de oefeningen van les 6.1:
 
-[Oefeningen Les 6.1](../Week%206%20-%20Oefeningen/oefeningen_6_1.md)
+[Oefeningen Les 6.1](../Les%206%20-%20Oefeningen/oefeningen_6_1.md)
 
 Je gaat een eigen mini-level bouwen waarin je laat zien wat je de afgelopen lessen hebt geleerd.
 
