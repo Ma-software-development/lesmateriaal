@@ -196,7 +196,7 @@ Check even:
 
 Ga nu naar de oefeningen van les 3.1:
 
-[Oefeningen Les 3.1](../Week%203%20-%20Oefeningen/oefeningen_3_1.md)
+[Oefeningen Les 3.1](../Les%203%20-%20Oefeningen/oefeningen_3_1.md)
 
 ---
 
