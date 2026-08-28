@@ -2,13 +2,19 @@
 
 Kies 1 van de volgende oefeningen en voer die uit. Je mag er ook meer maken als je dat leuk vindt en daar ook tijd voor over hebt.
 
-## Inleveren werk
+## Inleveren van je werk
 
-De oefeningen moeten jullie inleveren via een README.md file op Github.
+Lever je werk in via Simulise voor de volgende les.
 
-Voor alle oefeningen geldt dat je een titel met de opdracht plaatst, een korte omschrijving van wat je hebt gedaan, een gifje met daarin je werk goed in beeld gebracht en een link naar de code die bij de opdracht hoort.
+Maak een screenshot of gifje van je resultaat in Unity en upload deze op Simulise.
 
-[gebruik dit als template](../README.md#voorbeeld-readme-opdracht-format)
+Evalueer hoe de opdracht ging en lever het evaluatie document (.pdf) ook in op simulise.
+
+beantwoord hierin de volgende vragen:
+
+- wat je hebt gemaakt?
+- wat ging goed?
+- wat vond je lastig?
 
 ---
 
