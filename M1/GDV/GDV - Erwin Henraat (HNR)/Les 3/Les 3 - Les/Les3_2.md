@@ -12,6 +12,27 @@ In deze les leer je hoe je je code kunt organiseren en herbruiken met functies. 
 
 ---
 
+## Aantekeningen maken
+
+Maak aantekeningen over de behandelde stof in de les. Schrijf het nu zo op zodat je het later makkelijk begrijpt als je het terugleest.
+
+**Belangrijke punten om te noteren:**
+
+- Wat zijn functies en waarom gebruik je ze?
+- Hoe maak je een functie met argumenten?
+- Wat is het verschil tussen void en return functies?
+- Hoe roep je een functie aan?
+- Wanneer gebruik je functies in plaats van gewone code?
+- Wat is het verschil tussen een **Local** en een **Global** variabele?
+
+Schrijf ook op wat je niet hebt begrepen uit deze les. Dan kun je hier later nog vragen over stellen aan de docent.
+
+Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inleveren.
+
+![notes](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhzdzZzbHQzYWgyNG1mZDRhdW05dWIwMDI2b2xoNWtkMWN0ODl2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7GUB9ExWUxjiSrKw/giphy.gif)
+
+---
+
 ## Wat Zijn Functies?
 
 Tot nu toe heb je al functies gebruikt zonder het te beseffen! `Start()`, `Update()`, en `Debug.Log()` zijn allemaal **functies**.
@@ -44,14 +65,34 @@ void Update()
         Debug.Log("Player jumped!");
     }
 
-    // Later in de code: ook springen bij een andere actie
+
     if (enemyNearby)
     {
-        rb.AddForce(Vector3.up * 500);  // Dezelfde code!
-        Debug.Log("Player jumped!");   // Weer hetzelfde!
+        rb.AddForce(Vector3.up * 500);
+        Debug.Log("Player jumped!");
     }
 }
 ```
+
+Zien jullie het probleem?
+
+<details>
+
+Herhaling van delen van de code:
+
+```csharp
+        rb.AddForce(Vector3.up * 500);
+        Debug.Log("Player jumped!");
+```
+
+We willen zo min mogelijk de code moeten herhalen.
+We proberen onze code **DRY** te schrijven
+
+Don't Repeat Yourself!
+
+![don't repeat](../../gfx/3_2_repeat.gif)
+
+</details>
 
 **Oplossing met functies:**
 
@@ -69,14 +110,13 @@ void Update()
     }
 }
 
+//Definitie van de functie
 void DoJump()
 {
     rb.AddForce(Vector3.up * 500);
     Debug.Log("Player jumped!");
 }
 ```
-
-![don't repeat](../gfx/3_2_repeat.gif)
 
 **Voordelen:**
 
@@ -87,6 +127,8 @@ void DoJump()
 ---
 
 ### Functies vs Methods
+
+<details>
 
 **Functies** die beschikbaar worden gemaakt voor andere scripts (met het keyword `public`) noem je **Methods**.
 
@@ -103,6 +145,8 @@ public void MijnPubliekeMethod()
     Debug.Log("Andere scripts kunnen mij aanroepen!");
 }
 ```
+
+</details>
 
 ---
 
@@ -130,12 +174,12 @@ private void FunctieNaam()
 ```csharp
 public class FunctionExample : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         ShowWelcomeMessage(); // Roep onze functie aan
     }
 
-    void ShowWelcomeMessage()
+    private void ShowWelcomeMessage()
     {
         Debug.Log("=================");
         Debug.Log("Welkom bij mijn game!");
@@ -228,56 +272,6 @@ public class ArgumentExamples : MonoBehaviour
 }
 ```
 
-### Physics Voorbeeld
-
-```csharp
-public class PhysicsFunctions : MonoBehaviour
-{
-    private Rigidbody rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump(300.0f); // Normale sprong
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Jump(600.0f); // Super sprong!
-        }
-
-        // WASD beweging
-        if (Input.GetKey(KeyCode.W)) PushObject(Vector3.forward, 10.0f);
-        if (Input.GetKey(KeyCode.S)) PushObject(Vector3.back, 10.0f);
-        if (Input.GetKey(KeyCode.A)) PushObject(Vector3.left, 10.0f);
-        if (Input.GetKey(KeyCode.D)) PushObject(Vector3.right, 10.0f);
-    }
-
-    void Jump(float kracht)
-    {
-        if (rb != null)
-        {
-            rb.AddForce(Vector3.up * kracht);
-            Debug.Log("Jumped with force: " + kracht);
-        }
-    }
-
-    void PushObject(Vector3 richting, float kracht)
-    {
-        if (rb != null)
-        {
-            rb.AddForce(richting * kracht);
-        }
-    }
-}
-```
-
 ---
 
 ## Return Types - Data Terugkrijgen
@@ -308,8 +302,34 @@ void Start()
 ```csharp
 public class ReturnExamples : MonoBehaviour
 {
+    // Functies
+    int GetPlayerAge()
+    {
+        return 16; // Return een int
+    }
+
+    float CalculateDistance()
+    {
+        return Vector3.Distance(transform.position, Vector3.zero); // Return een float
+    }
+
+    string GetPlayerName()
+    {
+        return "SuperGamer"; // Return een string
+    }
+
+    bool CanPlayerJump()
+    {
+        return transform.position.y <= 1.0f; // Return een bool (true/false)
+    }
+    void KillPlayer(){
+        Debug.Log("you Died!");
+        //geen return
+    }
+
     void Start()
     {
+        // Aanroepers
         // Return een int
         int leeftijd = GetPlayerAge();
         Debug.Log("Speler leeftijd: " + leeftijd);
@@ -330,25 +350,7 @@ public class ReturnExamples : MonoBehaviour
         }
     }
 
-    int GetPlayerAge()
-    {
-        return 16; // Return een int
-    }
 
-    float CalculateDistance()
-    {
-        return Vector3.Distance(transform.position, Vector3.zero); // Return een float
-    }
-
-    string GetPlayerName()
-    {
-        return "SuperGamer"; // Return een string
-    }
-
-    bool CanPlayerJump()
-    {
-        return transform.position.y <= 1.0f; // Return een bool (true/false)
-    }
 }
 ```
 
@@ -390,7 +392,41 @@ public class MathFunctions : MonoBehaviour
 }
 ```
 
+## Energizer: "Menselijke Functie Machine" (10 min)
+
+3 Vrijwilligers:
+
+- één is de aanroeper
+- één is de functie
+- één is de return value
+
+De **aanroeper** schrijft een "aanroep" van een functie op het bord: `DoeSquats`,`TelSprongen` of `DraaiOm`
+
+Geef de benodigde argumenten mee en let daarbij goed op het type.
+
+De **"functie-student"** krijgt een kaartje met de taakomschrijving van de functie:
+
+_"Spring zo vaak mogelijk op en neer gedurende het opgegeven aantal seconden. Geef het aantal sprongen op een nieuw briefje terug aan de aanroeper."_
+
+De **functie-student** controleert eerst of het type van de gegeven input (argumenten) klopt. Zo niet Roep dan : **Type Error!**
+
+Als het type goed is voer je de functie uit en schrijf je zonodig het resultaat op een briefje en overhandigt het "resultaat" aan de **return-student**
+
+De **return-student** loopt terug naar de aanroeper en geeft het briefje met het resultaat. De aanroeper schrijft het resultaat op het bord.
+
+<details>
+
+Variaties per ronde:
+
+Ronde 1: void functie — geen return-student, functie doet iets maar geeft niets terug
+Ronde 2: functie met return — de return-student loopt terug
+Ronde 3: verkeerde argumenten meegeven (een int waar een string verwacht wordt) — de functie-student weigert het te doen en roept "Type Error!"
+
+## </details>
+
 ### Praktisch Game Voorbeeld
+
+<details>
 
 ```csharp
 public class GameLogic : MonoBehaviour
@@ -460,9 +496,13 @@ public class GameLogic : MonoBehaviour
 }
 ```
 
+</details>
+
 ---
 
 ## Function Naming Best Practices
+
+<details>
 
 ### Goede Function Namen - Goed
 
@@ -492,9 +532,13 @@ void X()              // Te kort
 void HandleInputAndMovePlayerAndCheckCollisions() // Te lang
 ```
 
+</details>
+
 ---
 
 ## Variabele Scope en Functions
+
+<details>
 
 ### Wat is Variable Scope?
 
@@ -536,9 +580,13 @@ public class ScopeExample : MonoBehaviour
 - **Local** (gemaakt binnen functies) - Alleen in die functie `localHealth`
 - **Parameters** (gemaakt binnen functies) - Alleen in die functie `amount`
 
+</details>
+
 ---
 
 ## Debug Tips voor Functies
+
+<details>
 
 ### Function Flow Debuggen
 
@@ -584,31 +632,14 @@ TestFunction() finished
 Start() finished
 ```
 
+</details>
+
 ---
-
-## Aantekeningen maken
-
-Maak aantekeningen over de behandelde stof in de les. Schrijf het nu zo op zodat je het later makkelijk begrijpt als je het terugleest.
-
-**Belangrijke punten om te noteren:**
-
-- Wat zijn functies en waarom gebruik je ze?
-- Hoe maak je een functie met argumenten?
-- Wat is het verschil tussen void en return functies?
-- Hoe roep je een functie aan?
-- Wanneer gebruik je functies in plaats van gewone code?
-- Wat is het verschil tussen een **Local** en een **Global** variabele?
-
-Schrijf ook op wat je niet hebt begrepen uit deze les. Dan kun je hier later nog vragen over stellen aan de docent.
-
-Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inleveren.
-
-![notes](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhzdzZzbHQzYWgyNG1mZDRhdW05dWIwMDI2b2xoNWtkMWN0ODl2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7GUB9ExWUxjiSrKw/giphy.gif)
 
 ## Oefeningen uitvoeren
 
 Doe nu minimaal 1 oefening naar keuze voor les 3.2
-De oefeningen vind je [hier](../Oefeningen/oefeningen_3_2.md) terug
+De oefeningen vind je [hier](../Les%203%20-%20Oefeningen/oefeningen_3_2.md) terug
 
 ![exercise](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZXRrc3QwYWV1Ym5oY2FrZnF5YWxnaW9heTRsNnZzdnpnMmRxeXM1ZiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/x1BVziEYuKBd1aVZRz/giphy.gif)
 

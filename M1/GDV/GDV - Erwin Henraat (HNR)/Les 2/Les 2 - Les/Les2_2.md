@@ -582,7 +582,7 @@ if (Input.GetKey(KeyCode.RightArrow)) // Pijl rechts
 
 Uiteraard hoef je niet alle keycodes uit je hoofd te weten.
 Als je code editor goed is ingesteld doet deze suggesties voor de keycodes.
-![editor suggestion](../gfx/2_2_editor_suggestion.png)
+![editor suggestion](../../gfx/2_2_editor_suggestion.png)
 
 Maar je kunt ze ook altijd opzoeken via de [Unity API reference](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/KeyCode.html)
 
@@ -591,7 +591,7 @@ Maar je kunt ze ook altijd opzoeken via de [Unity API reference](https://docs.un
 ## Oefeningen uitvoeren
 
 Doe nu minimaal 1 oefening naar keuze voor les 2.2
-De oefeningen vind je [hier](../Oefeningen/oefeningen_2_2.md) terug
+De oefeningen vind je [hier](../Les%202%20-%20Oefeningen/oefeningen_2_2.md) terug
 
 ![exercise](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZXRrc3QwYWV1Ym5oY2FrZnF5YWxnaW9heTRsNnZzdnpnMmRxeXM1ZiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/x1BVziEYuKBd1aVZRz/giphy.gif)
 
