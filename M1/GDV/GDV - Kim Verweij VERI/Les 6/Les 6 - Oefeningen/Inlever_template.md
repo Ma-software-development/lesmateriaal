@@ -1,7 +1,8 @@
-# Mini-level — Inlevering
+# Mini-level — Inleveren
 
 **Naam:** <!-- jouw naam -->  
-**Datum:** <!-- datum van inlevering -->  
+**Klas:** <!-- jouw klas -->
+**Datum:** <!-- datum van inleveren -->  
 **Les:** GDV Les 6
 
 ---
@@ -19,7 +20,7 @@
 <!-- Voeg hieronder een screenshot of een GIF toe van je werkende level.
      Sleep het bestand naar deze map en gebruik dan de syntax hieronder. -->
 
-![Mini-level preview](images/preview.gif)
+![Mini-level preview](images/level.gif)
 
 <!-- Tip: gebruik ShareX, LICEcap of de ingebouwde Xbox Game Bar (Win+G) om een GIF op te nemen. -->
 
@@ -88,13 +89,13 @@ if ()
 
 ## Evaluatie
 
-### Wat ging goed?
+### Wat ging goed? en waarom?
 
 <!-- Wat lukte je makkelijk of waar ben je trots op? -->
 
 ...
 
-### Wat vond je lastig?
+### Wat vond je lastig? en waarom?
 
 <!-- Waar liep je tegenaan? Hoe heb je het opgelost (of niet)? -->
 
