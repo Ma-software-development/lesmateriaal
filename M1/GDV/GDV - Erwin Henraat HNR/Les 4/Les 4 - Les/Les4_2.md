@@ -409,8 +409,8 @@ public class BouncingBall : MonoBehaviour
 
 ## Oefeningen uitvoeren
 
-Doe nu minimaal 1 nieuwe oefening, die je nog niet hebt gedaan, naar keuze voor les 4.1
-De oefeningen vind je [hier](<../../../GDV-KimVerweij(VERI)/>) terug
+Kies nog een 2e oefening naar keuze voor les 4.1
+De oefeningen vind je [hier](../../../GDV%20-%20Kim%20Verweij%20VERI/Les%204/Les%204%20-%20Oefeningen/oefeningen_4_1.md) terug
 
 ![exercise](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZXRrc3QwYWV1Ym5oY2FrZnF5YWxnaW9heTRsNnZzdnpnMmRxeXM1ZiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/x1BVziEYuKBd1aVZRz/giphy.gif)
 
