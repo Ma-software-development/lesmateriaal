@@ -40,7 +40,8 @@ Om dit vak te halen moet alles voldoende zijn.
 Je maakt:
 
 - de gevraagde oefeningen per week
-- het mini-level in de gezamenlijke week met Kim en Erwin
+- aantekingen van de les
+- het mini-level in weel 6, in beide lessen van  Kim en Erwin
 - de oefentoets
 - de eindtoets
 
