@@ -184,7 +184,7 @@ Gebruik `Input.GetKeyDown()` als iets maar één keer moet gebeuren bij een toet
 
 Ga daarna naar de oefeningen van les 5.1:
 
-[Oefeningen Les 5.1](../Week%205%20-%20Oefeningen/oefeningen_5_1.md)
+[Oefeningen Les 5.1](../Les%205%20-%20Oefeningen/oefeningen_5_1.md)
 
 ---
 

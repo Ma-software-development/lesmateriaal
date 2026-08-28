@@ -89,7 +89,7 @@ Let op:
 
 Doe nu de oefening van les 1.1:
 
-[Oefening Les 1.1](../Week%201%20-%20Oefeningen/oefeningen_1_1.md)
+[Oefening Les 1.1](../Les%201%20-%20Oefeningen/oefeningen_1_1.md)
 
 Je gaat een simpele scene bouwen met primitieve vormen.
 

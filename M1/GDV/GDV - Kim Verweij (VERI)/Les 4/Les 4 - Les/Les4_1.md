@@ -148,7 +148,7 @@ Check of je script op het juiste object staat en kijk in de Console.
 
 Ga nu naar de oefeningen van les 4.1:
 
-[Oefeningen Les 4.1](../Week%204%20-%20Oefeningen/oefeningen_4_1.md)
+[Oefeningen Les 4.1](../Les%204%20-%20Oefeningen/oefeningen_4_1.md)
 
 ---
 
