@@ -2,11 +2,19 @@
 
 Kies 1 van de volgende oefeningen en voer die uit. Je mag er ook meer maken als je dat leuk vind en daar ook tijd voor over hebt.
 
-## Werk laten zien in de volgende les
+## Inleveren van je werk
 
-Volgende les krijgen jullie na de instructies de kans om de gemaakte oefeningen te laten zien. Kom bij mij langs of steek je hand op en dan kom ik bij je kijken.
+Lever je werk in via Simulise voor de volgende les.
 
-Ik houd voor iedereen bij welke oefeningen je hebt gemaakt en of dat goed is gegaan. Ook krijg je feedback van mij op je oefeningen.
+Maak een screenshot of gifje van je resultaat in Unity en upload deze op Simulise.
+
+Evalueer hoe de opdracht ging en lever het evaluatie document (.pdf) ook in op simulise.
+
+beantwoord hierin de volgende vragen:
+
+- wat je hebt gemaakt?
+- wat ging goed?
+- wat vond je lastig?
 
 ---
 

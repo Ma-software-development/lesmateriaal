@@ -390,7 +390,7 @@ public class SimpleDoor : MonoBehaviour
 ## Oefeningen uitvoeren
 
 Kies nog een 2e oefening naar keuze voor les 5.1
-De oefeningen vind je [hier](../../../GDV%20-%20Kim%20Verweij%20VERI/Les%205/Les%205%20-%20Oefeningen/oefeningen_5_1.md) terug
+De oefeningen vind je [hier](../Les%205%20-%20Oefeningen/oefeningen_5_2.md) terug
 
 ![exercise](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZXRrc3QwYWV1Ym5oY2FrZnF5YWxnaW9heTRsNnZzdnpnMmRxeXM1ZiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/x1BVziEYuKBd1aVZRz/giphy.gif)
 
