@@ -12,6 +12,25 @@ In deze les combineer je eenvoudige logica met collision detection en input. Je 
 
 ---
 
+## Aantekeningen maken
+
+Maak aantekeningen over de behandelde stof in de les. Schrijf het nu zo op zodat je het later makkelijk begrijpt als je het terugleest.
+
+**Belangrijke punten om te noteren:**
+
+- Hoe combineer je input (Les 2.2) met if-statements (Les 5.1)?
+- Hoe gebruik je switch statements (Les 5.1) in collision detection (Les 4.2)?
+- Hoe organiseer je je code met functies (Les 3.2)?
+- Welke patronen zie je terugkomen in alle voorbeelden?
+
+Schrijf ook op wat je niet hebt begrepen uit deze les. Dan kun je hier later nog vragen over stellen aan de docent.
+
+Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inleveren.
+
+![notes](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhzdzZzbHQzYWgyNG1mZDRhdW05dWIwMDI2b2xoNWtkMWN0ODl2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7GUB9ExWUxjiSrKw/giphy.gif)
+
+---
+
 ## Herinnering: Wat Heb Je Al Geleerd?
 
 **Les 2.2:** Input verwerken
@@ -57,7 +76,7 @@ In Les 2.2 reageerde je altijd op input. Nu gaan we **slimmer** zijn:
 ```csharp
 public class SmartPlayer : MonoBehaviour
 {
-    public int health = 100;
+    public int stamina = 100;
     public bool hasKey = false;
 
     void Update()
@@ -69,9 +88,9 @@ public class SmartPlayer : MonoBehaviour
         }
 
         // NIEUWE manier - springen met voorwaarden!
-        if (Input.GetKeyDown(KeyCode.Space) && health > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && stamina > 0)
         {
-            Jump(); // Alleen springen als je leeft
+            Jump(); // Alleen springen als je stamina hebt
         }
 
         // Gebruik sleutel alleen als je er een hebt
@@ -89,7 +108,7 @@ public class SmartPlayer : MonoBehaviour
     void UseKey() // Functie uit Les 3.2
     {
         Debug.Log("Key used!");
-        hasKey = false; // Sleutel is op
+        hasKey = false; // Sleutel is gebruikt
     }
 }
 ```
@@ -97,8 +116,8 @@ public class SmartPlayer : MonoBehaviour
 **Wat is er nieuw?**
 
 - **Les 2.2**: `if (Input.GetKeyDown(KeyCode.Space))`
-- **Les 5.1**: `&& health > 0` (EN operator)
-- **Combinatie**: `if (Input.GetKeyDown(KeyCode.Space) && health > 0)`
+- **Les 5.1**: `&& stamina > 0` (EN operator)
+- **Combinatie**: `if (Input.GetKeyDown(KeyCode.Space) && stamina > 0)`
 
 ### Meerdere Voorwaarden
 
@@ -147,9 +166,11 @@ public class PlayerMovement : MonoBehaviour
 
 ## GetComponent
 
-![get component](../gfx/5_2_get_component.jpg)
+<img src="../../gfx/5_2_get_component.jpg" width=500 height=300 />
 
 GetComponent is een belangrijke Unity functie die je gebruikt om componenten (scripts, colliders, etc.) van een GameObject op te halen. Het werkt als een "zoekfunctie" op een GameObject.
+
+Deze functie geeft het opgezochte component terug zodat het script het component kan gebruiken.
 
 ```csharp
 // Basis gebruik:
@@ -160,12 +181,60 @@ Collider col = GetComponent<Collider>();         // Haalt Collider van DIT objec
 PlayerScript playerScript = other.GetComponent<PlayerScript>();  // Haalt PlayerScript van ANDER object, bijvoorbeeld na een collision.
 ```
 
+Welke compomenten kennen jullie allemaal?...
+
+<details>
+
+- **Rigidbody** — voegt physics toe (zwaartekracht, krachten, botsingen)
+- **Rigidbody2D** — zelfde als Rigidbody maar voor 2D games
+- **Collider / Collider2D** — bepaalt de vorm voor collision detection
+- **Transform** — positie, rotatie en schaal van een object (altijd aanwezig)
+- **MeshRenderer** — tekent het 3D model zichtbaar in de scene
+- **SpriteRenderer** — tekent een 2D sprite zichtbaar in de scene
+- **Animator** — bestuurt animaties via een Animator Controller
+- **AudioSource** — speelt geluiden af op een GameObject
+- **Camera** — bepaalt wat de speler ziet
+- **Light** — voegt lichtbronnen toe (Directional, Point, Spot)
+- **Canvas** — container voor alle UI-elementen
+- **ParticleSystem** — maakt visuele effecten zoals vuur, rook en explosies
+- **NavMeshAgent** — laat een object automatisch navigeren over een NavMesh
+- **LineRenderer** — tekent een lijn in 3D ruimte (bijv. laser, touw)
+- **TrailRenderer** — tekent een spoor achter een bewegend object
+
+Alle mogelijke components kun je in de unity editor terugvinden via het **AddComponent**-menu
+
+<img src="../../gfx/5_1_find_components.png">
+
+</details>
+
 **Belangrijke punten:**
 
 - Je moet het type component tussen `< >` zetten
 - Geeft `null` terug als de component niet bestaat
 - Werkt voor alle Unity componenten én je eigen scripts
 - Is handig voor communicatie tussen scripts
+
+## Energizer: "GetComponent" (8 min)
+
+#### Voorbereiding
+
+1. De docent schrijft component-namen op losse briefjes:
+   `Rigidbody` · `Collider` · `AudioSource` · `Animator` · `SpriteRenderer` · `Camera` · `ParticleSystem` · `Light`
+2. 5 studenen zijn GameObjects en krijgen willekeurig **2-3 briefjes (components) op hun rug**
+3. 5 studenten zijn een **Script** — die krijgen een opdracht-briefje waarop Components worden opgevraagd bijv.: `GetComponent<AudioSource>()`
+
+#### Spelverloop
+
+**Elke beurt:**
+
+1. De Scripts lopen naar de game objecten en vraagt aan de rest van de klas: _"Heeft dit object de AudioSource component?"_
+2. De klas kijkt op de rug van die student:
+   - **Component gevonden** → klas roept **"Niet null!"** — iemand plukt het briefje van de rug en geeft het aan het Script
+   - **Component niet gevonden** → klas roept **"null!"** — Script moet naar een ander object zoeken
+3. Het Script blijft zoeken tot de component gevonden is
+4. Het script dat als eerste alle components heeft is de winnaar!
+
+---
 
 ## Collision Detection met Logica
 
@@ -318,27 +387,10 @@ public class SimpleDoor : MonoBehaviour
 
 ---
 
-## Aantekeningen maken
-
-Maak aantekeningen over de behandelde stof in de les. Schrijf het nu zo op zodat je het later makkelijk begrijpt als je het terugleest.
-
-**Belangrijke punten om te noteren:**
-
-- Hoe combineer je input (Les 2.2) met if-statements (Les 5.1)?
-- Hoe gebruik je switch statements (Les 5.1) in collision detection (Les 4.2)?
-- Hoe organiseer je je code met functies (Les 3.2)?
-- Welke patronen zie je terugkomen in alle voorbeelden?
-
-Schrijf ook op wat je niet hebt begrepen uit deze les. Dan kun je hier later nog vragen over stellen aan de docent.
-
-Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inleveren.
-
-![notes](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhzdzZzbHQzYWgyNG1mZDRhdW05dWIwMDI2b2xoNWtkMWN0ODl2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7GUB9ExWUxjiSrKw/giphy.gif)
-
 ## Oefeningen uitvoeren
 
 Doe nu minimaal 1 oefening naar keuze voor les 5.2
-De oefeningen vind je [hier](../Oefeningen/oefeningen_5_2.md) terug
+De oefeningen vind je [hier](../Les%205%20-%20Oefeningen/oefeningen_5_2.md) terug
 
 ![exercise](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZXRrc3QwYWV1Ym5oY2FrZnF5YWxnaW9heTRsNnZzdnpnMmRxeXM1ZiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/x1BVziEYuKBd1aVZRz/giphy.gif)
 

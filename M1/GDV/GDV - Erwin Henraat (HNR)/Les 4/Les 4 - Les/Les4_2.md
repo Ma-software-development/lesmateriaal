@@ -13,6 +13,27 @@ In deze les leer je hoe je met code kunt reageren op botsingen en trigger events
 
 ---
 
+## Aantekeningen maken
+
+Maak aantekeningen over de behandelde stof in de les. Schrijf het nu zo op zodat je het later makkelijk begrijpt als je het terugleest.
+
+**Belangrijke punten om te noteren:**
+
+- Wat is het verschil tussen OnTriggerEnter() en OnCollisionEnter()?
+- Wanneer gebruik je triggers en wanneer physics collisions?
+- Hoe controleer je welk object contact maakt met je collider?
+- Hoe gebruik je functies (Les 3.2) om je collision code te organiseren?
+- Welke collision events zijn er (Enter, Stay, Exit)?
+- Hoe debug je collision problemen?
+
+Schrijf ook op wat je niet hebt begrepen uit deze les. Dan kun je hier later nog vragen over stellen aan de docent.
+
+Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inleveren.
+
+![notes](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhzdzZzbHQzYWgyNG1mZDRhdW05dWIwMDI2b2xoNWtkMWN0ODl2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7GUB9ExWUxjiSrKw/giphy.gif)
+
+---
+
 ## Trigger Detection in Code
 
 ### OnTriggerEnter() - Eerste Contact
@@ -43,7 +64,8 @@ public class TriggerDetector : MonoBehaviour
 
 ### Tags Controleren in Triggers
 
-Zoals je in Les 4.1 hebt geleerd, gebruik je tags om objecten te identificeren:
+Zoals je in Les 4.1 hebt geleerd, gebruik je **tags** om objecten te identificeren. Hiervoor gebruik je in je code de functie `CompareTag()`:
+_Let op want tags zijn "**case-sensitive**!"_
 
 ```csharp
 public class SmartTrigger : MonoBehaviour
@@ -166,9 +188,61 @@ public class CollisionHandler : MonoBehaviour
 
 ---
 
+### Energizer: "Trigger Zone" (10 min)
+
+#### Voorbereiding
+
+<details>
+
+De docent maakt twee stapeltjes kaartjes face-down:
+
+**Stapel A — voor de Collider-student (geheim):**
+
+- 🪟 Trigger + reageert op: `"Player"`
+- 🪟 Trigger + reageert op: `"Enemy"`
+- 🧱 Collision + reageert op: `"Player"`
+- 🧱 Collision + reageert op: `"Pickup"`
+- 🧱 Collision + reageert op: `"Enemy"`
+
+**Stapel B — voor de GameObject-studenten (zichtbaar voor iedereen):**
+
+- 🔵 `Player` · 🔴 `Enemy` · 🟡 `Pickup` · ⬜ `Wall`
+
+Markeer een cirkel op de vloer. Kies 1 student als **Collider** — die gaat in de zone staan.
+
+</details>
+
+---
+
+#### Spelverloop
+
+**Elke beurt:**
+
+1. De Collider trekt een geheim kaartje uit stapel A en leest het stiekem
+2. Een andere student trekt een kaartje uit stapel B — die tag is zichtbaar voor iedereen
+3. De GameObject-student loopt langzaam richting de zone
+4. De Collider beslist op basis van zijn/haar kaartje:
+
+| Mijn type    | Tag klopt? | Wat doe ik?                              |
+| ------------ | ---------- | ---------------------------------------- |
+| 🪟 Trigger   | ✅ Ja      | Laat door, roep **"OnTriggerEnter!"**    |
+| 🪟 Trigger   | ❌ Nee     | Laat door, zeg **niets** (geen reactie)  |
+| 🧱 Collision | ✅ Ja      | Houd tegen, roep **"OnCollisionEnter!"** |
+| 🧱 Collision | ❌ Nee     | Laat door, zeg **niets** (geen reactie)  |
+
+5. De klas stemt: **welk kaartje heeft de Collider?** (type + tag)
+6. Collider onthult het kaartje — goed of fout?
+7. Wissel van Collider, herhaal
+
+> 💡 De klas kan redeneren: _"Hij liet de Player door maar blokkeerde de Enemy — dus hij is een Trigger die reageert op Enemy, of een Collision die reageert op Player..."_
+
+---
+
 ## Praktische Voorbeelden
 
 ### 1. Pickup Item System (met OnTriggerEnter)
+
+<details>
 
 ```csharp
 public class PickupItem : MonoBehaviour
@@ -218,7 +292,11 @@ public class PickupItem : MonoBehaviour
 }
 ```
 
+</details>
+
 ### 2. Damage Zone (met OnTriggerStay)
+
+<details>
 
 ```csharp
 public class DamageZone : MonoBehaviour
@@ -273,7 +351,11 @@ public class DamageZone : MonoBehaviour
 }
 ```
 
+</details>
+
 ### 3. Bouncing Ball (met OnCollisionEnter)
+
+<details>
 
 ```csharp
 public class BouncingBall : MonoBehaviour
@@ -321,51 +403,14 @@ public class BouncingBall : MonoBehaviour
 }
 ```
 
----
-
-## Tag Comparison Best Practices
-
-### CompareTag() - De Betere Methode (Herhaling Les 4.1)
-
-```csharp
-// Goed - gebruikt CompareTag()
-if (other.gameObject.CompareTag("Player"))
-{
-    Debug.Log("Player detected!");
-}
-
-// Minder goed - string vergelijking
-if (other.gameObject.tag == "Player")
-{
-    Debug.Log("Player detected!");
-}
-```
+</details>
 
 ---
-
-## Aantekeningen maken
-
-Maak aantekeningen over de behandelde stof in de les. Schrijf het nu zo op zodat je het later makkelijk begrijpt als je het terugleest.
-
-**Belangrijke punten om te noteren:**
-
-- Wat is het verschil tussen OnTriggerEnter() en OnCollisionEnter()?
-- Wanneer gebruik je triggers en wanneer physics collisions?
-- Hoe controleer je welk object contact maakt met je collider?
-- Hoe gebruik je functies (Les 3.2) om je collision code te organiseren?
-- Welke collision events zijn er (Enter, Stay, Exit)?
-- Hoe debug je collision problemen?
-
-Schrijf ook op wat je niet hebt begrepen uit deze les. Dan kun je hier later nog vragen over stellen aan de docent.
-
-Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inleveren.
-
-![notes](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHhzdzZzbHQzYWgyNG1mZDRhdW05dWIwMDI2b2xoNWtkMWN0ODl2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7GUB9ExWUxjiSrKw/giphy.gif)
 
 ## Oefeningen uitvoeren
 
 Doe nu minimaal 1 oefening naar keuze voor les 4.2
-De oefeningen vind je [hier](../../Oefeningen/oefeningen_4_2.md) terug
+De oefeningen vind je [hier](../Les%204%20-%20Oefeningen/oefeningen_4_2.md) terug
 
 ![exercise](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZXRrc3QwYWV1Ym5oY2FrZnF5YWxnaW9heTRsNnZzdnpnMmRxeXM1ZiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/x1BVziEYuKBd1aVZRz/giphy.gif)
 
