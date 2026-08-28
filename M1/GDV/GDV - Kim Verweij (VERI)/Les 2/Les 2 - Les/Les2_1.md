@@ -201,7 +201,7 @@ Check ook of je variabele echt `public` is.
 
 Ga nu naar de oefeningen van les 2.1:
 
-[Oefeningen Les 2.1](../Week%202%20-%20Oefeningen/oefeningen_2_1.md)
+[Oefeningen Les 2.1](../Les%202%20-%20Oefeningen/oefeningen_2_1.md)
 
 Je gaat eerst een draaiend object maken. Daarna kun je een object heen en weer laten bewegen of in een cirkel laten bewegen.
 
