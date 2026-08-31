@@ -12,6 +12,8 @@ Je hoeft niet meteen een grote game te maken. We beginnen klein. Het doel is dat
 
 ## Programma
 
+## Programma
+
 | Week   | Les        | Onderwerp                                | Uitleg                                                                                          | Oefening                                                                                                         |
 | ------ | ---------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | Week 1 | Les 1.1    | Starten met Unity                        | [Uitleg](./GDV%20-%20Kim%20Verweij%20VERI/Les%201/Les%201%20-%20Les/Les1_1.md)                  | [Oefening](./GDV%20-%20Kim%20Verweij%20VERI/Les%201/Les%201%20-%20Oefeningen/oefeningen_1_1.md)                  |
@@ -21,7 +23,7 @@ Je hoeft niet meteen een grote game te maken. We beginnen klein. Het doel is dat
 | Week 3 | Les 3.1    | Physics                                  | [Uitleg](./GDV%20-%20Kim%20Verweij%20VERI/Les%203/Les%203%20-%20Les/Les3_1.md)                  | [Oefening](./GDV%20-%20Kim%20Verweij%20VERI/Les%203/Les%203%20-%20Oefeningen/oefeningen_3_1.md)                  |
 | Week 3 | Les 3.2    | Functies, argumenten en return types     | [Uitleg](./GDV%20-%20Erwin%20Henraat%20%28HNR%29/Les%203/Les%203%20-%20Les/Les3_2.md)           | [Oefening](./GDV%20-%20Erwin%20Henraat%20%28HNR%29/Les%203/Les%203%20-%20Oefeningen/oefeningen_3_2.md)           |
 | Week 4 | Les 4.1    | Colliders, Triggers en Tags              | [Uitleg](./GDV%20-%20Kim%20Verweij%20VERI/Les%204/Les%204%20-%20Les/Les4_1.md)                  | [Oefening](./GDV%20-%20Kim%20Verweij%20VERI/Les%204/Les%204%20-%20Oefeningen/oefeningen_4_1.md)                  |
-| Week 4 | Les 4.2    | Collisions afvangen met code             | [Uitleg](./GDV%20-%20Erwin%20Henraat%20%28HNR%29/Les%204/Les%204%20-%20Les/Les4_2.md)           | [Oefening](./GDV%20-%20Kim%20Verweij%20VERI/Les%204/Les%204%20-%20Oefeningen/oefeningen_4_2.md)           |
+| Week 4 | Les 4.2    | Collisions afvangen met code             | [Uitleg](./GDV%20-%20Erwin%20Henraat%20%28HNR%29/Les%204/Les%204%20-%20Les/Les4_2.md)           | [Oefening](./GDV%20-%20Kim%20Verweij%20VERI/Les%204/Les%204%20-%20Oefeningen/oefeningen_4_1.md) %20Oefeningen/oefeningen_4_2.md)           |
 | Week 5 | Les 5.1    | Keuzes maken met code                    | [Uitleg](./GDV%20-%20Kim%20Verweij%20VERI/Les%205/Les%205%20-%20Les/Les5_1.md)                  | [Oefening](./GDV%20-%20Kim%20Verweij%20VERI/Les%205/Les%205%20-%20Oefeningen/oefeningen_5_1.md)                  |
 | Week 5 | Les 5.2    | Logica combineren met botsingen en input | [Uitleg](./GDV%20-%20Erwin%20Henraat%20%28HNR%29/Les%205/Les%205%20-%20Les/Les5_2.md)           | [Oefening](./GDV%20-%20Erwin%20Henraat%20%28HNR%29/Les%205/Les%205%20-%20Oefeningen/oefeningen_5_2.md)           |
 | Week 6 | Les 6      | Mini-level: alles komt samen             | [Uitleg](./GDV%20-%20Kim%20Verweij%20VERI/Les%206/Les%206%20-%20Les/Les6_1.md)                  | [Oefening](./GDV%20-%20Kim%20Verweij%20VERI/Les%206/Les%206%20-%20Oefeningen/oefeningen_6_1.md)                  |
