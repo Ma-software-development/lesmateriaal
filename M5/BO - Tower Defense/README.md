@@ -1,7 +1,7 @@
 # Briefing : Tower Defense Project 
 
 
-![81xxwYY5cYL](https://github.com/user-attachments/assets/06f8545e-2c96-440b-b752-ceb7880e28c5)
+![81xxwYY5cYL](media/towerDefense.png)
 
 ## Doel
 Iedere student realiseert eerst een concept-versie van een Tower Defense en gebruikt dit concept, na goedkeuring van de docenten,
