@@ -143,6 +143,26 @@ Met de onderstaande code kun je er ook voor zorgen dat een script stopt met luis
     Enemy.OnEnemyDeath -= GetEnemyPoints;
 ```
 
+---
+
+## Energizer: Action Event in het echt (5 minuten)
+
+<details>
+
+Beeld een Action Event uit met een kort berichtenspel:
+
+1. Kies één student als **zender** en twee of drie studenten als **luisteraars**.
+2. De zender roept: **“Enemy verslagen!”**. Dit is het Action Event.
+3. Elke luisteraar voert zijn eigen reactie uit, bijvoorbeeld `+100 score`, een geluid maken of een leven aftrekken.
+4. Voeg een nieuwe luisteraar toe en herhaal het bericht. Bespreek kort dat de zender niets hoeft te weten over de luisteraars.
+5. Laat één luisteraar zich afmelden. Stuur het bericht nogmaals en bespreek welke reactie nu niet meer wordt uitgevoerd.
+
+Koppel dit aan de code: de zender gebruikt `Invoke()`, luisteraars abonneren zich met `+=` en afmelden gebeurt met `-=`.
+
+</details>
+
+---
+
 <a name = "opdracht2"></a>
 
 ### Opdracht 2: Action Events
