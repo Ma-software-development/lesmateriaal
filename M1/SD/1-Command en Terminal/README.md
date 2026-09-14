@@ -104,11 +104,12 @@ rm -rf newDirectory   # force remove, inclusief inhoud
 1. Maak in je home directory een subdirectory `m1` en maak deze je CWD.
 2. Maak in `m1` de volgende boomstructuur:
 
-   ```
-   m1skil-github/
-   ├── les1/
-   └── les2/
-   ```
+```mermaid
+graph LR
+  root --> ma
+  ma --> m1
+```
+
 3. Test de opdrachten in de map `m1`.
 
 ## Programma’s en bestanden
@@ -158,3 +159,4 @@ rm -rf newDirectory   # force remove, inclusief inhoud
 * gebruik het commando `tree` om een overzicht te maken van jouw directory
 * maak een screenshot van deze `tree` en bewaar deze als een .png afbeelding
 * stuur deze afbeelding naar simulise en wacht tot de docent jouw werk gecontroleerd heeft
+

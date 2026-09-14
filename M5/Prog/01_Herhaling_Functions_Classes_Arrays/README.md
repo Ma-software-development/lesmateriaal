@@ -1,5 +1,11 @@
 # M4 PROG 01 – Variabelen, Functies, Classes en Arrays
 
+## Introductie
+
+In deze les haal je de belangrijkste kennis uit leerjaar 1 weer op. Je oefent met variabelen, functies, classes, arrays en Lists in C# en Unity.
+
+De opdrachten vormen ook een nulmeting. Zo krijgt de docent een beeld van jouw huidige niveau en van de onderwerpen waarbij je eventueel extra uitleg of oefening nodig hebt.
+
 ## Theorie
 
 ### Variabelen
@@ -73,6 +79,27 @@ v.Aanval();
 
 ---
 
+### Instantiate in Unity
+
+Met `Instantiate` maak je tijdens het spelen een kopie van een GameObject, meestal van een prefab. De methode geeft het nieuwe GameObject terug, zodat je het verder kunt gebruiken.
+
+```csharp
+public GameObject vijandPrefab;
+
+void Start()
+{
+    GameObject nieuweVijand = Instantiate(
+        vijandPrefab,
+        new Vector3(0f, 0f, 0f),
+        Quaternion.identity
+    );
+}
+```
+
+Sleep het prefab in de Inspector naar `vijandPrefab`. `Instantiate` maakt dan bij het starten van de scene een kopie op de opgegeven positie en met de opgegeven rotatie.
+
+---
+
 ### Arrays
 
 Een array slaat meerdere waarden van hetzelfde type op in één variabele.
@@ -95,7 +122,32 @@ for (int i = 0; i < namen.Length; i++)
 
 ---
 
-## Oefeningen
+### Lists<type>
+
+Een `List<type>` lijkt op een array, maar de lijst kan tijdens het spel groter of kleiner worden. Gebruik `List<T>` uit `System.Collections.Generic`.
+
+```csharp
+using System.Collections.Generic;
+
+List<GameObject> vijanden = new List<GameObject>();
+
+vijanden.Add(eersteVijand);
+vijanden.Add(tweedeVijand);
+
+foreach (GameObject vijand in vijanden)
+{
+    Debug.Log(vijand.name);
+}
+
+Debug.Log(vijanden.Count); // aantal vijanden
+vijanden.Remove(eersteVijand);
+```
+
+Bij een array gebruik je `Length`; bij een `List<type>` gebruik je `Count`. Een lijst is in Unity handig wanneer je bijvoorbeeld vijanden tijdens het spelen wilt toevoegen of verwijderen.
+
+---
+
+## Opdrachten
 
 Maak een nieuw .cs script aan en noem die `PROG_Les1.cs`
 
@@ -113,11 +165,11 @@ class PROG_Les1
 
 Gebruik het commando `C:\> dotnet PROG_Les1.cs` om je code te compilen en te runnen.
 
-push de code naar je `M5 PROG` repo omschrijf de opdrachten onder de titel M4_PROG_LES_1 op je README met screenshots en gifjes van de output en een link naar je code. Lever de link naar de repo in op Simulise.
+Let op: opdrachten 1.1 t/m 1.11 voer je uit op de command line en opdracht 1.12 in Unity.
 
 ---
 
-### Oefening 1 – Variabelen: Spelersnaam en Score
+### Opdracht 1.1 – Variabelen: Spelersnaam en Score
 
 Maak drie variabelen aan:
 
@@ -136,7 +188,7 @@ Alive : True
 
 ---
 
-### Oefening 2 – Variabelen: Berekening met HP
+### Opdracht 1.2 – Variabelen: Berekening met HP
 
 De speler heeft 100 HP. Hij wordt geraakt voor 35 schade. Bereken de resterende HP en druk die af.  
 Gebruik daarna een tweede aanval van 80 schade. Druk af of de speler nog leeft (`HP > 0`).
@@ -149,7 +201,7 @@ Speler Leeft nog!
 
 ---
 
-### Oefening 3 – Functies: Begroeting
+### Opdracht 1.3 – Functies: Begroeting
 
 Schrijf een functie `Begroet(string naam)` die "Welkom, [naam]!" afdrukt.  
 Roep de functie aan met je eigen naam.
@@ -161,7 +213,7 @@ Welkom Erwin!
 
 ---
 
-### Oefening 4 – Functies: Max van twee getallen
+### Opdracht 1.4 – Functies: Max van twee getallen
 
 Schrijf een functie `int Max(int a, int b)` die het grootste van twee getallen teruggeeft.  
 Test de functie met een paar waarden en druk het resultaat af.
@@ -174,7 +226,7 @@ Result : 60
 
 ---
 
-### Oefening 5 – Functies: Schade berekenen
+### Opdracht 1.5 – Functies: Schade berekenen
 
 Schrijf een functie `int BerekenSchade(int aanval, int verdediging)` die `aanval - verdediging` teruggeeft (minimaal 0).  
 Roep de functie aan en druk de schade af.
@@ -186,7 +238,7 @@ schade : 1000
 
 ---
 
-### Oefening 6 – Arrays: Vijanden
+### Opdracht 1.6 – Arrays: Vijanden
 
 Maak een array van vijf vijandnamen (strings).  
 Druk alle namen af met een `for`-lus.
@@ -202,7 +254,7 @@ Dragon
 
 ---
 
-### Oefening 7 – Arrays: Hoogste score
+### Opdracht 1.7 – Arrays: Hoogste score
 
 Maak een array van vijf scores (integers).  
 Schrijf code die de hoogste score vindt en afdrukt.
@@ -214,7 +266,7 @@ highest : 10000
 
 ---
 
-### Oefening 8 – Classes: Speler
+### Opdracht 1.8 – Classes: Speler
 
 Maak een class `Speler` met de volgende velden:
 
@@ -237,12 +289,12 @@ Speler.Score : 500
 
 ---
 
-### Oefening 9 – Classes: Methode toevoegen
+### Opdracht 1.9 – Classes: Methode toevoegen
 
 Breid de `Speler`-class uit met een methode `Vertel()` die een zin naar de console schrijft zoals:  
 `"Ik ben [Naam], mijn HP is [HP] en mijn score is [Score]."`
 
-Roep de methode aan voor beide objecten uit oefening 8.
+Roep de methode aan voor beide objecten uit opdracht 1.8.
 
 ```
 voorbeeld output>
@@ -252,7 +304,7 @@ Ik ben Luigi, mijn HP is 4 en mijn score is 500.
 
 ---
 
-### Oefening 10 – Combinatie: Array van Spelers
+### Opdracht 1.10 – Combinatie: Array van Spelers
 
 Maak een array van drie `Speler`-objecten. Geef elk een naam, HP en score.  
 Schrijf een functie `DrukSpelersAf(Speler[] spelers)` die voor elke speler `Vertel()` aanroept.
@@ -264,7 +316,19 @@ Ik ben Luigi, mijn HP is 4 en mijn score is 500.
 Ik ben Peach, mijn HP is 8 en mijn score is 800.
 ```
 
-### Oefening 11 – Instantiate in Unity
+---
+
+### Opdracht 1.11 – Lists: Vijanden
+
+Gebruik `List<string>` om een lijst met vijandnamen te maken. Voeg vijf namen toe met `Add()`, verwijder één naam met `Remove()` en druk de overgebleven namen af met een `foreach`-lus. Druk ook het aantal vijanden af met `Count`.
+
+```csharp
+using System.Collections.Generic;
+```
+
+---
+
+### Opdracht 1.12 – Instantiate in Unity
 
 Maak nu in Unity een project aan met de naam `M5 PROG` maak voor deze opdracht een nieuwe scene aan. Noem deze: `Spawn Towers`
 
@@ -293,3 +357,19 @@ Zorg dat deze class elke keer als je in het scherm klikt een toren Instantieert 
 Gebruik hiervoor de methode `Instantiate();`
 
 ![place random towers](../src/01_05_place_towers.gif)
+
+### Werk inleveren
+
+Push alle opdrachten die je deze periode voor module 5 (M5) maakt naar één repository.
+
+Voeg in deze repository een README toe. Beschrijf in de README elke opdracht met:
+
+- Titel van de opdracht
+- een korte uitleg van wat je hebt gedaan;
+- een korte evaluatie, wat ging goed? wat was lastig?
+- een gifje van het resultaat;
+- een link naar de bijbehorende code.
+
+Lever de link naar de repository en de README éénmalig in via Simulise.
+
+De deadline is 00:00 uur 's nachts op de dag vóór de volgende les. (komende woensdag dus)
