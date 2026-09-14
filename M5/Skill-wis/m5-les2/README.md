@@ -19,3 +19,6 @@ We gaan eerst in Unity een basis opzetten, waarmee wij kunnen gaan werken met ve
 
 # triangle
 <img src="media/Triangle.gif">
+
+Maak eerst een nieuw Action input met als naam m5actions, met de actions Point en Press
+<img src="media/inputAction.png">
