@@ -15,7 +15,7 @@ We gaan eerst in Unity een basis opzetten, waarmee wij kunnen gaan werken met ve
 2. Een triangle (driehoek) die uit drie draggable points bestaat
 
 # draggable point
-<img src="media/draggablePoint.gif>
+<img src="media/draggablePoint.gif">
 
 # triangle
 <img src="media/Triangle.gif">
