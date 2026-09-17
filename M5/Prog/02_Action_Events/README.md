@@ -114,7 +114,7 @@ Er wordt een bericht gestuurd als er een enemy dood gaat maar niemand luistert d
 
 Om te zorgen dat andere scripts hier naar gaan luisteren gaan we ons in de Start methode van de "luisterende" scripts **"abboneren"** op deze berichten. Dit doen we door een functie te maken die we met **+=** gaan toevoegen aan de Action. Let op dat je geen () achter de naam van de functie zet.
 
-```
+```csharp
 class Scoreboard:MonoBehaviour{
     private int score = 0;
     private TMP_Text textField;
@@ -145,23 +145,51 @@ Met de onderstaande code kun je er ook voor zorgen dat een script stopt met luis
 
 ---
 
-## Energizer: Action Event in het echt (5 minuten)
+### Parameters meegeven aan een action
 
 <details>
+Je kunt ook een parameter (waarde) meegeven aan een action.
 
-Beeld een Action Event uit met een kort berichtenspel:
+Je kunt dan dus bijvoorbeeld elke trigger van de action een andere score mee laten geven.
 
-1. Kies één student als **zender** en twee of drie studenten als **luisteraars**.
-2. De zender roept: **“Enemy verslagen!”**. Dit is het Action Event.
-3. Elke luisteraar voert zijn eigen reactie uit, bijvoorbeeld `+100 score`, een geluid maken of een leven aftrekken.
-4. Voeg een nieuwe luisteraar toe en herhaal het bericht. Bespreek kort dat de zender niets hoeft te weten over de luisteraars.
-5. Laat één luisteraar zich afmelden. Stuur het bericht nogmaals en bespreek welke reactie nu niet meer wordt uitgevoerd.
+Zorg er dan voor dat je Action een argument type heeft gedefinieerd. tussen `<>`
 
-Koppel dit aan de code: de zender gebruikt `Invoke()`, luisteraars abonneren zich met `+=` en afmelden gebeurt met `-=`.
+Je kunt dan een waarde van dat type meegeven aan de `Invoke()` methode
+
+```csharp
+Class Enemy:Monobehaviour{
+    public static event Action<int> OnEnemyDeath; //Definitie van een Action Event met int als argument
+    private int lives = 100;
+    private int scoreValue = 50;
+    void Update(){
+        if(lives <= 0 ){
+            Die();
+            OnEnemyDeath?.Invoke(scoreValue);//geef een waarde mee aan de Invoke() methode
+        }
+    }
+}
+```
+
+Het is dan wel belangrijk dat de functie die naar dit event luistert dit argument type kan ontvangen.
+
+Defineer daar dus dit arument in de functie.
+
+```csharp
+class Scoreboard:MonoBehaviour{
+    private int score = 0;
+    private TMP_Text textField;
+    Start(){
+        textField = GetComponent<TMP_Text>();
+        Enemy.OnEnemyDeath += GetEnemyPoints;   //We "abboneren" ons op het Action Event
+    }
+    private void GetEnemyPoints(int scoreValue){              //Als het bericht binnenkomt dat de enemy dood is voeren we de functie uit
+        score += scoreValue;
+        textField.text = "score: "+score;
+    }
+}
+```
 
 </details>
-
----
 
 <a name = "opdracht2"></a>
 
