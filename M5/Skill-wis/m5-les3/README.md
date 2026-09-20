@@ -148,7 +148,7 @@ Hierbij is:
 | ----------- | ----------------------------------------------------- |
 | $\vec{r}$ | De plaatsvector van een willekeurig punt op de rechte |
 | $\vec{a}$ | De steunvector                                        |
-| $\vec{v}\$ | De richtingsvector                                    |
+| $\vec{v}$ | De richtingsvector                                    |
 |  t        | Een reëel getal, de parameter                         |
 
 De parameter \(t\) bepaalt hoe ver en in welke richting we vanaf het steunpunt bewegen.
