@@ -146,7 +146,7 @@ Hierbij is:
 
 | Symbool     | Betekenis                                             |
 | ----------- | ----------------------------------------------------- |
-| $ \vec{r} $ | De plaatsvector van een willekeurig punt op de rechte |
+| $\vec{r}$ | De plaatsvector van een willekeurig punt op de rechte |
 | $ \vec{a} $ | De steunvector                                        |
 | $ \vec{v}\ $ | De richtingsvector                                    |
 |  t        | Een reëel getal, de parameter                         |
