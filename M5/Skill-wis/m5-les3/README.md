@@ -210,7 +210,6 @@ $$
 Dit geeft:
 
 $$
-\boxed{
 \begin{pmatrix}
 x\\
 y
@@ -226,7 +225,6 @@ t
 4\\
 1
 \end{pmatrix}
-}
 $$
 
 met:
