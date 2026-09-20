@@ -140,16 +140,16 @@ Een nulvector geeft namelijk geen richting aan.
 
 We kunnen een rechte definiëren met de volgende formule:
 
-$\boxed{\vec{r}=\vec{a}+t\vec{v}}$
+$ \boxed{\vec{r}=\vec{a}+t\vec{v}} $
 
 Hierbij is:
 
 | Symbool     | Betekenis                                             |
 | ----------- | ----------------------------------------------------- |
 | $ \vec{r} $ | De plaatsvector van een willekeurig punt op de rechte |
-| $\vec{a}$ | De steunvector                                        |
+| $ \vec{a} $ | De steunvector                                        |
 | $ \vec{v}\ $ | De richtingsvector                                    |
-| $ t $       | Een reëel getal, de parameter                         |
+|  t        | Een reëel getal, de parameter                         |
 
 De parameter \(t\) bepaalt hoe ver en in welke richting we vanaf het steunpunt bewegen.
 
