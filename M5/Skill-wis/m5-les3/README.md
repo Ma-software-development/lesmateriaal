@@ -210,21 +210,12 @@ $$
 Dit geeft:
 
 $$
-\begin{pmatrix}
-x\\
-y
-\end{pmatrix}
+\binom{x}{y}
 =
-\begin{pmatrix}
-2\\
-3
-\end{pmatrix}
+\binom{2}{3}
 +
 t
-\begin{pmatrix}
-4\\
-1
-\end{pmatrix}
+\binom{4}{1}
 $$
 
 met:
@@ -278,17 +269,6 @@ y
 4t\\
 t
 \end{pmatrix}
-$$
-
-Daaruit volgt:
-
-$$
-\boxed{
-\begin{cases}
-x=2+4t\\
-y=3+t
-\end{cases}
-}
 $$
 
 met:
