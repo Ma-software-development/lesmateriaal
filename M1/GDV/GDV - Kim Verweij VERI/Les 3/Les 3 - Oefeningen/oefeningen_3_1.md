@@ -1,4 +1,131 @@
-# Oefeningen Les 3.1: Vallen, botsen en stuiteren
+# Oefening 3.1 – Stuiteren en botsingen
+
+In deze oefening maak je een kleine scène waarin een bal stuitert. Daarna zorg je ervoor dat er iets gebeurt wanneer de bal ergens tegenaan botst.
+
+---
+
+## Opdracht 1 – Maak een ondergrond
+
+1. Maak een nieuwe **Cube**.
+2. Gebruik de **Scale Tool** om van de Cube een ondergrond te maken.
+3. Geef de Cube een **Material** en kies zelf een kleur.
+
+Je mag zelf bepalen hoe je omgeving eruitziet. Je kunt bijvoorbeeld meerdere Cubes gebruiken om verschillende ondergronden, verhogingen of muren te maken.
+
+---
+
+## Opdracht 2 – Maak een stuiterende bal
+
+1. Maak een **Sphere** en plaats deze boven je ondergrond.
+2. Voeg een **Rigidbody** toe aan de Sphere.
+3. Maak een **Physics Material**.
+4. Geef het Physics Material een hoge **Bounciness**.
+5. Plaats het Physics Material op de Collider van de Sphere.
+
+Test je spel. De bal moet op de ondergrond vallen en weer omhoog stuiteren.
+
+---
+
+## Uitleg – Een botsing detecteren
+
+Met `OnCollisionEnter` kun je detecteren wanneer een object tegen een ander object botst.
+
+De parameter `collision` bevat informatie over de botsing. Met `collision.gameObject` kun je achterhalen welk object is geraakt.
+
+```csharp
+void OnCollisionEnter(Collision collision)
+{
+    Debug.Log("De bal raakt: " + collision.gameObject.name);
+}
+```
+
+`Debug.Log` laat een bericht zien in de **Console**. In dit geval verschijnt de naam van het object waar de bal tegenaan botst.
+
+---
+
+## Opdracht 3 – Detecteer een botsing
+
+1. Maak een nieuw script voor de bal.
+2. Plaats het script op de Sphere.
+3. Voeg `OnCollisionEnter` toe aan je script.
+4. Gebruik `Debug.Log` om in de Console te tonen welk object de bal raakt.
+5. Test je spel en controleer de Console.
+
+Kun je in de Console zien welk object de bal raakt? Dan heb je de basisopdracht behaald.
+
+---
+
+## Uitdaging – Laat de scène reageren
+
+Zorg ervoor dat er zichtbaar iets gebeurt wanneer de bal ergens tegenaan botst.
+
+Bedenk zelf wat er verandert. Je kunt bijvoorbeeld:
+
+- de ondergrond van kleur laten veranderen;
+- de bal van kleur laten veranderen;
+- iedere Cube een andere kleur geven;
+- bij iedere botsing een willekeurige kleur kiezen;
+- een extra boodschap in de Console tonen.
+
+---
+
+## Uitleg – De kleur van een object veranderen
+
+Om de kleur van een object te veranderen, heb je de `Renderer` van dat object nodig.
+
+De Renderer zorgt ervoor dat een object zichtbaar wordt. Via de Renderer kun je ook het Material en de kleur van het object aanpassen.
+
+Met `GetComponent<Renderer>()` vraag je de Renderer op van het object waar de bal tegenaan botst.
+
+```csharp
+void OnCollisionEnter(Collision collision)
+{
+    Renderer objectRenderer =
+        collision.gameObject.GetComponent<Renderer>();
+
+    if (objectRenderer != null)
+    {
+        objectRenderer.material.color = Color.red;
+    }
+}
+```
+
+De `if` controleert of het geraakte object een Renderer heeft. Als dat zo is, verandert de kleur van het object in rood.
+
+### Willekeurige kleur
+
+Wil je bij iedere botsing een willekeurige kleur gebruiken? Vervang dan `Color.red` door `Random.ColorHSV()`:
+
+```csharp
+objectRenderer.material.color = Random.ColorHSV();
+```
+
+---
+
+## Klaar?
+
+Controleer je werk:
+
+- [ ] Mijn bal valt door zwaartekracht.
+- [ ] Mijn bal stuitert op de ondergrond.
+- [ ] Ik heb een Rigidbody gebruikt.
+- [ ] Ik heb een Physics Material gebruikt.
+- [ ] In de Console staat welk object de bal raakt.
+- [ ] Er gebeurt zichtbaar iets wanneer de bal botst.
+- [ ] Ik heb mijn scène opgeslagen.
+
+---
+
+## Inleveren
+
+Lever je opdracht in via Simulise.
+
+Zorg dat je inlevering bevat:
+
+- een screenshot of gif van je resultaat;
+- een korte uitleg van wat je hebt gemaakt;
+- wat goed lukte;
+- wat je lastig vond.# Oefeningen Les 3.1: Vallen, botsen en stuiteren
 
 Vandaag ga je oefenen met physics in Unity.
 
