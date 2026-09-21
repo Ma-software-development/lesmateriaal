@@ -21,10 +21,12 @@ Je mag zelf bepalen hoe je omgeving eruitziet. Je kunt bijvoorbeeld meerdere Cub
 
 1. Maak een **Sphere**.
 2. Plaats de Sphere boven de ondergrond.
-3. Voeg een **Rigidbody** toe aan de Sphere.
-4. Maak een **Physics Material**.
-5. Geef het Physics Material een hoge **Bounciness**.
-6. Plaats het Physics Material op de Collider van de Sphere.
+3. Voeg een **Rigidbody** toe aan de Sphere mocht er nog geen rigidbody opzitten. Dit kun je zien in de inspector. 
+4. Maak een **Physics Material**. Dit kun je doen door rechter muisklik in project.
+   <img width="874" height="509" alt="image" src="https://github.com/user-attachments/assets/4f95da84-1716-4ee7-b2a2-b047ed335931" />
+
+6. Geef het Physics Material een hoge **Bounciness**.
+7. Plaats het Physics Material op de Collider van de Sphere.
 
 Test je spel.
 
@@ -36,7 +38,7 @@ De bal moet naar beneden vallen en weer omhoog stuiteren wanneer deze de ondergr
 
 Met `OnCollisionEnter` kun je detecteren wanneer een object tegen een ander object botst.
 
-De parameter `collision` bevat informatie over de botsing. Met `collision.gameObject.name` kun je bijvoorbeeld de naam opvragen van het object waartegen de bal botst.
+De parameter `collision` bevat informatie over de botsing. Met `collision.gameObject.name` kun je bijvoorbeeld de naam opvragen van het object waartegen de bal botst. 
 
 Met `Debug.Log` kun je deze naam tonen in de **Console**.
 
@@ -72,7 +74,7 @@ public class BallCollision : MonoBehaviour
 
 ---
 
-# Uitdaging – Laat de scène reageren
+# Uitdaging – Verander kleur bij botsing!
 
 Zorg ervoor dat er zichtbaar iets gebeurt wanneer de bal ergens tegenaan botst.
 
