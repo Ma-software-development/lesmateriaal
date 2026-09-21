@@ -12,6 +12,9 @@ Na deze les kun je:
 
 ---
 
+## de span van Vectoren
+<a href="https://www.3blue1brown.com/?topic=linear-algebra&lesson=span">2 linear span</a>
+
 ## 2. Wat heb je nodig om een rechte te definiëren?
 
 In een tweedimensionaal vlak (2D-vlak) kun je een rechte volledig vastleggen met twee gegevens:
