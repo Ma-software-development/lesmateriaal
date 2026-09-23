@@ -399,7 +399,7 @@ public class MathFunctions : MonoBehaviour
 - één is de aanroeper
 - drie zijn een functie
 
-De **aanroeper** schrijft een "aanroep" van een functie op het bord: `DoeSquats`,`TelSprongen` of `DraaiOm`
+De **aanroeper** schrijft een "aanroep" van een functie op het bord: `DoeSquats(int)`,`TelSprongen(int)` of `DraaiOm(string)`
 
 Geef de benodigde argumenten mee en let daarbij goed op het type.
 
