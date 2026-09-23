@@ -394,35 +394,24 @@ public class MathFunctions : MonoBehaviour
 
 ## Energizer: "Menselijke Functie Machine" (10 min)
 
-3 Vrijwilligers:
+4 Vrijwilligers:
 
 - één is de aanroeper
-- één is de functie
-- één is de return value
+- drie zijn een functie
 
 De **aanroeper** schrijft een "aanroep" van een functie op het bord: `DoeSquats`,`TelSprongen` of `DraaiOm`
 
 Geef de benodigde argumenten mee en let daarbij goed op het type.
 
-De **"functie-student"** krijgt een kaartje met de taakomschrijving van de functie:
+Roep de functie en het argument om!
+
+De **"functie-studenten"** krijgen een kaartje met de taakomschrijving van de functie:
 
 _"Spring zo vaak mogelijk op en neer gedurende het opgegeven aantal seconden. Geef het aantal sprongen op een nieuw briefje terug aan de aanroeper."_
 
-De **functie-student** controleert eerst of het type van de gegeven input (argumenten) klopt. Zo niet Roep dan : **Type Error!**
+De **functie-studenten** controleren eerst of het type van de gegeven input (argumenten) klopt. Zo niet Roep dan : **Type Error!**
 
-Als het type goed is voer je de functie uit en schrijf je zonodig het resultaat op een briefje en overhandigt het "resultaat" aan de **return-student**
-
-De **return-student** loopt terug naar de aanroeper en geeft het briefje met het resultaat. De aanroeper schrijft het resultaat op het bord.
-
-<details>
-
-Variaties per ronde:
-
-Ronde 1: void functie — geen return-student, functie doet iets maar geeft niets terug
-Ronde 2: functie met return — de return-student loopt terug
-Ronde 3: verkeerde argumenten meegeven (een int waar een string verwacht wordt) — de functie-student weigert het te doen en roept "Type Error!"
-
-## </details>
+Als het type goed is voer je de functie uit en schrijf je zonodig het resultaat op een briefje en overhandigt het "resultaat" aan de **Aanroeper**
 
 ### Praktisch Game Voorbeeld
 
