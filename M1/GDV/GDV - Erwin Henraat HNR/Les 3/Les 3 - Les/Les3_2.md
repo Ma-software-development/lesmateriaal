@@ -401,15 +401,15 @@ public class MathFunctions : MonoBehaviour
 
 De **aanroeper** schrijft een "aanroep" van een functie op het bord: `DoeSquats(int)`,`TelSprongen(int)` of `DraaiOm(string)`
 
-Geef de benodigde argumenten mee en let daarbij goed op het type.
+Geef de benodigde parameters mee en let daarbij goed op het type.
 
-Roep de functie en het argument om!
+Roep de functie en de parameter om!
 
 De **"functie-studenten"** krijgen een kaartje met de taakomschrijving van de functie:
 
 _"Spring zo vaak mogelijk op en neer gedurende het opgegeven aantal seconden. Geef het aantal sprongen op een nieuw briefje terug aan de aanroeper."_
 
-De **functie-studenten** controleren eerst of het type van de gegeven input (argumenten) klopt. Zo niet Roep dan : **Type Error!**
+De **functie-studenten** controleren eerst of het type van de gegeven parameter klopt. Zo niet Roep dan : **Type Error!**
 
 Als het type goed is voer je de functie uit en schrijf je zonodig het resultaat op een briefje en overhandigt het "resultaat" aan de **Aanroeper**
 
