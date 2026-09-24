@@ -59,36 +59,17 @@ Om de waarden van je variabelen en objecten te kunnen uitlezen moet je het autos
 In [deze PDF](Debugging.pdf) kun je voorbeelden zien van hoe je de een aantal Debug functies en Breakpoints kunt gebruiken met Unity en Visual Studio.
 [![pdf](../src/03_04_pdf.png)](Debugging.pdf)
 
-<a name = "opdracht5"></a>
-
-### Opdracht 3A : Wat veroorzaakt de bugs?
+### Wat veroorzaakt de bugs?
 
 ![find bugs](../src/03_05_find_bugs.png)
-Noteer de oorzaken van deze 2 bugs in je readme en push deze naar je PROG repo op Github.
 
-### Opdracht 3B : Vastleggen van Mythe bugs
+<a name = "opdracht5"></a>
 
-Pak je project Mythe erbij en noteer minimaal 3 verschillende bugs. Zorg voor een duidelijke Omschrijving van:
-
-- wat er eigenlijk zou moeten gebeuren.
-- wat er verkeerd gaat. Maak gebruik van screenshots.
-- wat je denkt dat de oorzaak kan zijn.
-- evt hoe je denkt dat dit opgelost kan worden.
-- welke vervolg acties nodig zijn.
-
-Doe dit door 3 nieuwe issues aan te maken op de repo van je Mythe project. Lever van elke gemaakte issue een screenshot in op je PROG repo.
-
-### Opdracht 3C : Breakpoints
-
-Koppel voor je Towerdefense project Unity aan je Editor en plaats een breakpoint. Laat zien dat je de breakpoints kunt gebruiken en dat de states van je variabelen objecten te zien zijn in het Autos window.
-
-Maak een screenshot van je editor terwijl je breakpoint actief is. Lever je screenshot in op je PROG repo.
-
-### Opdracht 5D : Bijhouden bugs voor Towerdefense
+### Opdracht 3A : Bijhouden bugs voor Towerdefense
 
 Houd voor je Towerdefense game alle bugs bij die je tegenkomt. Dus ook als je ze gelijk op weet te lossen.
 
-doe dit in de Issues van je Towerdefense Repo.
+Doe dit bijvoorbeeld in de issues van je Towerdefense Repo. (mag ook op andere manier)
 
 Noteer voor elke bug:
 
@@ -102,4 +83,10 @@ Als je de bug hebt opgelost moet je de issue ook afsluiten.
 
 Aan het einde van het project mag je game dus geen ongedocumenteerde bugs hebben!
 
-Plaats een link naar je Towerdefense issues op de readme van je PROG repo.
+Plaats een link naar je Towerdefense issues of andere bug documentarie op de readme van je PROG repo.
+
+### Opdracht 3B : Breakpoints
+
+Koppel voor je Towerdefense project Unity aan je Editor en plaats een breakpoint. Laat zien dat je de breakpoints kunt gebruiken en dat de states van je variabelen objecten te zien zijn in het Autos window.
+
+Maak een screenshot van je editor terwijl je breakpoint actief is. Lever je screenshot in op je PROG repo.
