@@ -1,15 +1,14 @@
-# Les 4.2: Collisions Afvangen met Code
+# Les 4.2: Functies Herhalen, If-Else en Switch
 
 ## Wat Ga Je Leren?
 
-In deze les leer je hoe je met code kunt reageren op botsingen en trigger events. Je gaat:
+In deze les herhaal je eerst wat je in Les 3.2 over functies hebt geleerd. Daarna breid je je kennis van het `if` statement (Les 2.2) uit. Je gaat:
 
-- OnTriggerEnter() gebruiken om trigger contact te detecteren
-- OnCollisionEnter() gebruiken om echte botsingen af te vangen
-- Praktische game systemen bouwen (pickup, checkpoint, damage)
-- Het verschil begrijpen tussen triggers en physics collisions
-- Functies uit Les 3.2 toepassen in collision systemen
-- Debuggen in collisions
+- De belangrijkste kennis over functies (Les 3.2) herhalen en toepassen
+- `else` gebruiken om een alternatief uit te voeren als een voorwaarde niet klopt
+- `else if` gebruiken om tussen meerdere keuzes te kiezen
+- De `switch` statement leren gebruiken als alternatief voor lange `else if` ketens
+- Zelf bepalen wanneer je `if-else` of `switch` het beste kunt gebruiken
 
 ---
 
@@ -19,12 +18,11 @@ Maak aantekeningen over de behandelde stof in de les. Schrijf het nu zo op zodat
 
 **Belangrijke punten om te noteren:**
 
-- Wat is het verschil tussen OnTriggerEnter() en OnCollisionEnter()?
-- Wanneer gebruik je triggers en wanneer physics collisions?
-- Hoe controleer je welk object contact maakt met je collider?
-- Hoe gebruik je functies (Les 3.2) om je collision code te organiseren?
-- Welke collision events zijn er (Enter, Stay, Exit)?
-- Hoe debug je collision problemen?
+- Wat is het verschil tussen een functie met `void` en een functie met een return type?
+- Wat is het verschil tussen `if`, `else if` en `else`?
+- In welke volgorde worden `else if` voorwaarden gecontroleerd?
+- Hoe werkt een `switch` statement en waarvoor dient het keyword `break`?
+- Wanneer kies je voor `if-else` en wanneer voor `switch`?
 
 Schrijf ook op wat je niet hebt begrepen uit deze les. Dan kun je hier later nog vragen over stellen aan de docent.
 
@@ -34,444 +32,421 @@ Bewaar al je aantekeningen goed! Deze moet je aan het einde van de periode inlev
 
 ---
 
-## Trigger Detection in Code
+## Herhaling: Functies uit Les 3.2
 
-### OnTriggerEnter() - Eerste Contact
+Voordat we verder gaan, even kort terug naar Les 3.2. Weet je nog wat een functie is?
 
-In Les 4.1 heb je geleerd hoe je triggers instelt. Nu gaan we er met code op reageren!
+Een functie is een **machine**: je stopt er eventueel iets in (argumenten), de machine doet zijn werk, en je krijgt er eventueel iets uit (return value).
 
 ```csharp
-public class TriggerDetector : MonoBehaviour
+public class Herhaling : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+    void Start()
     {
-        Debug.Log("Iets is de trigger binnen gekomen!");
-        Debug.Log("Object naam: " + other.gameObject.name);
+        // Aanroep met een argument
+        ShowWelcomeMessage("Erwin");
+
+        // Aanroep die iets teruggeeft (return)
+        int leeftijd = GetPlayerAge(26, 11, 1979);
+        Debug.Log("Leeftijd: " + leeftijd);
+    }
+
+    // void functie: doet iets, geeft niets terug
+    void ShowWelcomeMessage(string name)
+    {
+        Debug.Log("Welkom " + name + "!");
+    }
+
+    // int functie: geeft een int terug met "return"
+    int GetPlayerAge(int day, int month, int year)
+    {
+        System.DateTime today = System.DateTime.Today;
+        int age = today.Year - year;
+        return age;
     }
 }
 ```
-
-**Wat gebeurt er:**
-
-- `OnTriggerEnter()` wordt aangeroepen zodra iets de trigger **binnenkomt**
-- `Collider other` = de collider van het object dat de trigger binnenkomt
-- `other.gameObject` = het GameObject dat contact maakt
-
-**💡 Herinnering uit Les 4.1:** Voor triggers heb je nodig:
-
-- Eén object met Rigidbody (mag Kinematic zijn)
-- Eén object met Collider waar "Is Trigger" aanstaat
-
-### Tags Controleren in Triggers
-
-Zoals je in Les 4.1 hebt geleerd, gebruik je **tags** om objecten te identificeren. Hiervoor gebruik je in je code de functie `CompareTag()`:
-_Let op want tags zijn "**case-sensitive**!"_
-
-```csharp
-public class SmartTrigger : MonoBehaviour
-{
-    void OnTriggerEnter(Collider other)
-    {
-        // Check of het de Player is
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Player entered the trigger!");
-            // Doe iets speciaals voor de player
-        }
-
-        // Check of het een Enemy is
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("Enemy detected!");
-            // Reageer op vijanden
-        }
-
-        // Check of het een Pickup is
-        if (other.gameObject.CompareTag("Pickup"))
-        {
-            Debug.Log("Pickup found!");
-            // Verzamel het item
-        }
-    }
-}
-```
-
-### Alle Trigger Events
-
-```csharp
-public class CompleteTrigger : MonoBehaviour
-{
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.name + " kwam de trigger binnen");
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        Debug.Log(other.name + " blijft in de trigger");
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        Debug.Log(other.name + " verliet de trigger");
-    }
-}
-```
-
-**Wanneer gebruiken:**
-
-- **OnTriggerEnter**: Eenmalige acties (pickup verzamelen, checkpoint)
-- **OnTriggerStay**: Continue acties (healing zone, damage over time)
-- **OnTriggerExit**: Cleanup acties (leave area, stop effect)
-
----
-
-## Collision Detection - Echte Physics Botsingen
-
-### OnCollisionEnter() - Physics Contact
-
-Terwijl triggers **door elkaar heen** gaan, detecteert `OnCollisionEnter()` **echte physics botsingen** waar objecten daadwerkelijk tegen elkaar botsen.
-
-```csharp
-public class CollisionDetector : MonoBehaviour
-{
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Ik ben tegen iets gebotst!");
-        Debug.Log("Gebotst tegen: " + collision.gameObject.name);
-    }
-}
-```
-
-**Verschil met Triggers:**
-
-- **Trigger**: Objecten gaan door elkaar heen, maar je detecteert contact
-- **Collision**: Objecten botsen echt tegen elkaar en stoppen
-
-### Collision Events
-
-```csharp
-public class CollisionHandler : MonoBehaviour
-{
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Botsing gestart met: " + collision.gameObject.name);
-    }
-
-    void OnCollisionStay(Collision collision)
-    {
-        Debug.Log("Nog steeds in contact met: " + collision.gameObject.name);
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        Debug.Log("Contact verloren met: " + collision.gameObject.name);
-    }
-}
-```
-
-### Collision vs Trigger - Wanneer Wat Gebruiken?
-
-**Gebruik Triggers voor:**
-
-- Pickup items
-- Checkpoints
-- Detectie zones
-- Invisible triggers
-
-**Gebruik Collisions voor:**
-
-- Muren die je tegenhoudt
-- Platforms waar je op loopt
-- Objecten die van elkaar af stuiteren
-- Realistische physics interacties
-
----
-
-### Energizer: "Trigger Zone" (10 min)
-
-#### Voorbereiding
 
 <details>
 
-De docent maakt twee stapeltjes kaartjes face-down:
+<summary>Zelftest: herken de onderdelen</summary>
 
-**Stapel A — voor de Collider-student (geheim):**
+Bekijk de code hierboven en beantwoord voor jezelf:
 
-- 🪟 Trigger + reageert op: `"Player"`
-- 🪟 Trigger + reageert op: `"Enemy"`
-- 🧱 Collision + reageert op: `"Player"`
-- 🧱 Collision + reageert op: `"Pickup"`
-- 🧱 Collision + reageert op: `"Enemy"`
+- Welke regel is de **functie-definitie** en welke is de **aanroep**?
+- Welke woorden zijn de **parameters** en welke waarden zijn de **argumenten**?
+- Welke functie heeft een **return type** en welke is `void`?
+- Waarom kan `leeftijd` de waarde van `GetPlayerAge()` opslaan, maar zou dat niet werken bij `ShowWelcomeMessage()`?
 
-**Stapel B — voor de GameObject-studenten (zichtbaar voor iedereen):**
-
-- 🔵 `Player` · 🔴 `Enemy` · 🟡 `Pickup` · ⬜ `Wall`
-
-Markeer een cirkel op de vloer. Kies 1 student als **Collider** — die gaat in de zone staan.
+Niet zeker van je antwoord? Vraag het na bij de docent of een klasgenoot!
 
 </details>
 
 ---
 
-#### Spelverloop
+## Van Eén If naar If-Else
 
-**Elke beurt:**
+### Het Probleem met Alleen If
 
-1. De Collider trekt een geheim kaartje uit stapel A en leest het stiekem
-2. Een andere student trekt een kaartje uit stapel B — die tag is zichtbaar voor iedereen
-3. De GameObject-student loopt langzaam richting de zone
-4. De Collider beslist op basis van zijn/haar kaartje:
+In Les 2.2 heb je het `if` statement geleerd:
 
-| Mijn type    | Tag klopt? | Wat doe ik?                              |
-| ------------ | ---------- | ---------------------------------------- |
-| 🪟 Trigger   | ✅ Ja      | Laat door, roep **"OnTriggerEnter!"**    |
-| 🪟 Trigger   | ❌ Nee     | Laat door, zeg **niets** (geen reactie)  |
-| 🧱 Collision | ✅ Ja      | Houd tegen, roep **"OnCollisionEnter!"** |
-| 🧱 Collision | ❌ Nee     | Laat door, zeg **niets** (geen reactie)  |
+```csharp
+int leven = 0;
 
-5. De klas stemt: **welk kaartje heeft de Collider?** (type + tag)
-6. Collider onthult het kaartje — goed of fout?
-7. Wissel van Collider, herhaal
+if (leven > 0)
+{
+    Debug.Log("Speler leeft nog!");
+}
+```
 
-> 💡 De klas kan redeneren: _"Hij liet de Player door maar blokkeerde de Enemy — dus hij is een Trigger die reageert op Enemy, of een Collision die reageert op Player..."_
+Maar wat als je ook iets wilt doen wanneer de voorwaarde **niet** klopt? Je zou een tweede, losse `if` kunnen schrijven:
+
+```csharp
+if (leven > 0)
+{
+    Debug.Log("Speler leeft nog!");
+}
+if (leven <= 0)
+{
+    Debug.Log("Game Over!");
+}
+```
+
+Dit werkt, maar Unity moet nu **twee** voorwaarden controleren, terwijl er maar één antwoord mogelijk is. Dat kan korter en duidelijker met `else`.
+
+### De Else - "Anders"
+
+```csharp
+if (voorwaarde)
+{
+    // Doe dit als de voorwaarde waar is
+}
+else
+{
+    // Doe dit als de voorwaarde NIET waar is
+}
+```
+
+**Vergelijking:** "Als het regent, neem een paraplu mee. **Anders** neem je een zonnebril mee."
+
+```csharp
+int leven = 0;
+
+if (leven > 0)
+{
+    Debug.Log("Speler leeft nog!");
+}
+else
+{
+    Debug.Log("Game Over!");
+}
+```
+
+**Belangrijk:** Er wordt altijd precies **één** van de twee blokken uitgevoerd, nooit allebei en nooit geen enkele.
 
 ---
 
-## Praktische Voorbeelden
+## Else If - Kiezen Uit Meerdere Opties
 
-### 1. Pickup Item System (met OnTriggerEnter)
-
-<details>
+Soms zijn er meer dan twee mogelijke uitkomsten. Dan gebruik je `else if` om extra voorwaarden toe te voegen.
 
 ```csharp
-public class PickupItem : MonoBehaviour
+if (voorwaarde1)
 {
-    public int pointValue = 10;
-    public string itemName = "Coin";
+    // Doe dit als voorwaarde1 waar is
+}
+else if (voorwaarde2)
+{
+    // Doe dit als voorwaarde1 niet waar was, maar voorwaarde2 wel
+}
+else if (voorwaarde3)
+{
+    // Doe dit als voorwaarde1 en voorwaarde2 niet waar waren, maar voorwaarde3 wel
+}
+else
+{
+    // Doe dit als geen van bovenstaande voorwaarden waar was
+}
+```
+
+### Voorbeeld: Speler Status
+
+```csharp
+public class PlayerStatus : MonoBehaviour
+{
+    public int playerHealth = 60;
 
     void Start()
     {
-        // Zorg dat dit object een trigger is
-        // Dit kun je ook via de inspector doen
-        GetComponent<Collider>().isTrigger = true;
+        string status = GetPlayerStatus(playerHealth); // Herhaling Les 3.2: argument + return
+        Debug.Log("Status: " + status);
     }
 
-    void OnTriggerEnter(Collider other)
+    string GetPlayerStatus(int health)
     {
-        // Alleen de player kan items oppakken
-        if (other.gameObject.CompareTag("Player"))
+        if (health > 75)
         {
-            // Gebruik functie om punten toe te voegen (Les 3.2!)
-            AddPointsToPlayer(pointValue);
-
-            // Gebruik functie om pickup effect te tonen
-            ShowPickupEffect();
-
-            // Vernietig het pickup item
-            Destroy(gameObject);
+            return "Excellent";
         }
-    }
-
-    // Functie om punten toe te voegen (Les 3.2 kennis!)
-    void AddPointsToPlayer(int points)
-    {
-        Debug.Log("Player picked up: " + itemName);
-        Debug.Log("Points gained: " + points);
-
-        // Hier zou je later het scorebord kunnen bijwerken
-
-    }
-
-    // Functie om visueel effect te tonen
-    void ShowPickupEffect()
-    {
-        Debug.Log("Pickup effect!");
-        // Hier zou je later een particle effect kunnen spelen
+        else if (health > 50)
+        {
+            return "Good";
+        }
+        else if (health > 25)
+        {
+            return "Warning";
+        }
+        else
+        {
+            return "Critical";
+        }
     }
 }
 ```
 
-</details>
-
-### 2. Damage Zone (met OnTriggerStay)
+**Let op de volgorde!** Unity controleert de voorwaarden **van boven naar beneden** en stopt zodra er één klopt. Bij `health = 60` wordt `health > 75` gecontroleerd (niet waar), dan `health > 50` (wel waar!) → `"Good"` wordt teruggegeven. De rest wordt overgeslagen.
 
 <details>
 
+<summary>Denkvraag: wat gaat er mis?</summary>
+
 ```csharp
-public class DamageZone : MonoBehaviour
+if (health > 25)
 {
-    public int damagePerSecond = 10;
-    private float damageTimer = 0f;
-
-    void Start()
-    {
-        GetComponent<Collider>().isTrigger = true;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Player entered danger zone!");
-        }
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            // Damage over time
-            damageTimer += Time.deltaTime;
-
-            if (damageTimer >= 1.0f) // Elke seconde damage
-            {
-                ApplyDamage(other.gameObject, damagePerSecond);
-                damageTimer = 0f;
-            }
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Player left danger zone - safe now!");
-            damageTimer = 0f; // Reset timer
-        }
-    }
-
-    // Functie voor damage toepassen
-    void ApplyDamage(GameObject target, int damage)
-    {
-        Debug.Log(target.name + " takes " + damage + " damage!");
-        // Hier zou je later PlayerHealth kunnen verminderen
-    }
-
+    return "Warning";
+}
+else if (health > 75)
+{
+    return "Excellent";
 }
 ```
 
-</details>
+Wat gebeurt hier bij `health = 90`? Waarom komt deze code nooit bij `"Excellent"` uit?
 
-### 3. Bouncing Ball (met OnCollisionEnter)
-
-<details>
-
-```csharp
-public class BouncingBall : MonoBehaviour
-{
-    public float bounceForce = 10f;
-    private Rigidbody rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-
-        // Zorg dat dit GEEN trigger is - we willen echte physics
-        GetComponent<Collider>().isTrigger = false;
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        // Check wat we raken
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            BounceBall(collision);
-        }
-        else if (collision.gameObject.CompareTag("Wall"))
-        {
-            HandleWallBounce(collision);
-        }
-    }
-
-    // Functie om bal te laten stuiteren
-    void BounceBall(Collision collision)
-    {
-        // Haal de "normaal"-vector op van het contactpunt (de richting loodrecht op het oppervlak)
-        Vector3 bounceDirection = collision.contacts[0].normal;
-        rb.AddForce(-bounceDirection * bounceForce, ForceMode.Impulse);
-
-        Debug.Log("Ball bounced!");
-    }
-
-    // Functie om muur botsing af te handelen
-    void HandleWallBounce(Collision collision)
-    {
-        Debug.Log("Hit wall!");
-        // Hier kun je special wall bounce logic toevoegen
-    }
-}
-```
+De voorwaarde `health > 25` is bij `90` ook al waar, dus stopt de keten daar meteen. De volgorde van je voorwaarden is dus heel belangrijk: begin met de meest specifieke/strengste voorwaarde!
 
 </details>
 
 ---
 
-## Oefeningen uitvoeren
+## De Switch Statement
 
-Kies nog een 2e oefening naar keuze voor les 4.1
-De oefeningen vind je [hier](../../../GDV%20-%20Kim%20Verweij%20VERI/Les%204/Les%204%20-%20Oefeningen/oefeningen_4_1.md) terug
+### Waarom een Switch?
 
-![exercise](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZXRrc3QwYWV1Ym5oY2FrZnF5YWxnaW9heTRsNnZzdnpnMmRxeXM1ZiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/x1BVziEYuKBd1aVZRz/giphy.gif)
+Wanneer je heel veel `else if`'s achter elkaar krijgt die allemaal **dezelfde variabele** vergelijken met een **vaste waarde**, wordt de code al snel onoverzichtelijk:
 
-## Wat Heb Je Geleerd?
+```csharp
+if (wapen == "Zwaard")
+{
+    Debug.Log("Slaan met het zwaard!");
+}
+else if (wapen == "Boog")
+{
+    Debug.Log("Schieten met de boog!");
+}
+else if (wapen == "Staf")
+{
+    Debug.Log("Toveren met de staf!");
+}
+else
+{
+    Debug.Log("Onbekend wapen!");
+}
+```
 
-### Checklist
+Dit kan overzichtelijker met een `switch` statement:
 
-- [ ] Je weet hoe je OnTriggerEnter(), OnTriggerStay() en OnTriggerExit() gebruikt
-- [ ] Je begrijpt het verschil tussen triggers en physics collisions
-- [ ] Je kunt OnCollisionEnter() gebruiken voor echte botsingen
-- [ ] Je hebt praktische systemen gemaakt (pickup, checkpoint, damage zone)
-- [ ] Je kunt collision events debuggen en problemen oplossen
-- [ ] Je gebruikt functies (Les 3.2) om je code georganiseerd te houden
-- [ ] Je combineert input (Les 2.2) met collision detection
-- [ ] Je begrijpt wanneer je triggers vs collisions moet gebruiken
+```csharp
+switch (wapen)
+{
+    case "Zwaard":
+        Debug.Log("Slaan met het zwaard!");
+        break;
+    case "Boog":
+        Debug.Log("Schieten met de boog!");
+        break;
+    case "Staf":
+        Debug.Log("Toveren met de staf!");
+        break;
+    default:
+        Debug.Log("Onbekend wapen!");
+        break;
+}
+```
 
-### Volgende Stap
+### Syntax Uitgelegd
 
-In Les 5.1 gaan we leren over if-statements en switch statements! Dan kunnen we complexere logica maken en betere beslissingen nemen in onze code.
+- `switch (wapen)` → de variabele die je wilt vergelijken
+- `case "Zwaard":` → als `wapen` gelijk is aan `"Zwaard"`, voer dan deze code uit
+- `break;` → **verplicht!** stopt de switch, zodat de volgende `case` niet ook nog wordt uitgevoerd
+- `default:` → wordt uitgevoerd als geen enkele `case` matcht (vergelijkbaar met `else`)
+
+**Let op:** vergeet je `break;`, dan geeft Unity een compile error. Elke `case` moet eindigen met `break` (of `return`).
+
+### Switch met Meerdere Datatypes
+
+```csharp
+public class SwitchExamples : MonoBehaviour
+{
+    void Start()
+    {
+        ShowEnemyBehaviour(2);
+    }
+
+    void ShowEnemyBehaviour(int enemyType)
+    {
+        switch (enemyType)
+        {
+            case 0:
+                Debug.Log("Enemy type: Goblin - aanvallen!");
+                break;
+            case 1:
+                Debug.Log("Enemy type: Skeleton - vluchten!");
+                break;
+            case 2:
+                Debug.Log("Enemy type: Dragon - verstoppen!");
+                break;
+            default:
+                Debug.Log("Onbekend enemy type!");
+                break;
+        }
+    }
+}
+```
+
+### Wanneer If-Else, Wanneer Switch?
+
+**Gebruik If-Else voor:**
+
+- Vergelijkingen met `>`, `<`, `>=`, `<=` (bereiken/ranges)
+- Voorwaarden met `bool` waarden
+- Combinaties van meerdere verschillende voorwaarden
+
+**Gebruik Switch voor:**
+
+- Eén variabele vergelijken met veel **vaste** waarden (`int`, `string`, `enum`)
+- Als je merkt dat je een lange `else if` keten schrijft die steeds dezelfde variabele checkt op gelijkheid (`==`)
+
+---
+
+## Energizer: "Menselijke Switch" (10 min)
+
+Eén student is de **switch** en gaat vooraan staan. De rest van de klas krijgt om de beurt een briefje met een waarde (bijv. `"Zwaard"`, `"Boog"`, `"Staf"`, of iets onbekends zoals `"Vork"`).
+
+- De student met het briefje loopt naar voren en roept zijn/haar waarde
+- De **switch**-student doorloopt hardop zijn "cases": _"Is het Zwaard? Nee. Is het Boog? Nee. Is het Staf? Ja! → doe de bijbehorende actie (bijv. een tover-gebaar maken)"_
+- Bij een onbekende waarde voert de switch-student de `default` actie uit (bijv. schouders ophalen)
+- Wissel na elke ronde van switch-student
+
+> 💡 Vraag de klas: had dit ook met `if-else` gekund? Wat is er anders?
+
+---
+
+## Praktisch Voorbeeld: Alles Samen
+
+```csharp
+public class ShopSystem : MonoBehaviour
+{
+    public int playerGold = 120;
+
+    void Start()
+    {
+        TryBuyItem("Potion", 30);
+        TryBuyItem("Sword", 200);
+
+        string rank = GetShopRank(playerGold); // Les 3.2: functie met return
+        Debug.Log("Winkel rang: " + rank);
+    }
+
+    // Functie (Les 3.2) met if-else
+    void TryBuyItem(string itemName, int price)
+    {
+        if (playerGold >= price)
+        {
+            playerGold -= price;
+            Debug.Log(itemName + " gekocht! Resterend goud: " + playerGold);
+        }
+        else
+        {
+            Debug.Log("Niet genoeg goud voor " + itemName + "!");
+        }
+    }
+
+    // Functie (Les 3.2) met else if keten
+    string GetShopRank(int gold)
+    {
+        if (gold >= 500)
+        {
+            return "VIP";
+        }
+        else if (gold >= 100)
+        {
+            return "Trouwe klant";
+        }
+        else
+        {
+            return "Nieuwe klant";
+        }
+    }
+
+    // Functie (Les 3.2) met switch
+    void ShowItemDescription(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Potion":
+                Debug.Log("Geneest 20 HP.");
+                break;
+            case "Sword":
+                Debug.Log("Een scherp zwaard, +10 aanval.");
+                break;
+            default:
+                Debug.Log("Geen beschrijving beschikbaar.");
+                break;
+        }
+    }
+}
+```
 
 ---
 
 ## Veelgestelde Vragen
 
-### Q: Waarom wordt mijn OnTriggerEnter() niet aangeroepen?
+### Q: Moet ik altijd een `else` toevoegen bij een `if`?
 
-**A:** Check deze punten:
+**A:** Nee, `else` is optioneel. Gebruik het alleen als je ook echt iets wilt doen wanneer de voorwaarde niet klopt.
 
-- Is "Is Trigger" aangevinkt op de Collider?
-- Heeft één van de objecten een Rigidbody?
-- Zijn beide objecten actief (niet disabled)?
-- Staat het script op het juiste GameObject?
+### Q: Kan ik oneindig veel `else if` toevoegen?
 
-### Q: Wat is het verschil tussen Collision en Collider parameters?
+**A:** Technisch wel, maar bij veel keuzes uit dezelfde variabele is een `switch` vaak overzichtelijker.
 
-**A:**
+### Q: Wat gebeurt er als ik `break` vergeet in een switch case?
 
-- **OnTriggerEnter(Collider other)**: Voor triggers, krijgt je de Collider van het andere object
-- **OnCollisionEnter(Collision collision)**: Voor physics botsingen, krijgt je uitgebreide collision informatie
+**A:** Unity (C#) geeft een compile error. In tegenstelling tot sommige andere talen "vallen" cases in C# niet automatisch door naar de volgende.
 
-### Q: Kan ik zowel triggers als collisions op hetzelfde object hebben?
+### Q: Kan een switch ook op basis van een `bool` werken?
 
-**A:** Ja, maar niet met dezelfde Collider. Je kunt meerdere Colliders toevoegen - één als trigger, één voor physics.
+**A:** Technisch kan het, maar met maar 2 mogelijke waarden (`true`/`false`) is een gewone `if-else` duidelijker.
 
-### Q: Wanneer gebruik ik OnTriggerStay vs OnCollisionStay?
+### Q: Wat is het verschil tussen `default` in switch en `else` bij if?
 
-**A:**
+**A:** Ze doen hetzelfde: beide worden uitgevoerd als geen van de andere gevallen matcht.
 
-- **OnTriggerStay**: Voor continue effecten (healing zone, damage over time)
-- **OnCollisionStay**: Minder vaak gebruikt, voor wanneer objecten tegen elkaar gedrukt blijven
+---
 
-### Q: Mijn collision detection werkt niet betrouwbaar?
+## Wat Heb Je Geleerd?
 
-**A:** Dit komt vaak door:
+### Checklist
 
-- Te snelle beweging (objecten "teleporteren" door colliders heen)
-- Verkeerde Collision Detection setting op Rigidbody
-- Te kleine colliders voor de snelheid van beweging
+- [ ] Je kunt uitleggen wat een functie, parameter, argument en return type is (Les 3.2)
+- [ ] Je begrijpt wanneer je `else` gebruikt
+- [ ] Je kunt een `else if` keten schrijven en weet dat de volgorde belangrijk is
+- [ ] Je kunt een `switch` statement schrijven met `case`, `break` en `default`
+- [ ] Je weet wanneer je `if-else` of `switch` het beste kunt gebruiken
+- [ ] Je kunt functies combineren met `if-else` en `switch`
 
-### Q: Hoe stop ik een object dat door collision systemen heen gaat?
+### Volgende Stap
 
-**A:** Zet Collision Detection op de Rigidbody van "Discrete" naar "Continuous" voor betere high-speed collision detection.
+In de volgende les ga je deze kennis over `if-else` en `switch` combineren met colliders, triggers en input om slimmere game-logica te bouwen.
 
 ---
