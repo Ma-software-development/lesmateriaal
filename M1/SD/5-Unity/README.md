@@ -171,4 +171,16 @@ Zorg dat je op jouw remote repo 3 of meer commits hebt
 ## Copieer de url van jouw online repository van een unityproject en lever deze in bij simulise 
 ---
 
-### 🎉 Klaar!
+### 🎉 Bijna Klaar!
+
+
+Nu nog een GIF aan de README toevoegen.
+
+
+Open jouw Unity-bestand, zet het in playmode en maak een schermopname. Maak in de map waar jouw README.md staat met als naam **images** en bewaar jouw opname in GIF-formaat in deze map
+
+voeg in jouw README.md deze schermopname toe
+
+![alt tekst opname](url van jouw opname)
+
+Plaats deze update in jouw lokale repository en push jouw lokale repository naar github!
