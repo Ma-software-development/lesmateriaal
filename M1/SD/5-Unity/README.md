@@ -181,6 +181,6 @@ Open jouw Unity-bestand, zet het in playmode en maak een schermopname. Maak in d
 
 voeg in jouw README.md deze schermopname toe
 
-![alt tekst opname](url van jouw opname)
+```Bash ![alt tekst opname](url van jouw opname) ```
 
 Plaats deze update in jouw lokale repository en push jouw lokale repository naar github!
