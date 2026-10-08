@@ -1,15 +1,5 @@
 # Markdown
 
-Tekst opmaken door simpele syntax toe te voegen.
-
-> Bron: `les 06 markdown.pptx`. De presentatie zelf verwijst naar les 05. De repositorynaam `skil_les05` uit de opdracht is behouden.
-
-## Terugblik op de vorige les
-
-Haal voordat je begint de lesstof over GitHub op:
-
-[Vragen over de vorige les](https://forms.office.com/r/fv3k2BHCgY)
-
 ## Lesoverzicht
 
 - Wat is Markdown?
