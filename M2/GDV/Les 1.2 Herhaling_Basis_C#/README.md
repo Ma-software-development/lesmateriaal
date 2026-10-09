@@ -1,4 +1,4 @@
-# M2 GDV les 1.2 (CODE) Herhaling Basis C#
+# M2 GDV les 1.2 (CODE) Herhaling Basis C# en Lijsten
 
 Doel: korte en duidelijke herhaling van belangrijke programmeerconcepten in de context van Unity en C#.
 
@@ -7,8 +7,8 @@ Onderwerpen:
 1. Variabelen en datatypes
 2. Functies, argumenten en return values
 3. If en switch statements
-   Nieuw onderwerp:
-4. Lists en Arrays
+
+**Nieuw onderwerp:** 4. Lists en Arrays
 
 ---
 

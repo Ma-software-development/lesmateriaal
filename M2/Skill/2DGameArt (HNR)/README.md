@@ -14,7 +14,7 @@ Aan het einde van de reeks kun je met een eigen gemaakte game character door je 
 
 Les vervalt (introductiekamp).
 
-### Week 2 – Opstarten & hoofdpersonages
+### Week 2 – [Opstarten & hoofdpersonages](./week%202%20-%20Libre%20Sprite/README.md)
 
 **Doel:** LibreSprite leren installeren en gebruiken.
 **Inhoud:**
@@ -25,7 +25,7 @@ Les vervalt (introductiekamp).
 
 **Oplevering:** Sprite van de main character en de boss.
 
-### Week 3 – Achtergrond en props
+### Week 3 – [Achtergrond en props](./week%203%20-%20Achtergrond%20en%20Props/README.md)
 
 **Doel:** De wereld rondom je characters vormgeven.
 **Inhoud:**
@@ -44,14 +44,14 @@ Les vervalt (introductiekamp).
 
 **Oplevering:** Een set level tiles.
 
-### Week 5 – Animaties tekenen
+### Week 5 – [Animaties tekenen](./week%205%20-%20Animaties%20tekenen/README.md)
 
 **Doel:** Characters tot leven brengen met animaties.
 **Inhoud:**
 
-- Animeren van de player (lopen en springen).
-- Animeren van de boss (idle en aanvallen).
-- Animeren vanvals projectielen (vuurballen oid.)
+- Animeren van de player (`idle`, `walk`, `shoot` en `jump`).
+- Animeren van de boss (`idle`, `walk` en `shoot`).
+- Animeren van aanvals projectielen voor de speler en voor de boss (vuurballen oid.)
 
 **Oplevering:** Animatie-sprites (spritesheets) van player en boss.
 

@@ -134,3 +134,5 @@ Een Unity scene met:
 1. Een werkend Tilemap-level gebouwd uit je eigen tiles.
 2. Minimaal een background- en een ground-laag.
 3. Werkende collision op de ground-laag.
+
+Lever een gifje of video van je level en toon aan dat de collision werkt. Lever deze gif of video in op **Simulise**.

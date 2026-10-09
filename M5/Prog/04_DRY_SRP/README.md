@@ -104,6 +104,8 @@ Zorg dat het prototype precies blijft werken zoals het deed.
 
 ![demo](../src/04_09_demo.gif)
 
+Verwijder het `ShipBehaviour.cs` script uit je project en test of het echt werkt met je nieuwe scripts.
+
 - **_Push je code naar github en maak een screen capture van je werkende prototype._**
 - **_Zet je werk (gifje , omschrijving en links naar je code) op je PROG readme op github._**
 
