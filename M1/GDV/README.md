@@ -28,7 +28,7 @@ Je hoeft niet meteen een grote game te maken. We beginnen klein. Het doel is dat
 | Week 8 | Eindtoets | Eindtoets Minilevels                      |                                                                                 |                                                                                                  |
 | Week 9 |           | Afsluiting & Toets inhalen                |                                                                                 |                                                                                                  |
 
-## toetsing
+## Laatste weken:
 
 week 7 oefentoets + samen nakijken
 
