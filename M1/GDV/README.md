@@ -30,37 +30,43 @@ Je hoeft niet meteen een grote game te maken. We beginnen klein. Het doel is dat
 
 ## Laatste weken:
 
-week 7 oefentoets + samen nakijken
+### week 7
+
+**Oefentoets + samen nakijken**
 
 - SD1A Woe 21 okt (hnr)
 - SD1B Woe 21 okt (hnr)
 - SD1C Maa 19 okt (veri)
 
-week 7 Minilevel
+**Werken aan mini level**
 
 - SD1A Vrij 23 okt (veri)
 - SD1B Vrij 23 okt (veri)
 - SD1C Don 22 okt (hnr)
 
-Week 8 Eindtoets
+### Week 8
+
+**Eindtoets**
 
 - SD1A Woe 28 okt (hnr)
 - SD1B Woe 28 okt (hnr)
 - SD1C Maa 26 okt (veri)
 
-Week 8 Inhalen minilevel & alle opdrachten (klaar is vrijstelling)
+**Inhalen mini level & alle opdrachten (klaar is vrijstelling)**
 
 - SD1A Vrij 30 okt (veri)
 - SD1B Vrij 30 okt (veri)
 - SD1C Don 29 okt (hnr)
 
-Week 9 Inhalen Eindtoets
+### Week 9
+
+**Inhalen Eindtoets**
 
 - SD1A Woe 4 nov (hnr)
 - SD1B Woe 4 nov (hnr)
 - SD1C Maa 2 nov (veri)
 
-Week 9 Inhalen minilevel & alle opdrachten (klaar is vrijstelling)
+**Inhalen mini level & alle opdrachten (klaar is vrijstelling)**
 
 - SD1A Vrij 6 nov (veri)
 - SD1B Vrij 6 nov (veri)
