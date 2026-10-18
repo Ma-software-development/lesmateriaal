@@ -1,4 +1,4 @@
-# M2 GDV les 1.2 (CODE) Herhaling Basis C# en Lijsten
+# M2 GDV les 1.2 (CODE) Herhaling Basis C# , switch, array en Lijsten
 
 Doel: korte en duidelijke herhaling van belangrijke programmeerconcepten in de context van Unity en C#.
 
