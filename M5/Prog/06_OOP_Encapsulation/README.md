@@ -1,8 +1,8 @@
 # PROG les 6: OOP Encapsulation
 
-**"Encapsulation"**, ook wel **"inkapseling"** in het nederlands, is een manier om je code te beschermen tegen manipulatie van buitenaf. Je kunt je vast voorstellen dat je een public value die overal vandaan aan te passen is kan leiden tot onverwachte resultaten, waarna het lastig is om te bepalen waardoor dat wordt veroorzaakt.
+**Encapsulation** (inkapseling) beschermt gegevens in je code tegen ongewenste aanpassingen. Als een waarde overal aangepast kan worden, kan dat onverwachte problemen veroorzaken. En dan is het lastig om de oorzaak te vinden.
 
-Neem het volgende script in gedachten , wat op een player gameobject zit:
+Stel dat dit script op een Player-gameobject staat:
 
 ```csharp
     class PlayerLife:MonoBehaviour{
@@ -17,14 +17,11 @@ Neem het volgende script in gedachten , wat op een player gameobject zit:
     }
 ```
 
-Elk script in het project wat toegang heeft tot mijn player, kan van de player nu de levens instellen.
-Met gevolgen als ik dit veelvuldig doe. Mijn pickups geven me extra leven. Mijn enemies halen er leven af. Mijn kogels halen er leven af. Mijn timer doet dat ook omdat dat extra snannend is. Ook werk ik samen met andere developers die vanuit allerlei andere scripts mijn levens aan het manipuleren (uitlezen en aanpassen) zijn.
+Elk script dat toegang heeft tot de Player kan `life` aanpassen. Pickups geven levens erbij, terwijl vijanden, kogels en zelfs de timer levens kunnen weghalen. Ook andere developers kunnen de waarde vanuit hun scripts aanpassen.
 
-Tot ineens blijkt dat mijn game niet meer opstart en rechstreeks naar het gameover scherm gaat. Of wellicht kan ik juist helemaal niet meer dood omdanks dat ik al 1000 x geraakt ben. Misschien krijg ik er ineens levens bij i.p.v eraf wanneer ik word geraakt.
+Daardoor kan er van alles misgaan: de game start meteen op het game-over-scherm, je gaat niet dood na veel geraakt te zijn, of je krijgt juist levens erbij wanneer je geraakt wordt. Omdat veel scripts `life` aanpassen, is het lastig te vinden waar de fout zit.
 
-Veel succes met zoeken waar er een fout gemaakt is waar begin je met zoeken?
-
-Encapsulation betekent dat je je code afschermt om aangepast te worden en dat je deze alleen als het niet anders kan op een zo veilig mogelijke manier beschikbaar maakt.
+Encapsulation voorkomt zulke ongewenste aanpassingen. Je schermt gegevens af en maakt ze alleen beschikbaar wanneer dat nodig is, op een gecontroleerde manier.
 
 ## Private
 
@@ -36,7 +33,9 @@ Als een variabele beschikbaar moet zijn in een ander script dat via overerving e
 
 ## Internal
 
+<details>
 Als een variabele beschikbaar moet zijn binnen de **Assembly** (Dynamic Link Library), dat zijn alle scripts die samen worden gecompiled naar 1 package. Standaard is dat je gehele Unity project maar je kunt ook aangepaste assemblies definieren in Unity. Dit betekent dat scripts die buiten jouw project gecompiled worden geen toegang hebben tot je variabelen en alle scripts binnen je project wel.
+</details>
 
 ## Public
 
@@ -83,7 +82,7 @@ Dankzij de code die je in de getter en setter plaatst kun je mogelijke fouten va
 ![mistake](../src/07_02_max_lives.png)
 ![negative](../src/07_03_neg_lives.png)
 
-Je hoeft geen code te implementeren in een getter en een setter. Je kunt ze ook leeg laten. Dan is de property gewoon beschikbaar om te lezen en te schrijven.
+Je hoeft geen code te implementeren in een getter en een setter. Je kunt ze ook leeg laten. Dan is de property gewoon beschikbaar om te lezen en te schrijven. Eigenlijk hetzelfde effect als een public variabele maken.
 
 ![no code](../src/07_04_getter_setter_no_code.png)
 
@@ -110,7 +109,7 @@ Als je variabelen beschikbaar wil maken in de inspector doe je dat met een priva
 
 Ga door je Towerdefense of Mythe project heen en zoek op hoeveel public variables je hebt gebruikt.
 
-Maak deze **allemaal** private!
+Maak deze **ALLEMAAL** private!
 
 Als de variable vanuit een ander script beschikbaar moet zijn implementeer je er een **getter** en/of **setter** voor.
 
@@ -161,4 +160,4 @@ Er mogen in je project geen public variabelen meer zijn.
 
 Lever je dependancies lijst in op je readme.
 
-Zet op je readme ook een link naar de code die je voor deze opdracht hebt aangepast.
+Zet op je readme ook een link naar alle code die je voor deze opdracht hebt aangepast.
