@@ -1,184 +1,176 @@
 # PROG les 7: Class Diagrams
 
-In deze les gaan we het hebben over class diagrams. [neem deze presentatie door](ClassDiagrams.pdf).
+In deze les leer je wat een class diagram is en hoe je er een maakt met Mermaid.
 
 ## UML
 
-Een class diagram is onderdeel van de **UML** oftewel de **Unified Modelling Language**. Dit is een verzameling van modellen waarmee je technische ontwerpen kunt maken van sotware en code. [Meer over UML vind je hier.](https://www.uml.org/)
+Een class diagram is een diagram uit de **UML** (Unified Modeling Language). UML helpt je om de structuur van software zichtbaar te maken en te ontwerpen. [Lees meer over UML.](https://www.uml.org/)
 
 ## Nut
 
-Een class diagram kun je op 3 manieren goed inzetten:
+Je kunt een class diagram op drie manieren gebruiken:
 
-1. Het in kaart brengen van een reeds bestaande codebase om zo weer een beetje overzicht te creeeren.
+1. Om bestaande code in kaart te brengen en overzicht te krijgen.
 
-2. Het ontwerpen van je codebase voordat je begint met programmeren zodat je een beginstructuur hebt waar je binnen kunt blijven.
+2. Om vooraf een ontwerp te maken voor de structuur van je code.
 
-3. Het uitleggen van je structuur aan andere developers.
+3. Om de structuur van je code aan andere ontwikkelaars uit te leggen.
 
 ## Onderdelen van een class
 
-In een class diagram kun je al je classes weergeven uit een project. Je kunt daarbij de **inhoud** van die classes zichtbaar maken. Dit zijn de **Attributes** en **Operations** van een class. Oftewel de **variabelen** en **methoden** van een class.
+In een class diagram kun je de classes uit een project weergeven. Je kunt ook laten zien wat er in een class staat:
+
+- **Attributes** zijn variabelen die bij een class horen.
+- **Operations** zijn methoden van een class.
 
 ```mermaid
 classDiagram
 
 class Class{
-    + attribute, variabele
-    + Operation(), method()
+    +int health
+    +Move()
 }
 
 ```
 
-## Relaties, Inheritance & Generalization
+## Overerving (inheritance / generalization)
 
-In een class diagram kun je ook de relaties die verschillende classes met elkaar hebben aangeven. Dit kunnen bijvoorbeeld relaties van overerving zijn (ook wel generalization).
+Classes kunnen ook met elkaar verbonden zijn. Bij **overerving** (inheritance, ook wel generalization genoemd) erft een child-class eigenschappen en methoden van een parent-class.
 
-Deze geef je aan in dit format:
+Je geeft overerving zo aan:
 
 ```mermaid
 ---
-title: Inheritance / Genralization
+title: Inheritance / Generalization
 ---
 classDiagram
 
 Parent <|-- Child
 ```
 
-In het bovenstaande voorbeeld erft de Child over van de Parent.
+In dit voorbeeld erft `Child` van `Parent`.
 
-## Relaties, Dependancies
+## Afhankelijkheid (dependency)
 
-Vaak wordt er tussen classes informatie uitgewisseld. bijvoorbeeld via getters, setters en public methods. Je kunt dan spreken van een dependancy. Deze kun je in een class diagram ook weergeven met behulp van het volgende format:
-
-```mermaid
----
-title: Dependancy
----
-    classDiagram
-
-    UI ..> Player
-    class UI{
-        + ShowLife()
-    }
-
-    class Player{
-        + int life
-    }
-```
-
-In het bovenstaande voorbeeld is de UI afhankelijk van de Player class. Zonder de Player kan de UI geen **life** waarde krijgen en breekt de code.
-
-In het volgende class diagram zie je een voorbeeld van de code van de [vorige opdracht](https://github.com/djsjollema/lessen-gamedevelopment/tree/main/M5/Prog/07_OOP_Abstraction#opdracht-10-abstraction-via-interfaces)
-
-Hierin zie je naast de relaties en de inhoud van de classes ook nog de definitie van de bijbehorende interfaces.
+Een class is afhankelijk van een andere class als die andere class wordt gebruikt, bijvoorbeeld om een methode aan te roepen of een waarde op te vragen. Je geeft zo'n afhankelijkheid als volgt aan:
 
 ```mermaid
-
 ---
-title: Class Diagram
+title: Dependency
 ---
-
 classDiagram
 
-    IMovable <|-- Unit
-
-    IDamagable <|-- Unit
-
-    Unit <|-- Player
-    Unit <|-- Elf
-    Unit <|-- Brute
-
-class IMovable{
-    <<interface>>
-    Move()
+UI ..> Player
+class UI{
+    +ShowLife()
 }
-class IDamagable{
-    <<interface>>
-    TakeDamage()
-}
-class Unit{
-    - int health
-    + ~~get~~int Health
 
-    + Initialize()
-    + OnCollisionEnter()
-    + TakeDamage()
-    + Move()
+class Player{
+    +int life
+}
+```
+
+In dit voorbeeld gebruikt `UI` de class `Player` om de waarde van `life` op te vragen. Daarom is `UI` afhankelijk van `Player`.
+
+Bij de [opdracht over OOP en overerving](../05_OOP_Inherritance/README.md) heb je de classes `EnemyParent`, `Brute` en `Elf` geschreven. In een class diagram kunnen die er zo uitzien:
+
+`Elf` en `Brute` erven van `EnemyParent`. `ShootFromCamera` gebruikt `MoveProj` en is daar dus afhankelijk van.
+
+```mermaid
+classDiagram
+
+class EnemyParent{
+    #int life
+    #float speed
+    #Initialize()
+    #Move()
+    #Die()
 }
 
 class Elf{
-    - ToggleInvisibility()
+    -ToggleVisibility()
 }
-class Player{
-    + Move()
+class Brute{
+
 }
+
+class ShootFromCamera{
+    +GameObject projectilePrefab
+    -Plane floor
+
+}
+
+class MoveProj{
+    -float moveSpeed
+
+}
+
+EnemyParent <|-- Elf
+EnemyParent <|-- Brute
+ShootFromCamera ..> MoveProj
+
 
 ```
 
 ## Mermaid
 
-Om class diagrammen te maken heb je heel erg veel verschillende tools. Je zou het in photoshop kunnen doen of zelfs in paint(niet aan te raden). Echter is het lastigste niet de inhoud goed krijgen maar de ordening van de blokjes. Met de **Mermaid** tool gaat dat ordenen vanzelf en hoef je alleen de inhoud en de relaties van je classes aan te geven.
+Je kunt class diagrammen met verschillende tools maken. Met **Mermaid** hoef je de blokken niet zelf te ordenen: je beschrijft de classes en hun relaties, en Mermaid maakt daar een diagram van.
 
-Mermaid werkt standaard in je markdown bestanden. Je kunt dit dus in je readme verwerken.
+Mermaid-diagrammen kun je in Markdown-bestanden zetten, zoals een README.
 
-Hier vind je de [Mermaid syntax](https://mermaid.js.org/syntax/classDiagram.html) voor het maken van je eigen class diagrammen in je eigen markdown files (.md) zoals je README.md
+Bekijk de [Mermaid-syntax voor class diagrams](https://mermaid.js.org/syntax/classDiagram.html) om je eigen diagrammen in Markdown-bestanden (.md) te maken.
 
-Je kunt ook de bron van deze readme bekijken om te zien hoe ik de bovenstaande schema's in mermaid heb gemaakt.
+Je kunt ook de bron van deze README bekijken om te zien hoe de voorbeelden hierboven met Mermaid zijn gemaakt.
 
-VSCode heeft ook een handige Markdown Preview Mermaid Support extension. Het is ook zeker handig om die te installeren.
+Installeer in VS Code de extensie **Markdown Preview Mermaid Support** om je diagrammen tijdens het maken te bekijken.
 
-![mermaid preview](../src/08_01_mermaid_preview.png)
+![Voorbeeld van een Mermaid-diagram in de Markdown Preview](../src/08_01_mermaid_preview.png)
 
-Hiermee kun je terwijl je bezig bent goed zien wat er gebeurt in je diagrammen.
+Zo kun je zien hoe je diagram eruitziet terwijl je eraan werkt.
 
-![mermaid preview](../src/08_02_mermaid_preview_2.png)
+![Tweede voorbeeld van een Mermaid-diagram in de Markdown Preview](../src/08_02_mermaid_preview_2.png)
 
 ## Opdracht 7: Class Diagram van je TD project
 
-Maak een class diagram van alle code in je TD project.
+Breng de classes en hun relaties in je TD-project in kaart met een class diagram.
 
-Installeer de Markdown Preview Mermaid Support extension voor VSCode.
+1. Installeer in VS Code de extensie **Markdown Preview Mermaid Support**.
+2. Maak in je PROG-repository een Markdown-bestand met de naam `ClassDiagramTD.md`.
+3. Gebruik Mermaid om de classes, hun inhoud en hun relaties in kaart te brengen. Gebruik de voorbeeldsyntax hieronder.
+4. Voeg een link naar `ClassDiagramTD.md` toe aan de README van je PROG-repository.
+5. Zet onder het diagram in `ClassDiagramTD.md` een link naar het GitHub-project dat je in kaart hebt gebracht.
 
-Maak een markdown bestand genaamd ClassDiagramTD.md
-
-Gebruik mermaid om al je classes met inhoud en relaties in kaart te brengen.
-
-Hiervoor kun je de volgende syntax gebruiken:
-
+In een class diagram staat `+` voor public, `-` voor private en `#` voor protected.
 ````
 ```mermaid
-
-//titel is optioneel
+%% De titel is optioneel
 ---
-Title: Class Diagram Tower Defense
+title: Class Diagram Tower Defense
 ---
 
-//geef aan dat je een class diagram wil maken
 classDiagram
 
-//definieer je classes en bijhorende attributen en operaties
+%% Definieer classes met hun attributen en methoden
 class MyClass{
-    + Attribute     //public
-    - attribute     //private
-    + Operation()   //public
-    - Operation()   //private
+    +int publicAttribute
+    -int privateAttribute
+    #int protectedAttribute
+    +PublicOperation()
+    -PrivateOperation()
+    #ProtectedOperation()
 }
 
-
-//geef alle relaties aan
-//Overerving Relatie
+%% Overerving: ChildClass erft van ParentClass
 ChildClass --|> ParentClass
 
-//Dependancy relatie
+%% Afhankelijkheid: DependentClass gebruikt MyClass
 DependentClass ..> MyClass
 
-//2 richting relatie
-MyClass <..> AnotherClass
+%% Afhankelijkheid in beide richtingen
+MyClass ..> AnotherClass
+AnotherClass ..> MyClass
 
 ```
 ````
 
-Alleen global variables (gedefinieerd in je class en niet lokaal in een functie) en dependancies en inheritance relaties verwerk je in je class diagram.
-
-push je readme in een mapje op je TD repo op github en lever een link in naar de readme via simulise. Lever ook een link in naar je Scripts folder op github waar alle classes ook terug te vinden zijn.
+Neem in je diagram alleen **global** variabelen op die bij een class horen (dus geen lokale variabelen die binnen een methode zijn gedefinieerd). Geef ook de afhankelijkheden en overerving tussen classes aan.

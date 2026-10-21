@@ -180,7 +180,7 @@ Als je gebruik maakt van Mixamo en animaties voor je enemies geldt dat als **Bon
 
 Je mag dit script aan de camera hangen om projectielen te kunnen schieten:
 
-```
+```csharp
 using UnityEngine;
 
 public class ShootFromCamera : MonoBehaviour
