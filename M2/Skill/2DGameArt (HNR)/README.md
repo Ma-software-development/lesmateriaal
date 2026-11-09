@@ -1,10 +1,10 @@
 ## Game Art Sprites maken met Libre Sprite
 
-Tijdens de SKIll lessen gaan jullie 1 uur in de week besteden aan het maken van 2d art met behulp van het pakket Libre sprite.
+Tijdens de SKIll lessen gaan jullie 2 uur in de week besteden aan het maken van 2d art met behulp van het pakket Libre sprite.
 
 Je maakt in groepjes van 2 gezamenlijk een Assetpack die je ook verwerkt tot een 2d level in unity.
 
-Aan het einde van de reeks kun je met een eigen gemaakte game character door je eigen level heen lopen, springen en de boss verslaan.
+Aan het einde van de reeks kun je met een eigen gemaakte game character door je eigen level heen lopen, springen en je eigen ontworpen boss verslaan.
 
 ---
 

@@ -10,7 +10,7 @@ LibreSprite is het tekenprogramma waarmee je deze lessenreeks al je pixel art ga
 
 1. Ga naar [libresprite.github.io](https://libresprite.github.io/).
 
-   ![](../gfx/0204.png)
+   ![](../gfx/0201.png)
 
 2. Klik op **Downloads**. Je wordt naar een **Releases** pagina gestuurd. Scroll naar beneden voor een lijst met downloads.
 
