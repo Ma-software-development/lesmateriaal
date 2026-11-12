@@ -1,5 +1,7 @@
 # Peggle Game
 
+![demo](./src/0_2_demo.png)
+
 ## Over de opdracht
 
 Deze periode ga je je eerste eigen game maken in **Unity**. Om je te helpen focussen we op een **Peggle-achtige game**. Zo leer je werken met het physics-systeem, collisions, scoring en gameplay zonder dat je veel code hoeft te schrijven.
@@ -8,7 +10,9 @@ Tijdens de lessen krijg je uitleg, demo's en voorbeelden. Daarna werk je zelfsta
 
 Maak niet alleen een kopie van Peggle. Geef de game een eigen thema, stijl of extra gameplay-element.
 
-## Wat ga je maken?
+[Hier](https://github.com/erwinhenraat/Galactic_Ricochet/releases) kun je een voorbeeld van een peggle game downloaden, uitpakken en testen.
+
+## Wat ga je zelf maken?
 
 Maak een speelbare Peggle-game met:
 
