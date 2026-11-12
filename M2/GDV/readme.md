@@ -45,7 +45,7 @@ In de README van je repository beschrijf je:
 Aan het einde van de periode lever je in:
 
 - Een werkend Unity-project op GitHub.
-- Een bijgewerkte README.
+- Een bijgewerkte README. ([Check](./Voorbeeld_Readme.md) hier een voorbeeld)
 - Een speelbare build onder **Releases** in je repository.
 - Alle behandelde onderdelen uit de lessen verwerkt in je game.
 
