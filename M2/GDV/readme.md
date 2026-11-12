@@ -1,52 +1,135 @@
 # Peggle Game
 
-## Planning
+## Over de opdracht
 
-### Week 1
+Deze periode ga je je eerste eigen game maken in **Unity**. Om je te helpen focussen we op een **Peggle-achtige game**. Zo leer je werken met het physics-systeem, collisions, scoring en gameplay zonder dat je veel code hoeft te schrijven.
 
-VERI/WISJ: [Les 1.1: Voorbeeld Concept: Fruity Peggle](./Les_1_1_KV/Lesmateriaal/Voorbeeldconcept_FruityPeggle.md)
-HNR: [les 1.2 Herhaling Basis C# , switch, array en Lijsten](./Les_1_2_EH/README.md)
+Tijdens de lessen krijg je uitleg, demo's en voorbeelden. Daarna werk je zelfstandig verder aan je eigen game.
 
-### Week 2
+Maak niet alleen een kopie van Peggle. Geef de game een eigen thema, stijl of extra gameplay-element.
 
-VERI/WISJ: [Les 2.1 Forces & collision](./Les_2_1_KV/Lesmateriaal/README.md)
-HNR: [Les 2.2 Peggle_Mikken_Line_Renderer](./Les_2_2_EH/README.md)
+## Wat ga je maken?
 
-### Week 3
+Maak een speelbare Peggle-game met:
 
-VERI/WISJ: [Les 3.1 Score & Triggers](./Les_3_1_KV/Lesmateriaal/README.md)
-HNR : [Les 3.2 Peggle_Combos_Multiplier_Events](./Les_3_2_EH/README.md)
+- Een systeem om te richten en te schieten.
+- Physics en collisions.
+- Een score-systeem met combo's.
+- Minimaal één speelbaar level.
+- Een duidelijke gebruikersinterface (UI).
+- Geluiden en visuele effecten.
+- Een eigen thema of unieke uitstraling.
 
-### Week 4
+## Werkwijze
 
-VERI/WISJ: [Les 4.1 Leveldesign & UI](./Les_4_1_KV/Lesmateriaal/README.md)
-HNR: [Les 4.2 Scores versturen](./Les_4_2_EH/README.md)
+- De opdracht is individueel.
+- Maak in week 1 een GitHub-repository aan.
+- Lever zo snel mogelijk een link naar je repository in via Simulise.
+- Commit regelmatig je voortgang naar GitHub.
 
-### Week 5
+## README Verplicht
 
-VERI/WISJ: uitwerktijd
-HNR: [Les 5.2 Particles, Sounds en Shakes](./Les_5_2_EH/README.md)
+In de README van je repository beschrijf je:
 
-### Kerstvakantie
+1. Je gameconcept.
+2. Wat je iedere week hebt gebouwd.
+3. Wat je iedere week hebt geleerd.
+4. Screenshots of video's van je voortgang.
 
-### Week 6
+## Inleveren
 
-VERI/WISJ: [Les 6.1 Afronden en uitbreiding](./Les_6_1_KV/Lesmateriaal/readme.md)
-HNR: uitwerktijd
+Aan het einde van de periode lever je in:
 
-### Week 7
+- Een werkend Unity-project op GitHub.
+- Een bijgewerkte README.
+- Een speelbare build onder **Releases** in je repository.
+- Alle behandelde onderdelen uit de lessen verwerkt in je game.
 
-VERI/WISJ uitwerktijd
-HNR Toets
+## Beoordeling
 
-### Week 8
+Je wordt beoordeeld op:
 
-VERI/WISJ uitwerktijd
-HNR Her Toets
+- Werking van de game.
+- Gebruik van Unity Physics.
+- Codekwaliteit.
+- Creativiteit en eigen invulling.
+- GitHub-gebruik en documentatie.
+- Volledigheid van de README.
+- Eindresultaat van de game.
 
-### Week 9
+Daarnaast krijg je een schriftelijke toets over Unity en C#.
 
-VERI/WISJ Extra ondersteuning
-HNR Extra ondersteuning
+---
 
-### Eindweek
+# Planning
+
+## Week 1
+
+**Maandag t/m Woensdag**
+- Kamp
+
+**Vrijdag**
+
+- SD1A: Repository aanmaken.
+- SD1C: Repository aanmaken.
+
+---
+
+## Week 2
+
+- VERI/WISJ: Les 1.1 - Voorbeeldconcept Fruity Peggle
+- HNR: Les 1.2 - Theorie Basis C#, switch, arrays en lijsten
+
+---
+
+## Week 3
+
+ - VERI/WISJ: Les 2.1 - Forces & Collisions
+ - HNR: Les 2.2 - Peggle Mikken met Line Renderer
+
+## Week 4
+
+- VERI/WISJ: Les 3.1 - Score & Triggers
+- HNR: Les 3.2 - Combo's, Multipliers & Events
+
+## Week 5
+
+- VERI/WISJ: Les 4.1 - Level Design & UI
+- HNR: Les 4.2 - Scores Versturen
+
+## Kerstvakantie
+
+## Week 6
+
+- VERI/WISJ: Uitwerktijd
+- HNR: Les 5.2 - Particles, Sounds & Camera Shakes
+
+## Week 7
+
+- VERI/WISJ: Les 6.1 - Afronden en Uitbreiden
+- HNR: Uitwerktijd
+
+## Week 8
+
+- VERI/WISJ: Uitwerktijd
+- HNR: Toets
+- **Vrijdag: Deadline voor feedback**
+
+## Week 9
+
+- VERI/WISJ: Uitwerktijd
+- HNR: Hertoets
+- Vrijdag: Definitieve deadline
+
+## Eindweek
+
+# Succescriteria
+
+Aan het einde van de opdracht heb je:
+
+- Een speelbare Peggle-game gebouwd in Unity.
+- Leren werken met Physics, Collisions en Scoring.
+- Je project bijgehouden in GitHub.
+- Je ontwikkelproces gedocumenteerd in een README.
+- Een eigen gameconcept uitgewerkt tot een compleet eindproduct.
+- De schriftelijke toets met minimaal een voldoende afgerond.
