@@ -85,65 +85,6 @@ Daarnaast krijg je een schriftelijke toets over Unity en C#.
 | Week 8 | Kim en Erwin | Presentatie en toets | Game presenteren en schriftelijke eindtoets | — | Project, README en speelbare build opleveren (voor feedback) |
 | Week 9 | Kim en Erwin | Afsluiting | Inhalen & herkansing toets | — | Laatste kans inleveren project, README en speelbare build |
 
-## Week 1
-
-**Maandag t/m Woensdag**
-- Kamp
-
-**Vrijdag**
-
-- SD1A: Repository aanmaken.
-- SD1C: Repository aanmaken.
-
----
-
-## Week 2
-
-- VERI/WISJ: Les 1.1 - Voorbeeldconcept Fruity Peggle
-- HNR: Les 1.2 - Theorie Basis C#, switch, arrays en lijsten
-
----
-
-## Week 3
-
- - VERI/WISJ: Les 2.1 - Forces & Collisions
- - HNR: Les 2.2 - Peggle Mikken met Line Renderer
-
-## Week 4
-
-- VERI/WISJ: Les 3.1 - Score & Triggers
-- HNR: Les 3.2 - Combo's, Multipliers & Events
-
-## Week 5
-
-- VERI/WISJ: Les 4.1 - Level Design & UI
-- HNR: Les 4.2 - Scores Versturen
-
-## Kerstvakantie
-
-## Week 6
-
-- VERI/WISJ: Uitwerktijd
-- HNR: Les 5.2 - Particles, Sounds & Camera Shakes
-
-## Week 7
-
-- VERI/WISJ: Les 6.1 - Afronden en Uitbreiden
-- HNR: Uitwerktijd
-
-## Week 8
-
-- VERI/WISJ: Uitwerktijd
-- HNR: Toets
-- **Vrijdag: Deadline voor feedback**
-
-## Week 9
-
-- VERI/WISJ: Uitwerktijd
-- HNR: Hertoets
-- Vrijdag: Definitieve deadline
-
-## Eindweek
 
 # Succescriteria
 
