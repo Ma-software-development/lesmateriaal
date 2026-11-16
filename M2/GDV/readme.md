@@ -83,7 +83,7 @@ Daarnaast krijg je een schriftelijke toets over Unity en C#.
 | Week 7 | Kim | Les 6.1 | Game afronden en uitbreiden | [Uitleg](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_6_1_KV/Lesmateriaal) | [Checklist en opdracht](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_6_1_KV/Opdracht) |
 | Week 7 | Erwin | Voorbereiding | Uitwerktijd en oefentoets | — | Game testen en voorbereiden op de toets |
 | Week 8 | Kim en Erwin | Presentatie en toets | Game presenteren en schriftelijke eindtoets | — | Project, README en speelbare build opleveren (voor feedback) |
-| Week 9 | Kim en Erwin | Afsluiting | Inhalen & herkansing toets | — | Laatste kans inleveren game|
+| Week 9 | Kim en Erwin | Afsluiting | Inhalen & herkansing toets | — | Laatste kans inleveren project, README en speelbare build |
 
 ## Week 1
 
