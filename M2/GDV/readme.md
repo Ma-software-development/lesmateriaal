@@ -69,7 +69,8 @@ Daarnaast krijg je een schriftelijke toets over Unity en C#.
 | Week | Docent | Les | Onderwerp | Lesmateriaal | Opdracht |
 | --- | --- | --- | --- | --- | --- |
 | Week 1 | Kim | — | Geen les vanwege kamp | — | — |
-| Week 1 | Erwin | Start | GitHub-repository en Unity-project opzetten | [Projectinformatie](https://github.com/Ma-software-development/lesmateriaal/blob/main/M2/GDV/readme.md) | Repository aanmaken en de link inleveren |
+| Week 1 | Erwin | Start | GitHub-repository en Unity-project opzetten | [Unity Github Repo](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Opzetten_Repository#opzetten-repository-unity-project-en-readme) 
+| Repository aanmaken en de link inleveren |
 | Week 2 | Kim | Les 1.1 | Introductie Peggle-project en Unity Physics | [Uitleg](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_1_1_KV/Lesmateriaal) | [Opdracht](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_1_1_KV/Opdracht) |
 | Week 2 | Erwin | Les 1.2 | Herhaling C#: variabelen, functies, keuzes, arrays en lijsten | [Les 1.2](https://github.com/Ma-software-development/lesmateriaal/blob/main/M2/GDV/Les_1_2_EH/README.md) | Oefeningen in het lesmateriaal |
 | Week 3 | Kim | Les 2.1 | Forces en collisions | [Uitleg](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_2_1_KV/Lesmateriaal) | [Opdracht](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_2_1_KV/Opdracht) |
