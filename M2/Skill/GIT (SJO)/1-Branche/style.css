@@ -1,0 +1,16 @@
+/* Algemene reset om onnodige marges en padding te verwijderen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basisinstellingen voor het hele document */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+
