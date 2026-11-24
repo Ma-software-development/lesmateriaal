@@ -1,52 +1,99 @@
 # Peggle Game
 
-## Planning
+![demo](./src/0_2_demo.png)
 
-### Week 1
+## Over de opdracht
 
-VERI/WISJ: [Les 1.1: Voorbeeld Concept: Fruity Peggle](./Les_1_1_KV/Lesmateriaal/Voorbeeldconcept_FruityPeggle.md)
-HNR: [les 1.2 Herhaling Basis C# , switch, array en Lijsten](./Les_1_2_EH/README.md)
+Deze periode ga je je eerste eigen game maken in **Unity**. Om je te helpen focussen we op een **Peggle-achtige game**. Zo leer je werken met het physics-systeem, collisions, scoring en gameplay zonder dat je veel code hoeft te schrijven.
 
-### Week 2
+Tijdens de lessen krijg je uitleg, demo's en voorbeelden. Daarna werk je zelfstandig verder aan je eigen game.
 
-VERI/WISJ: [Les 2.1 Forces & collision](./Les_2_1_KV/Lesmateriaal/README.md)
-HNR: [Les 2.2 Peggle_Mikken_Line_Renderer](./Les_2_2_EH/README.md)
+Maak niet alleen een kopie van Peggle. Geef de game een eigen thema, stijl of extra gameplay-element.
 
-### Week 3
+[Hier](https://github.com/erwinhenraat/Galactic_Ricochet/releases) kun je een voorbeeld van een peggle game downloaden, uitpakken en testen.
 
-VERI/WISJ: [Les 3.1 Score & Triggers](./Les_3_1_KV/Lesmateriaal/README.md)
-HNR : [Les 3.2 Peggle_Combos_Multiplier_Events](./Les_3_2_EH/README.md)
+## Wat ga je zelf maken?
 
-### Week 4
+Maak een speelbare Peggle-game met:
 
-VERI/WISJ: [Les 4.1 Leveldesign & UI](./Les_4_1_KV/Lesmateriaal/README.md)
-HNR: [Les 4.2 Scores versturen](./Les_4_2_EH/README.md)
+- Een systeem om te richten en te schieten.
+- Physics en collisions.
+- Een score-systeem met combo's.
+- Minimaal één speelbaar level.
+- Een duidelijke gebruikersinterface (UI).
+- Geluiden en visuele effecten.
+- Een eigen thema of unieke uitstraling.
 
-### Week 5
+## Werkwijze
 
-VERI/WISJ: uitwerktijd
-HNR: [Les 5.2 Particles, Sounds en Shakes](./Les_5_2_EH/README.md)
+- De opdracht is individueel.
+- Maak in week 1 een GitHub-repository aan.
+- Lever zo snel mogelijk een link naar je repository in via Simulise.
+- Commit regelmatig je voortgang naar GitHub.
 
-### Kerstvakantie
+## README Verplicht
 
-### Week 6
+In de README van je repository beschrijf je:
 
-VERI/WISJ: [Les 6.1 Afronden en uitbreiding](./Les_6_1_KV/Lesmateriaal/readme.md)
-HNR: uitwerktijd
+1. Je gameconcept.
+2. Wat je iedere week hebt gebouwd.
+3. Wat je iedere week hebt geleerd.
+4. Screenshots of video's van je voortgang.
 
-### Week 7
+## Inleveren
 
-VERI/WISJ uitwerktijd
-HNR Toets
+Aan het einde van de periode lever je in:
 
-### Week 8
+- Een werkend Unity-project op GitHub.
+- Een bijgewerkte README. ([Check](./Voorbeeld_Readme.md) hier een voorbeeld)
+- Een speelbare build onder **Releases** in je repository.
+- Alle behandelde onderdelen uit de lessen verwerkt in je game.
 
-VERI/WISJ uitwerktijd
-HNR Her Toets
+## Beoordeling
 
-### Week 9
+Je wordt beoordeeld op:
 
-VERI/WISJ Extra ondersteuning
-HNR Extra ondersteuning
+- Werking van de game.
+- Gebruik van Unity Physics.
+- Codekwaliteit.
+- Creativiteit en eigen invulling.
+- GitHub-gebruik en documentatie.
+- Volledigheid van de README.
+- Eindresultaat van de game.
 
-### Eindweek
+Daarnaast krijg je een schriftelijke toets over Unity en C#.
+
+---
+
+# Planning
+| Week | Docent | Les | Onderwerp | Lesmateriaal | Opdracht |
+| --- | --- | --- | --- | --- | --- |
+| Week 1 | Kim | — | Geen les vanwege kamp | — | — |
+| Week 1 | Erwin | Start | GitHub-repository en Unity-project opzetten | [Unity Github Repo](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Opzetten_Repository#opzetten-repository-unity-project-en-readme) 
+| Repository aanmaken en de link inleveren |
+| Week 2 | Kim | Les 1.1 | Introductie Peggle-project en Unity Physics | [Uitleg](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_1_1_KV/Lesmateriaal) | [Opdracht](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_1_1_KV/Opdracht) |
+| Week 2 | Erwin | Les 1.2 | Herhaling C#: variabelen, functies, keuzes, arrays en lijsten | [Les 1.2](https://github.com/Ma-software-development/lesmateriaal/blob/main/M2/GDV/Les_1_2_EH/README.md) | Oefeningen in het lesmateriaal |
+| Week 3 | Kim | Les 2.1 | Forces en collisions | [Uitleg](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_2_1_KV/Lesmateriaal) | [Opdracht](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_2_1_KV/Opdracht) |
+| Week 3 | Erwin | Les 2.2 | Richten met een Line Renderer | [Les 2.2](https://github.com/Ma-software-development/lesmateriaal/blob/main/M2/GDV/Les_2_2_EH/README.md) | Oefeningen in het lesmateriaal |
+| Week 4 | Kim | Les 3.1 | Triggers en score | [Uitleg](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_3_1_KV/Lesmateriaal) | [Opdracht](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_3_1_KV/Opdracht) |
+| Week 4 | Erwin | Les 3.2 | Combo’s, multipliers en events | [Les 3.2](https://github.com/Ma-software-development/lesmateriaal/blob/main/M2/GDV/Les_3_2_EH/README.md) | Oefeningen in het lesmateriaal |
+| Week 5 | Kim | Les 4.1 | Level design en UI | [Uitleg](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_4_1_KV/Lesmateriaal) | [Opdracht](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_4_1_KV/Opdracht) |
+| Week 5 | Erwin | Les 4.2 | Scores versturen | [Les 4.2](https://github.com/Ma-software-development/lesmateriaal/blob/main/M2/GDV/Les_4_2_EH/README.md) | Oefeningen in het lesmateriaal |
+| Week 6 | Kim | Uitwerken | Eigen level, UI en gameplay verder bouwen | — | Voeg een eigen feature of power-up toe |
+| Week 6 | Erwin | Les 5.2 | Particles, geluid en camera shake | [Les 5.2](https://github.com/Ma-software-development/lesmateriaal/blob/main/M2/GDV/Les_5_2_EH/README.md) | Effecten toepassen in de game |
+| Week 7 | Kim | Les 6.1 | Game afronden en uitbreiden | [Uitleg](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_6_1_KV/Lesmateriaal) | [Checklist en opdracht](https://github.com/Ma-software-development/lesmateriaal/tree/main/M2/GDV/Les_6_1_KV/Opdracht) |
+| Week 7 | Erwin | Voorbereiding | Uitwerktijd en oefentoets | — | Game testen en voorbereiden op de toets |
+| Week 8 | Kim en Erwin | Presentatie en toets | Game presenteren en schriftelijke eindtoets | — | Project, README en speelbare build opleveren (voor feedback) |
+| Week 9 | Kim en Erwin | Afsluiting | Inhalen & herkansing toets | — | Laatste kans inleveren project, README en speelbare build |
+
+
+# Succescriteria
+
+Aan het einde van de opdracht heb je:
+
+- Een speelbare Peggle-game gebouwd in Unity.
+- Leren werken met Physics, Collisions en Scoring.
+- Je project bijgehouden in GitHub.
+- Je ontwikkelproces gedocumenteerd in een README.
+- Een eigen gameconcept uitgewerkt tot een compleet eindproduct.
+- De schriftelijke toets met minimaal een voldoende afgerond.
