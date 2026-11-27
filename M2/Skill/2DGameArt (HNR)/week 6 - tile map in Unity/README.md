@@ -127,9 +127,13 @@ Een tile moet precies 1 grid cel vullen, anders lopen je tiles niet mooi aan elk
 
 ---
 
-## Oplevering
+## Opdracht
 
-Een Unity scene met:
+Maak samen met je tweetal een Unity-scene met een werkend tilemap-level, gebouwd uit je eigen tiles. Zorg voor minimaal een background- en een ground-laag, en controleer of de collision op de ground-laag werkt met een `TestBall`. Leg het resultaat vast als gif of video.
+
+---
+
+## Oplevering
 
 1. Een werkend Tilemap-level gebouwd uit je eigen tiles.
 2. Minimaal een background- en een ground-laag.
